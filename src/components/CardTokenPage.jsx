@@ -8,7 +8,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { goToApp } from '../utils/appNav';
 
-const API = import.meta.env.VITE_API_BASE_URL || 'https://api.kopkad.ng';
+const API = import.meta.env.VITE_API_BASE_URL || 'https://kopkad.onrender.com';
 
 const CardTokenPage = () => {
   const { token } = useParams();
