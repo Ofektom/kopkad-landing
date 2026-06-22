@@ -902,7 +902,7 @@ const Landing = ({ onStartClick }) => {
               Fixed Growth Funds
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-5">
-              Lock it. Grow it. Collect guaranteed returns.
+              Lock it. Grow it. Collect guaranteed returns up to 20% per annum.
             </h2>
             <p className="text-gray-500 text-base leading-relaxed mb-8">
               Fixed Growth Funds let you put money to work with zero guesswork.
@@ -911,6 +911,7 @@ const Landing = ({ onStartClick }) => {
             </p>
             <div className="space-y-4">
               {[
+                { icon: HiOutlineTrendingUp, title: 'Interesting Rates', desc: 'Make up to 20% intereate per annum.' },
                 { icon: RiLockLine, title: 'Guaranteed Interest Rates', desc: 'Your rate is locked at creation — it never changes regardless of market conditions.' },
                 { icon: RiLineChartLine, title: 'Projected Returns Calculator', desc: 'See your exact earnings at maturity before you invest a single naira.' },
                 { icon: RiWalletLine, title: 'Flexible Durations', desc: 'Choose from 3-month, 6-month, or 12-month lock periods to match your goals.' },
