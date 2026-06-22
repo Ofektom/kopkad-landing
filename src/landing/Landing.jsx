@@ -676,9 +676,9 @@ const Landing = ({ onStartClick }) => {
       title: 'Field Agents',
       desc: 'Earn commissions by marking savings cards in the field — no business setup required.',
       points: [
+        'Register customers with your referral code and earn commission',
         'Scan QR cards to mark savings instantly',
-        'Earn 70% of every commission generated',
-        'Work under any registered operator',
+        'Earn up to 150% of every commission generated',
         'Track your earnings in real time',
         'No upfront cost to get started',
       ],
