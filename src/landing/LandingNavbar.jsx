@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
 import { goToApp } from '../utils/appNav';
 
-const LandingNavbar = () => {
+const LandingNavbar = ({ onCoopClick }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -36,6 +36,7 @@ const LandingNavbar = () => {
               style={{ width: '120px', height: 'auto', objectFit: 'contain', objectPosition: 'center 48%' }}
             />
           </div>
+
           {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map(({ label, id }) => (
@@ -47,6 +48,14 @@ const LandingNavbar = () => {
                 {label}
               </button>
             ))}
+            {onCoopClick && (
+              <button
+                onClick={onCoopClick}
+                className="text-[#d97706] hover:text-[#b45309] text-sm font-medium transition-colors"
+              >
+                Cooperative
+              </button>
+            )}
           </div>
 
           {/* Desktop CTA */}
@@ -87,6 +96,14 @@ const LandingNavbar = () => {
               {label}
             </button>
           ))}
+          {onCoopClick && (
+            <button
+              onClick={() => { setMenuOpen(false); onCoopClick(); }}
+              className="block w-full text-left text-[#d97706] hover:text-[#b45309] py-2 text-sm font-medium"
+            >
+              Cooperative Portal
+            </button>
+          )}
           <div className="pt-3 border-t border-gray-100 flex flex-col gap-2">
             <button
               onClick={() => goToApp('/login')}

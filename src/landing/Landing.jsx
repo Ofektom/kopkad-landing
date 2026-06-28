@@ -560,7 +560,7 @@ const FaqItem = ({ q, a }) => {
 };
 
 // ── Main ──────────────────────────────────────────────────────────────────────
-const Landing = ({ onStartClick }) => {
+const Landing = ({ onStartClick, onCoopClick }) => {
 
   const features = [
     {
@@ -1272,12 +1272,22 @@ const Landing = ({ onStartClick }) => {
             Join thrift operators, cooperatives, and everyday savers across Nigeria
             already using Kopkad to save, invest, and grow. Free to get started.
           </p>
-          <button
-            onClick={onStartClick}
-            className="px-10 py-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl text-lg transition-all shadow-xl inline-flex items-center gap-2"
-          >
-            Get Started Free <HiArrowRight size={20} />
-          </button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button
+              onClick={onStartClick}
+              className="px-10 py-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl text-lg transition-all shadow-xl inline-flex items-center gap-2"
+            >
+              Get Started Free <HiArrowRight size={20} />
+            </button>
+            {onCoopClick && (
+              <button
+                onClick={onCoopClick}
+                className="px-10 py-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold rounded-xl text-lg transition-all inline-flex items-center gap-2"
+              >
+                Cooperative Portal <HiArrowRight size={20} />
+              </button>
+            )}
+          </div>
           <p className="text-cyan-300 text-sm mt-4">Personal savers always use Kopkad free · No hidden charges</p>
         </div>
       </section>
