@@ -12,6 +12,7 @@ import {
   RiHandCoinLine, RiGroupLine, RiQrCodeLine, RiRobot2Line, RiShieldUserLine,
   RiLockLine, RiLineChartLine, RiWalletLine,
 } from 'react-icons/ri';
+import {CoopLogoMark } from './CoopLogo.jsx';
 
 // ── SVG Illustrations ─────────────────────────────────────────────────────────
 
@@ -561,218 +562,86 @@ const FaqItem = ({ q, a }) => {
 
 // ── Main ──────────────────────────────────────────────────────────────────────
 const Landing = ({ onStartClick, onCoopClick }) => {
+  /* ── DATA ─────────────────────────────────────────────────────────────────── */
 
-  const features = [
-    {
-      icon: HiOutlineClipboardList, color: 'bg-cyan-700',
-      title: 'Digital Savings Records',
-      desc: 'Replace paper cards and exercise books with an immutable digital record. Every contribution is timestamped and accessible to both operator and member.',
-    },
-    {
-      icon: RiQrCodeLine, color: 'bg-orange-500',
-      title: 'QR Physical Card System',
-      desc: 'Print QR savings cards and hand them to members in the field. Agents scan the card to instantly pull up the member\'s account and mark daily savings.',
-    },
-    {
-      icon: RiLockLine, color: 'bg-indigo-600',
-      title: 'Fixed Growth Funds',
-      desc: 'Lock money for a set period and earn guaranteed interest returns. Choose your duration — 3 to 12 months — and watch your principal grow predictably.',
-    },
-    {
-      icon: HiOutlineTrendingUp, color: 'bg-emerald-600',
-      title: 'Cash Flow Monitoring',
-      desc: 'Track every naira in and out with daily inflow and expense monitoring. View income statements, cash flow reports, and balance sheets in real time.',
-    },
-    {
-      icon: HiOutlineCalculator, color: 'bg-orange-500',
-      title: 'Smart Budget Planner',
-      desc: 'Create budgets for any purpose — monthly expenses, a project, a vacation, education, or emergency savings — and track spending against your goals.',
-    },
-    {
-      icon: HiOutlineCash, color: 'bg-cyan-700',
-      title: 'Daily Expense Tracker',
-      desc: 'Log and categorise every expense by day, week, or month. Know exactly where your money is going with detailed breakdowns and trend analysis.',
-    },
-    {
-      icon: HiOutlineFingerPrint, color: 'bg-indigo-600',
-      title: 'KYC Identity Verification',
-      desc: 'SmileID biometric verification, government ID, and utility bill checks keep your platform trustworthy. Payment features unlock only after identity is confirmed.',
-    },
-    {
-      icon: RiGroupLine, color: 'bg-orange-500',
-      title: 'Cooperative Society Management',
-      desc: 'Register and manage cooperatives with officer roles, full audit trails, member contribution tracking, and governance tools built in from day one.',
-    },
-    {
-      icon: RiTeamLine, color: 'bg-cyan-700',
-      title: 'Agent & Sub-Agent Network',
-      desc: 'Deploy sub-agents under your business. Each agent gets their own dashboard, member list, and earnings — while you stay in control at the top.',
-    },
-    {
-      icon: RiBankLine, color: 'bg-emerald-600',
-      title: 'Paystack-Powered Payments',
-      desc: 'Process collections and disbursements through Paystack — a CBN-licensed payment processor. Kopkad never holds your funds.',
-    },
-    {
-      icon: RiRobot2Line, color: 'bg-orange-500',
-      title: 'AI Financial Advisor',
-      desc: 'An in-app advisor analyses your savings patterns and delivers personalised recommendations to help members save smarter and reach their goals faster.',
-    },
-    {
-      icon: HiOutlineLightningBolt, color: 'bg-cyan-700',
-      title: 'SMS & Email Notifications',
-      desc: 'Members receive automatic alerts when savings are marked, payments confirmed, or payouts processed — no more "did you receive my money?" calls.',
-    },
+  const coopServices = [
+    { icon: RiWalletLine,         name: 'Member Savings',      desc: 'Personal wallet per member with a 10-digit account number for direct bank transfers. Earns savings interest at your configured rate.' },
+    { icon: RiGroupLine,          name: 'Thrift Contribution', desc: 'Rotating savings groups (ajo/esusu). Mark contributions, track schedules, and credit payouts to member wallets.' },
+    { icon: RiHandCoinLine,       name: 'Loans',               desc: 'Member loan applications, approval flow, interest calculations, and repayment tracking with schedules.' },
+    { icon: HiOutlineFingerPrint, name: 'KYC Enablement',      desc: 'Government ID verification, document upload, and guarantor management for loan eligibility.' },
+    { icon: RiShieldUserLine,     name: 'Custom Branding',     desc: 'Your logo, brand colours, and typography on every member-facing surface.' },
+    { icon: RiRobot2Line,         name: 'AI Website',          desc: 'AI-generated public cooperative website with your branding and content — live in minutes.' },
+    { icon: RiBarChartBoxLine,    name: 'Analytics',           desc: 'Member growth, savings trends, loan performance, and financial insights in one dashboard.' },
+    { icon: RiTeamLine,           name: 'Directory Listing',   desc: 'Appear on the Kopkad cooperative directory for new member discovery.' },
+  ];
+
+  const mainAppFeatures = [
+    { icon: HiOutlineClipboardList, color: 'bg-cyan-700',   title: 'AJO Daily Card Marking',    desc: 'The core market savings workflow. QR-linked physical cards let agents mark daily contributions in seconds.' },
+    { icon: RiQrCodeLine,           color: 'bg-orange-500', title: 'QR Physical Card System',    desc: 'Print QR savings cards for members. Scan with any smartphone to instantly open their account.' },
+    { icon: RiLockLine,             color: 'bg-indigo-600', title: 'Fixed Growth Funds',         desc: 'Lock money for 3–12 months and earn guaranteed interest up to 20% p.a. Rate locked at creation.' },
+    { icon: HiOutlineTrendingUp,    color: 'bg-emerald-600',title: 'Cash Flow Monitoring',       desc: 'Real-time inflow and expense tracking with auto-generated income statements and balance sheets.' },
+    { icon: HiOutlineCalculator,    color: 'bg-orange-500', title: 'Budget Planner',             desc: 'Create budgets for any purpose and track spending against them in real time.' },
+    { icon: HiOutlineCash,          color: 'bg-cyan-700',   title: 'Daily Expense Tracker',      desc: 'Log and categorise every expense. Know exactly where every naira goes with daily breakdowns.' },
+    { icon: RiTeamLine,             color: 'bg-emerald-600',title: 'Agent & Sub-Agent Network',  desc: 'Deploy sub-agents with their own dashboards, member lists, and commission earnings tracking.' },
+    { icon: HiOutlineLightningBolt, color: 'bg-cyan-700',   title: 'SMS & Email Notifications',  desc: 'Members get instant alerts when savings are marked, payments confirmed, or payouts processed.' },
   ];
 
   const steps = [
-    {
-      icon: HiOutlineUserGroup, color: 'bg-cyan-700',
-      title: 'Sign Up & Verify',
-      desc: 'Create your account, choose your role — personal saver, thrift operator, or cooperative — and complete identity verification to unlock all features.',
-    },
-    {
-      icon: HiOutlineClipboardList, color: 'bg-orange-500',
-      title: 'Set Up Your Financial Hub',
-      desc: 'Add members or savings goals, configure budgets, start tracking daily expenses, or set up a Fixed Growth Fund — all from one dashboard.',
-    },
-    {
-      icon: RiMoneyDollarCircleLine, color: 'bg-cyan-700',
-      title: 'Grow, Track & Pay Out',
-      desc: 'Collect savings, monitor cash flow in real time, earn returns on locked funds, and process approved withdrawals with full audit trails.',
-    },
-  ];
-
-  const userTypes = [
-    {
-      icon: HiOutlineUserGroup,
-      color: 'bg-cyan-700',
-      title: 'Personal Savers',
-      desc: 'Save digitally through your thrift collector or cooperative — with full visibility and zero paperwork.',
-      points: [
-        'View your savings balance anytime',
-        'Track every contribution on record',
-        'Invest in Fixed Growth Funds',
-        'Monitor your daily expenses & budgets',
-        'Request payouts with one tap',
-      ],
-    },
-    {
-      icon: HiOutlineOfficeBuilding,
-      color: 'bg-orange-500',
-      title: 'Thrift Operators & Cooperatives',
-      desc: 'Run your Ajo business or cooperative society professionally — from onboarding to disbursement.',
-      points: [
-        'Manage unlimited members',
-        'Issue QR physical savings cards',
-        'Cash flow statements & reporting',
-        'Deploy sub-agents under your business',
-        'Paystack-powered payment processing',
-      ],
-    },
-    {
-      icon: RiShieldUserLine,
-      color: 'bg-cyan-700',
-      title: 'Field Agents',
-      desc: 'Earn commissions by marking savings cards in the field — no business setup required.',
-      points: [
-        'Register customers with your referral code and earn commission',
-        'Scan QR cards to mark savings instantly',
-        'Earn up to 150% of every commission generated',
-        'Track your earnings in real time',
-        'No upfront cost to get started',
-      ],
-    },
+    { icon: HiOutlineUserGroup,      color: 'bg-cyan-700',   title: 'Sign Up & Verify',         desc: 'Create your account, choose your role, and verify your identity to unlock all features.' },
+    { icon: HiOutlineClipboardList,  color: 'bg-orange-500', title: 'Set Up Your Operation',    desc: 'Add members or savings goals, configure groups, start tracking contributions, or set up a Fixed Growth Fund.' },
+    { icon: RiMoneyDollarCircleLine, color: 'bg-cyan-700',   title: 'Grow, Track & Pay Out',    desc: 'Collect savings, monitor cash flow in real time, and process approved withdrawals with full audit trails.' },
   ];
 
   const testimonials = [
     {
       name: 'Amaka O.', location: 'Lagos', role: 'Thrift Operator',
       initials: 'AO', avatarBg: 'bg-cyan-700',
-      quote: 'I used to carry exercise books everywhere to track 60+ customers. Kopkad replaced all that. The cash flow reports show me exactly how my business is doing every single day.',
+      quote: 'I used to carry exercise books everywhere for 60+ customers. Kopkad replaced all that. The cash flow reports show me exactly how my business is doing every single day.',
     },
     {
-      name: 'Chukwudi E.', location: 'Enugu', role: 'Cooperative Admin',
+      name: 'Chukwudi E.', location: 'Enugu', role: 'Cooperative Manager',
       initials: 'CE', avatarBg: 'bg-orange-500',
-      quote: 'The Fixed Growth Funds feature is brilliant. Our members now invest their cooperative dividends inside the same app and earn guaranteed returns. Trust has improved massively.',
+      quote: 'The cooperative platform is exactly what we needed. Members send money to their own account numbers and we see it land in real time. No more collecting cash manually at meetings.',
     },
     {
       name: 'Fatima B.', location: 'Kano', role: 'Personal Saver',
       initials: 'FB', avatarBg: 'bg-indigo-600',
-      quote: 'The budget planner and expense tracker changed how I manage money. I know where every naira goes now — and I have a Fixed Growth Fund running for my daughter\'s education.',
-    },
-  ];
-
-  const pricing = [
-    {
-      name: 'Free',
-      price: '₦0',
-      period: '',
-      highlight: false,
-      tag: 'For individuals, agents, operators & cooperatives',
-      features: [
-        'Unlimited members',
-        'Daily savings tracking & markings',
-        'QR physical card system',
-        'Fixed Growth Fund investments',
-        'Cash flow & expense monitoring',
-        'Budget planner',
-        'Cooperative governance & officer roles',
-        'Sub-agent management',
-        'Payment requests & disbursements',
-        'Member SMS & email notifications',
-        'AI financial advisor',
-      ],
-    },
-    {
-      name: 'Enterprise',
-      price: '₦5,000',
-      period: '/month',
-      highlight: true,
-      tag: 'For cooperatives with their own brand',
-      features: [
-        'Everything in Free',
-        'Custom cooperative branding (logo & colours)',
-        'Sub-account management for member cooperatives',
-        'White-label member portal',
-        'Dedicated account manager',
-        'Priority support & onboarding',
-      ],
+      quote: 'The budget planner and expense tracker changed how I manage money. I know where every naira goes — and I have a Fixed Growth Fund growing for my daughter\'s education.',
     },
   ];
 
   const faqs = [
     {
       q: 'What is Kopkad?',
-      a: 'Kopkad is a digital financial management platform for Nigerian thrift operators, cooperative societies, field agents, and personal savers. It replaces paper records with a professional, verified digital system — covering savings management, investment funds, cash flow monitoring, and expense tracking in one place.',
+      a: 'Kopkad is a digital financial management platform for Nigeria with two separate products: the main app (app.kopkad.ng) for thrift operators, market savings collectors, and personal finance users — and Cooperative by Kopkad (cooperative.kopkad.ng), a full SaaS platform for managing cooperative societies.',
+    },
+    {
+      q: 'What is the difference between the main app and Cooperative by Kopkad?',
+      a: 'The main app is for thrift collectors and personal finance: QR card markings, Fixed Growth Funds, cash flow monitoring, and budget tracking. Cooperative by Kopkad is a standalone platform for running a cooperative society — with personal member wallets, 10-digit account numbers, savings interest, contribution groups, loans, and a branded member portal.',
+    },
+    {
+      q: 'How does Cooperative by Kopkad pricing work?',
+      a: 'There are no fixed tiers. You pick only the services you need from our catalogue (Savings, Thrift Contribution, Loans, KYC, Branding, AI Website, Analytics, and more) and pay the sum of their monthly prices. Annual billing saves 15% and 2-year billing saves 25% on the total.',
+    },
+    {
+      q: 'How do member account numbers work in the cooperative?',
+      a: 'Every activated cooperative member gets a permanent 10-digit account number. Members transfer from any Nigerian bank directly to that number — no reference or narration needed. The deposit appears in their cooperative wallet within seconds.',
     },
     {
       q: 'What are Fixed Growth Funds?',
-      a: 'Fixed Growth Funds let you lock a sum of money for a set period (3 to 12 months) and earn guaranteed interest. You choose the amount and duration, and Kopkad shows you exactly how much interest you will earn by maturity — before you commit. Principal and interest are released on the maturity date.',
+      a: 'Fixed Growth Funds let you lock a sum for 3 to 12 months and earn guaranteed interest up to 20% per annum. Your rate is locked at creation and never changes regardless of market conditions. The projected interest at maturity is shown before you commit a single naira.',
     },
     {
       q: 'How does the Cash Flow Monitor work?',
-      a: 'The Cash Flow Monitor gives you a real-time view of all money coming in (inflow) and going out (expenses). You can view an income statement, a cash flow statement, or a balance sheet for any period — today, this week, this month, or this year. Expenses are categorised automatically from your daily expense entries.',
-    },
-    {
-      q: 'Can I set budgets and track expenses on Kopkad?',
-      a: 'Yes. The Budget Planner lets you create budgets for any purpose — monthly living expenses, a project, a vacation, education, or emergency savings. Log daily expenses against those budgets and track your spending progress in real time. You will see how much is left and be alerted when you approach your limit.',
-    },
-    {
-      q: 'What is the difference between a Thrift Business and a Cooperative?',
-      a: 'A Thrift Business (Ajo) is for operators who collect daily or weekly savings from members and manage rotating payouts. A Cooperative Society adds governance tools — officer roles, group contribution rounds, loan management, and a full audit trail required by cooperative law. Both are under the same Agent role at signup.',
+      a: 'The Cash Flow Monitor gives you a real-time view of all money in and out. View an income statement, cash flow report, or balance sheet for any period — today, this week, this month, or this year. Expenses are categorised automatically from your daily entries.',
     },
     {
       q: 'How do QR savings cards work?',
-      a: 'As an operator, you generate QR card tokens from your dashboard and download print-ready sticker images. You attach them to physical savings cards and give them to members. A field agent scans the QR to instantly open that member\'s account and mark the day\'s payment — no searching or manual entry.',
+      a: 'Generate QR tokens from your dashboard, download print-ready sticker images, and attach them to physical cards for members. A field agent scans the QR to open that member\'s account instantly and mark the day\'s payment — no searching, no typing.',
     },
     {
       q: 'Is my money safe on Kopkad?',
-      a: 'Kopkad is a record-keeping and savings management platform — it does not hold or pool your funds. All payments are processed through Paystack, a CBN-licensed payment processor. Money moves directly to and from verified bank accounts. Your data is encrypted and stored securely.',
-    },
-    {
-      q: 'How does the field agent commission model work?',
-      a: 'Field agents sign up without their own business. They are assigned to an operator and earn 70% of every transaction commission generated when they mark a member\'s savings. Earnings are tracked in real time on their dashboard.',
+      a: 'Kopkad is a record-keeping and financial management platform — it does not hold or pool your funds. All payments are processed through CBN-licensed payment channels. Money moves directly to and from verified bank accounts. Your data is encrypted and stored securely.',
     },
   ];
 
@@ -782,40 +651,41 @@ const Landing = ({ onStartClick, onCoopClick }) => {
     { val: '80M+',   label: 'Financially\nExcluded Nigerians' },
   ];
 
+  /* ── JSX ──────────────────────────────────────────────────────────────────── */
   return (
     <div className="font-sans antialiased">
 
-      {/* ── Hero ────────────────────────────────────────────────────────────── */}
+      {/* ── Hero ─────────────────────────────────────────────────────────────── */}
       <section className="relative bg-gradient-to-br from-cyan-900 via-cyan-800 to-cyan-700 pt-24 pb-20 px-4 overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-600 rounded-full opacity-20 translate-x-1/3 -translate-y-1/3 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-orange-500 rounded-full opacity-10 -translate-x-1/3 translate-y-1/3 pointer-events-none" />
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
           <div>
             <span className="inline-block bg-orange-500/20 text-orange-300 text-xs font-semibold px-4 py-1.5 rounded-full mb-6 border border-orange-500/30">
-              Save · Invest · Track · Grow — All in One Platform
+              Personal Finance · Thrift Operations · Cooperative SaaS
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
-              Nigeria's Complete{' '}
-              <span className="text-orange-400">Financial Management</span>{' '}
-              Platform
+              Nigeria's complete{' '}
+              <span className="text-orange-400">financial platform</span>
             </h1>
-            <p className="text-lg text-cyan-100 mb-8 leading-relaxed max-w-xl">
-              Manage savings, invest in Fixed Growth Funds, monitor your cash flow,
-              track daily expenses, and run your cooperative — all verified, all digital,
-              all in one place.
+            <p className="text-lg text-cyan-100 mb-10 leading-relaxed max-w-xl">
+              The main app handles personal savings, thrift operations, and Fixed Growth Funds.
+              Cooperative by Kopkad is a full SaaS for running cooperative societies — with
+              member wallets, loans, and a branded member portal.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <button
                 onClick={onStartClick}
                 className="px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl text-base transition-all shadow-lg flex items-center justify-center gap-2"
               >
-                Get Started Free <HiArrowRight size={18} />
+                Personal Finance App <HiArrowRight size={18} />
               </button>
               <button
-                onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
-                className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl text-base transition-all border border-white/20"
+                onClick={onCoopClick}
+                className="px-8 py-4 text-white font-semibold rounded-xl text-base transition-all border border-white/25 flex items-center justify-center gap-2"
+                style={{ background: 'rgba(255,255,255,0.12)' }}
               >
-                See How It Works
+                Run a Cooperative <HiArrowRight size={18} />
               </button>
             </div>
             <div className="grid grid-cols-3 gap-4">
@@ -833,134 +703,256 @@ const Landing = ({ onStartClick, onCoopClick }) => {
         </div>
       </section>
 
-      {/* ── Trust strip ───────────────────────────────────────────────────────── */}
-      <section className="py-6 px-4 bg-white border-b border-gray-100">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
+      {/* ── Cooperative by Kopkad ─────────────────────────────────────────────── */}
+      <section style={{ background: '#431407' }} className="py-20 px-4 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10 -translate-y-1/2 translate-x-1/3 pointer-events-none" style={{ background: '#f97316' }} />
+        <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full opacity-10 translate-y-1/3 -translate-x-1/4 pointer-events-none" style={{ background: '#f97316' }} />
+        <div className="max-w-7xl mx-auto relative z-10">
+
+          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-14">
+            <div>
+              <span className="inline-block text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wider" style={{ background: 'rgba(249,115,22,0.2)', color: '#fbd38d', border: '1px solid rgba(249,115,22,0.3)' }}>
+                Cooperative SaaS
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+                <CoopLogoMark size={96} color="rgba(255,255,255,0.8)" />
+                CoopX by Kopkad
+              </h2>
+              <p className="mt-3 text-base leading-relaxed max-w-xl" style={{ color: 'rgba(254,215,170,0.8)' }}>
+                A complete platform for cooperative societies — member wallets with personal account
+                numbers, savings interest, contribution groups, loans, and an optional branded member
+                portal. All in one place.
+              </p>
+            </div>
+            <div className="flex-shrink-0 lg:pt-6">
+              <button
+                onClick={onCoopClick}
+                className="px-7 py-3 bg-orange-500 hover:bg-orange-400 text-white font-bold rounded-xl transition-colors inline-flex items-center gap-2 shadow-lg"
+              >
+                Launch your cooperative <HiArrowRight size={18} />
+              </button>
+            </div>
+          </div>
+
+          {/* 3 core pillars */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-14">
             {[
-              { label: 'Paystack · CBN-Licensed Payments' },
-              { label: 'SmileID · Biometric KYC' },
-              { label: 'CAC Registered Business' },
-              { label: 'Bank-Grade Data Encryption' },
-            ].map(({ label }) => (
-              <div key={label} className="flex items-center gap-2 text-gray-500 text-sm font-medium">
-                <HiOutlineShieldCheck className="text-cyan-700 flex-shrink-0" size={18} />
-                {label}
+              {
+                icon: RiWalletLine,
+                title: 'Member Savings Wallet',
+                desc: 'Every member gets a personal cooperative wallet funded by bank transfer. Earns savings interest at a rate you set. Withdraw to their bank account any time.',
+                tag: 'Personal 10-digit account number',
+              },
+              {
+                icon: RiGroupLine,
+                title: 'Thrift Contribution',
+                desc: 'Run rotating contribution groups (ajo/esusu). Mark contributions, track schedules, and credit group payouts directly to member wallets.',
+                tag: 'Multiple groups simultaneously',
+              },
+              {
+                icon: RiHandCoinLine,
+                title: 'Loans',
+                desc: 'Issue and track member loans with interest calculations, repayment schedules, and outstanding balances. Manager-controlled approval flow.',
+                tag: 'KYC service required',
+              },
+            ].map(({ icon: Icon, title, desc, tag }) => (
+              <div key={title} className="rounded-2xl p-6" style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.12)' }}>
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ background: 'rgba(249,115,22,0.25)' }}>
+                  <Icon size={22} className="text-orange-400" />
+                </div>
+                <h3 className="font-bold text-white mb-2">{title}</h3>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: 'rgba(254,215,170,0.65)' }}>{desc}</p>
+                <span className="inline-block text-xs font-semibold px-2.5 py-1 rounded-full" style={{ background: 'rgba(249,115,22,0.18)', color: '#fbd38d' }}>
+                  {tag}
+                </span>
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* ── Cash Flow Spotlight ──────────────────────────────────────────────── */}
-      <section className="py-20 px-4 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="order-2 lg:order-1 flex justify-center">
-            <CashFlowIllustration />
-          </div>
-          <div className="order-1 lg:order-2">
-            <span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
-              Cash Flow Intelligence
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-5">
-              Know exactly where every naira goes
-            </h2>
-            <p className="text-gray-500 text-base leading-relaxed mb-8">
-              Real-time financial monitoring that gives you complete visibility into your money.
-              Track income, log expenses, set budgets, and generate professional financial
-              statements — all from your phone.
-            </p>
-            <div className="space-y-4">
-              {[
-                { icon: HiOutlineTrendingUp, title: 'Inflow & Expense Tracking', desc: 'Monitor all money in and out for any period — daily, weekly, monthly, or yearly.' },
-                { icon: HiOutlineCalculator, title: 'Budget Planner', desc: 'Set budgets for monthly expenses, projects, vacations, education, or emergency funds.' },
-                { icon: RiLineChartLine, title: 'Financial Statements', desc: 'Auto-generated income statements, cash flow reports, and balance sheets ready for review.' },
-              ].map(({ icon: Icon, title, desc }) => (
-                <div key={title} className="flex gap-4">
-                  <div className="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Icon className="text-emerald-700" size={20} />
+          {/* Service catalog — buffet model */}
+          <div className="mb-10">
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
+              <div>
+                <h3 className="text-xl font-bold text-white">Build your own bundle</h3>
+                <p className="text-sm mt-1" style={{ color: 'rgba(254,215,170,0.55)' }}>
+                  Pick only the services you need. Pay the sum of their monthly prices.
+                </p>
+              </div>
+              <div className="flex items-center gap-5 text-xs" style={{ color: 'rgba(254,215,170,0.55)' }}>
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-orange-400 flex-shrink-0" />
+                  Annual: <strong className="text-orange-300 ml-0.5">15% off</strong>
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-orange-400 flex-shrink-0" />
+                  2-Year: <strong className="text-orange-300 ml-0.5">25% off</strong>
+                </span>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              {coopServices.map(({ icon: Icon, name, desc }) => (
+                <div key={name} className="rounded-xl p-4" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.09)' }}>
+                  <div className="flex items-center gap-2.5 mb-2">
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(249,115,22,0.18)' }}>
+                      <Icon size={15} className="text-orange-400" />
+                    </div>
+                    <span className="text-sm font-semibold text-white">{name}</span>
                   </div>
-                  <div>
-                    <p className="font-semibold text-gray-900 text-sm">{title}</p>
-                    <p className="text-gray-500 text-sm">{desc}</p>
-                  </div>
+                  <p className="text-xs leading-relaxed" style={{ color: 'rgba(254,215,170,0.5)' }}>{desc}</p>
                 </div>
               ))}
             </div>
-            <button onClick={onStartClick} className="mt-8 px-7 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl transition-colors inline-flex items-center gap-2">
-              Start Tracking <HiArrowRight size={16} />
+          </div>
+
+          {/* Free subdomain callout */}
+          <div className="rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center gap-4 justify-between" style={{ background: 'rgba(249,115,22,0.12)', border: '1px solid rgba(249,115,22,0.3)' }}>
+            <div>
+              <p className="text-white font-semibold">Every cooperative gets a free subdomain at signup</p>
+              <p className="text-sm mt-0.5" style={{ color: 'rgba(254,215,170,0.65)' }}>
+                <span className="font-mono text-orange-300">yourname.kopkad.ng</span> — permanent, free, no code needed.
+                Upgrade to a custom domain later with the Custom Domain service.
+              </p>
+            </div>
+            <button
+              onClick={onCoopClick}
+              className="flex-shrink-0 px-5 py-2.5 rounded-xl font-semibold text-sm transition-colors whitespace-nowrap"
+              style={{ background: 'rgba(249,115,22,0.28)', color: '#fdba74', border: '1px solid rgba(249,115,22,0.4)' }}
+            >
+              Get started
             </button>
           </div>
         </div>
       </section>
 
-      {/* ── Fixed Growth Funds Spotlight ─────────────────────────────────────── */}
+      {/* ── Main App ─────────────────────────────────────────────────────────────── */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="text-cyan-700 text-sm font-semibold uppercase tracking-widest">Personal Finance App</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">
+              For thrift operators, savings collectors,{' '}
+              <br className="hidden sm:block" />and personal finance
+            </h2>
+            <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
+              The main app at{' '}
+              <span className="font-mono text-cyan-700 text-sm">app.kopkad.ng</span>{' '}
+              is built for market savings operators and anyone who wants better control of their personal finances.
+            </p>
+          </div>
+
+          {/* Cash flow spotlight */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+            <div className="flex justify-center">
+              <CashFlowIllustration />
+            </div>
+            <div>
+              <span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
+                Cash Flow Intelligence
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 leading-tight mb-4">
+                Know exactly where every naira goes
+              </h3>
+              <p className="text-gray-500 text-sm leading-relaxed mb-6">
+                Real-time financial monitoring with complete visibility. Track income, log expenses,
+                set budgets, and generate professional financial statements — all from your phone.
+              </p>
+              <div className="space-y-3">
+                {[
+                  { icon: HiOutlineTrendingUp, title: 'Inflow & Expense Tracking', desc: 'Monitor all money in and out for any period — daily, weekly, monthly, or yearly.' },
+                  { icon: HiOutlineCalculator,  title: 'Budget Planner',            desc: 'Set budgets for monthly expenses, projects, education, or emergencies.' },
+                  { icon: RiLineChartLine,      title: 'Financial Statements',       desc: 'Auto-generated income statements, cash flow reports, and balance sheets.' },
+                ].map(({ icon: Icon, title, desc }) => (
+                  <div key={title} className="flex gap-3">
+                    <div className="w-9 h-9 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Icon className="text-emerald-700" size={17} />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900 text-sm">{title}</p>
+                      <p className="text-gray-500 text-sm">{desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <button onClick={onStartClick} className="mt-7 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl transition-colors inline-flex items-center gap-2 text-sm">
+                Start Tracking <HiArrowRight size={15} />
+              </button>
+            </div>
+          </div>
+
+          {/* Fixed Growth Funds spotlight */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+            <div className="order-1 lg:order-2 flex justify-center">
+              <InvestmentIllustration />
+            </div>
+            <div className="order-2 lg:order-1">
+              <span className="inline-block bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
+                Fixed Growth Funds
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 leading-tight mb-4">
+                Lock it. Grow it. Collect guaranteed returns.
+              </h3>
+              <p className="text-gray-500 text-sm leading-relaxed mb-6">
+                Choose an amount, pick a lock period, and see exactly how much you will earn at
+                maturity — before committing a single naira. Up to 20% per annum, rate locked at creation.
+              </p>
+              <div className="space-y-3">
+                {[
+                  { icon: RiLockLine,       title: 'Guaranteed interest rates', desc: 'Rate locked at creation — never changes regardless of market conditions.' },
+                  { icon: RiLineChartLine,  title: 'Returns calculator',        desc: 'See your exact earnings at maturity before investing.' },
+                  { icon: RiWalletLine,     title: 'Flexible durations',        desc: '3-month, 6-month, or 12-month lock periods to match your goals.' },
+                ].map(({ icon: Icon, title, desc }) => (
+                  <div key={title} className="flex gap-3">
+                    <div className="w-9 h-9 bg-indigo-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Icon className="text-indigo-700" size={17} />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900 text-sm">{title}</p>
+                      <p className="text-gray-500 text-sm">{desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <button onClick={onStartClick} className="mt-7 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-colors inline-flex items-center gap-2 text-sm">
+                Start Investing <HiArrowRight size={15} />
+              </button>
+            </div>
+          </div>
+
+          {/* Feature grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {mainAppFeatures.map(({ icon: Icon, color, title, desc }) => (
+              <div key={title} className="group bg-gray-50 border border-gray-100 rounded-2xl p-5 hover:shadow-lg transition-all hover:-translate-y-1">
+                <div className={`w-10 h-10 ${color} rounded-xl flex items-center justify-center mb-3`}>
+                  <Icon size={18} className="text-white" />
+                </div>
+                <h3 className="font-bold text-gray-900 text-sm mb-1.5">{title}</h3>
+                <p className="text-gray-500 text-xs leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <button onClick={onStartClick} className="px-8 py-3.5 bg-cyan-800 hover:bg-cyan-900 text-white font-semibold rounded-xl transition-colors shadow-md">
+              Get Started Free
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Field Operations ─────────────────────────────────────────────────────── */}
       <section className="py-20 px-4 bg-gray-50 overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <span className="inline-block bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
-              Fixed Growth Funds
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-5">
-              Lock it. Grow it. Collect guaranteed returns up to 20% per annum.
-            </h2>
-            <p className="text-gray-500 text-base leading-relaxed mb-8">
-              Fixed Growth Funds let you put money to work with zero guesswork.
-              Choose an amount, pick a lock period, and see exactly how much you will earn
-              before committing — then watch your money grow until maturity.
-            </p>
-            <div className="space-y-4">
-              {[
-                { icon: HiOutlineTrendingUp, title: 'Interesting Rates', desc: 'Make up to 20% intereate per annum.' },
-                { icon: RiLockLine, title: 'Guaranteed Interest Rates', desc: 'Your rate is locked at creation — it never changes regardless of market conditions.' },
-                { icon: RiLineChartLine, title: 'Projected Returns Calculator', desc: 'See your exact earnings at maturity before you invest a single naira.' },
-                { icon: RiWalletLine, title: 'Flexible Durations', desc: 'Choose from 3-month, 6-month, or 12-month lock periods to match your goals.' },
-              ].map(({ icon: Icon, title, desc }) => (
-                <div key={title} className="flex gap-4">
-                  <div className="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Icon className="text-indigo-700" size={20} />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900 text-sm">{title}</p>
-                    <p className="text-gray-500 text-sm">{desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <button onClick={onStartClick} className="mt-8 px-7 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-colors inline-flex items-center gap-2">
-              Start Investing <HiArrowRight size={16} />
-            </button>
-          </div>
-          <div className="flex justify-center lg:justify-end">
-            <InvestmentIllustration />
-          </div>
-        </div>
-      </section>
-
-      {/* ── Human / Agents in the Field ────────────────────────────────────── */}
-      <section className="py-20 px-4 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Illustrated SVG collage */}
           <div className="order-2 lg:order-1 relative">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
-                <div className="rounded-2xl overflow-hidden h-52 shadow-lg bg-[#ecfeff]">
-                  <AgentFieldSVG />
-                </div>
-                <div className="rounded-2xl overflow-hidden h-36 shadow-lg bg-[#fff7ed]">
-                  <MobilePaymentSVG />
-                </div>
+                <div className="rounded-2xl overflow-hidden h-52 shadow-lg bg-[#ecfeff]"><AgentFieldSVG /></div>
+                <div className="rounded-2xl overflow-hidden h-36 shadow-lg bg-[#fff7ed]"><MobilePaymentSVG /></div>
               </div>
               <div className="space-y-4 mt-8">
-                <div className="rounded-2xl overflow-hidden h-36 shadow-lg bg-[#eef2ff]">
-                  <BudgetPlannerSVG />
-                </div>
-                <div className="rounded-2xl overflow-hidden h-52 shadow-lg bg-[#f0fdf4]">
-                  <CoopGroupSVG />
-                </div>
+                <div className="rounded-2xl overflow-hidden h-36 shadow-lg bg-[#eef2ff]"><BudgetPlannerSVG /></div>
+                <div className="rounded-2xl overflow-hidden h-52 shadow-lg bg-[#f0fdf4]"><CoopGroupSVG /></div>
               </div>
             </div>
-            {/* Floating badge */}
             <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-xl px-5 py-3 flex items-center gap-3 border border-gray-100">
               <div className="w-10 h-10 bg-cyan-700 rounded-xl flex items-center justify-center flex-shrink-0">
                 <RiQrCodeLine size={20} className="text-white" />
@@ -972,7 +964,6 @@ const Landing = ({ onStartClick, onCoopClick }) => {
               <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse ml-2" />
             </div>
           </div>
-
           <div className="order-1 lg:order-2">
             <span className="inline-block bg-orange-100 text-orange-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
               Field Operations
@@ -981,16 +972,15 @@ const Landing = ({ onStartClick, onCoopClick }) => {
               Built for people who collect savings in the field
             </h2>
             <p className="text-gray-500 text-base leading-relaxed mb-8">
-              From street-level ajo operators to enterprise cooperative societies,
+              From street-level ajo operators to market thrift collectors,
               Kopkad is designed for how Nigerians actually save money — in the community,
               face to face, one naira at a time.
             </p>
             <div className="space-y-4">
               {[
-                { icon: RiQrCodeLine, color: 'bg-orange-100 text-orange-600', title: 'QR Card Scanning', desc: 'Scan a member\'s physical card to pull up their account instantly — no searching or typing.' },
-                { icon: RiTeamLine, color: 'bg-cyan-100 text-cyan-700', title: 'Agent Network', desc: 'Deploy sub-agents under your business with their own dashboards and earnings tracking.' },
-                { icon: HiOutlineLightningBolt, color: 'bg-emerald-100 text-emerald-700', title: 'Instant Notifications', desc: 'Members get SMS & email the moment their savings is marked or a payout is approved.' },
-                { icon: RiGroupLine, color: 'bg-indigo-100 text-indigo-700', title: 'Cooperative Governance', desc: 'Officer roles, contribution rounds, audit trails — everything a cooperative requires by law.' },
+                { icon: RiQrCodeLine,           color: 'bg-orange-100 text-orange-600', title: 'QR Card Scanning',       desc: "Scan a member's physical card to pull up their account instantly — no searching or typing." },
+                { icon: RiTeamLine,             color: 'bg-cyan-100 text-cyan-700',    title: 'Agent Network',           desc: 'Deploy sub-agents with their own dashboards and earnings tracking.' },
+                { icon: HiOutlineLightningBolt, color: 'bg-emerald-100 text-emerald-700', title: 'Instant Notifications', desc: 'Members get SMS & email the moment savings are marked or a payout is approved.' },
               ].map(({ icon: Icon, color, title, desc }) => (
                 <div key={title} className="flex gap-4">
                   <div className={`w-10 h-10 ${color} rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5`}>
@@ -1007,38 +997,11 @@ const Landing = ({ onStartClick, onCoopClick }) => {
         </div>
       </section>
 
-      {/* ── Features Grid ─────────────────────────────────────────────────────── */}
-      <section id="features" className="py-20 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-14">
-            <span className="text-orange-500 text-sm font-semibold uppercase tracking-widest">Full Feature Set</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">
-              Everything you need to manage money in Nigeria
-            </h2>
-            <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
-              From QR card scanning in the field to fixed investment funds and real-time cash flow —
-              Kopkad covers the entire financial lifecycle.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map(({ icon: Icon, color, title, desc }) => (
-              <div key={title} className="group bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all hover:-translate-y-1">
-                <div className={`w-12 h-12 ${color} rounded-xl flex items-center justify-center mb-4`}>
-                  <Icon size={22} className="text-white" />
-                </div>
-                <h3 className="font-bold text-gray-900 mb-2">{title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── How It Works ────────────────────────────────────────────────────── */}
+      {/* ── How It Works ─────────────────────────────────────────────────────────── */}
       <section id="how-it-works" className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
-            <span className="text-orange-500 text-sm font-semibold uppercase tracking-widest">Process</span>
+            <span className="text-orange-500 text-sm font-semibold uppercase tracking-widest">Getting Started</span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">Up and running in minutes</h2>
             <p className="text-gray-500 mt-4 max-w-xl mx-auto">No training required. If you can use a smartphone, you can use Kopkad.</p>
           </div>
@@ -1051,102 +1014,28 @@ const Landing = ({ onStartClick, onCoopClick }) => {
               </div>
             ))}
           </div>
-          <div className="text-center mt-12">
-            <button
-              onClick={onStartClick}
-              className="px-8 py-3.5 bg-cyan-800 hover:bg-cyan-900 text-white font-semibold rounded-xl transition-colors shadow-md"
-            >
-              Start for Free Today
+          <div className="text-center mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button onClick={onStartClick} className="px-8 py-3.5 bg-cyan-800 hover:bg-cyan-900 text-white font-semibold rounded-xl transition-colors shadow-md">
+              Start with the Main App
+            </button>
+            <button onClick={onCoopClick} className="px-8 py-3.5 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition-colors shadow-md">
+              Launch a Cooperative
             </button>
           </div>
         </div>
       </section>
 
-      {/* ── Who It's For ──────────────────────────────────────────────────────── */}
+      {/* ── Testimonials ─────────────────────────────────────────────────────────── */}
       <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
-            <span className="text-orange-500 text-sm font-semibold uppercase tracking-widest">Who It&apos;s For</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">Built for every role in the savings chain</h2>
-            <p className="text-gray-500 mt-4 max-w-xl mx-auto">
-              Whether you save, collect, invest, manage or operate — there is a place for you on Kopkad.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {userTypes.map(({ icon: Icon, color, title, desc, points }) => (
-              <div key={title} className="rounded-2xl border border-gray-100 p-8 bg-white hover:shadow-lg transition-all hover:-translate-y-1">
-                <div className={`w-14 h-14 ${color} rounded-2xl flex items-center justify-center mb-5`}>
-                  <Icon size={26} className="text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
-                <p className="text-gray-500 text-sm mb-5">{desc}</p>
-                <ul className="space-y-2">
-                  {points.map(p => (
-                    <li key={p} className="flex items-center gap-2 text-sm text-gray-600">
-                      <HiOutlineCheck className="text-cyan-700 flex-shrink-0" size={16} />
-                      {p}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Social proof banner ───────────────────────────────────────────────── */}
-      <section className="relative py-20 px-4 overflow-hidden bg-gradient-to-br from-cyan-900 via-[#0c4a6e] to-indigo-900">
-        {/* Decorative abstract SVG background */}
-        <svg className="absolute inset-0 w-full h-full opacity-10 pointer-events-none" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" fill="none">
-          <circle cx="200" cy="200" r="180" stroke="white" strokeWidth="40" />
-          <circle cx="600" cy="100" r="120" stroke="#f97316" strokeWidth="30" />
-          <circle cx="1000" cy="280" r="150" stroke="white" strokeWidth="30" />
-          <circle cx="900" cy="80" r="80" stroke="#f97316" strokeWidth="20" />
-          <circle cx="100" cy="350" r="60" stroke="white" strokeWidth="15" />
-          <circle cx="600" cy="380" r="100" stroke="#f97316" strokeWidth="20" />
-          <rect x="400" y="50" width="80" height="80" rx="20" stroke="white" strokeWidth="12" transform="rotate(20 440 90)" />
-          <rect x="750" y="250" width="60" height="60" rx="14" stroke="#f97316" strokeWidth="10" transform="rotate(-15 780 280)" />
-          <line x1="0" y1="200" x2="1200" y2="200" stroke="white" strokeWidth="1" />
-        </svg>
-        <div className="absolute inset-0 bg-cyan-900/20" />
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <span className="text-orange-400 text-sm font-semibold uppercase tracking-widest">Why Kopkad</span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mt-4 mb-6">
-            The informal savings economy is worth ₦2.4 trillion.<br />
-            <span className="text-orange-400">It deserves professional tools.</span>
-          </h2>
-          <p className="text-cyan-200 text-lg max-w-2xl mx-auto mb-10">
-            Millions of Nigerians rely on ajo operators and cooperative societies to save.
-            Kopkad brings bank-grade security, digital records, and financial intelligence
-            to every transaction — no matter how small.
-          </p>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-            {[
-              { val: '100%', label: 'Digital records' },
-              { val: '0', label: 'Lost paperwork' },
-              { val: '24/7', label: 'Account access' },
-              { val: '70%', label: 'Agent commission' },
-            ].map(({ val, label }) => (
-              <div key={label} className="bg-white/10 rounded-2xl py-4 px-3 border border-white/10">
-                <div className="text-3xl font-extrabold text-orange-400">{val}</div>
-                <div className="text-xs text-cyan-200 mt-1">{label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Testimonials ─────────────────────────────────────────────────────── */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-14">
             <span className="text-orange-500 text-sm font-semibold uppercase tracking-widest">Testimonials</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">Nigerians love Kopkad</h2>
-            <p className="text-gray-500 mt-4 max-w-lg mx-auto">From street-level ajo operators to cooperative administrators — real stories from real users.</p>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">Real users. Real results.</h2>
+            <p className="text-gray-500 mt-4 max-w-lg mx-auto">From ajo operators to cooperative managers — stories from across Nigeria.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {testimonials.map(({ name, location, role, initials, avatarBg, quote }) => (
-              <div key={name} className="bg-gray-50 rounded-2xl p-6 border border-gray-100 flex flex-col">
+              <div key={name} className="bg-white rounded-2xl p-6 border border-gray-100 flex flex-col shadow-sm">
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => <span key={i} className="text-orange-400 text-sm">★</span>)}
                 </div>
@@ -1166,63 +1055,7 @@ const Landing = ({ onStartClick, onCoopClick }) => {
         </div>
       </section>
 
-      {/* ── Pricing ─────────────────────────────────────────────────────────── */}
-      <section id="pricing" className="py-20 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
-            <span className="text-orange-500 text-sm font-semibold uppercase tracking-widest">Pricing</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">Free for everyone. Enterprise for your brand.</h2>
-            <p className="text-gray-500 mt-4 max-w-xl mx-auto">
-              All core features — savings, investments, cash flow, cooperatives — are completely free.
-              Upgrade to Enterprise only if your cooperative needs custom branding and sub-account management.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-            {pricing.map(({ name, price, period, highlight, tag, features: f }) => (
-              <div key={name} className={`relative bg-white rounded-2xl p-8 border-2 transition-all ${highlight ? 'border-cyan-700 shadow-xl' : 'border-gray-200 shadow-sm'}`}>
-                {highlight && (
-                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-cyan-700 text-white text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap">
-                    For Growing Cooperatives
-                  </span>
-                )}
-                <h3 className="text-lg font-bold text-gray-900 mb-1">{name}</h3>
-                <p className="text-xs text-gray-400 mb-4">{tag}</p>
-                <div className="flex items-baseline gap-1 mb-6">
-                  <span className="text-4xl font-extrabold text-gray-900">{price}</span>
-                  {period
-                    ? <span className="text-gray-400 text-sm">{period}</span>
-                    : <span className="text-gray-400 text-sm ml-1">forever</span>
-                  }
-                </div>
-                <ul className="space-y-3 mb-8">
-                  {f.map(item => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
-                      <HiOutlineCheck className={`flex-shrink-0 mt-0.5 ${highlight ? 'text-cyan-700' : 'text-emerald-600'}`} size={16} />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <button
-                  onClick={onStartClick}
-                  className={`w-full py-3 rounded-xl font-semibold text-sm transition-colors ${
-                    highlight
-                      ? 'bg-cyan-800 hover:bg-cyan-900 text-white shadow-md'
-                      : 'bg-gray-100 hover:bg-gray-200 text-gray-800'
-                  }`}
-                >
-                  {highlight ? 'Contact Sales' : 'Get Started Free'}
-                </button>
-              </div>
-            ))}
-          </div>
-          <p className="text-center text-xs text-gray-400 mt-6">
-            A small transaction fee applies on payments processed through the platform.
-            All core features are free — no credit card required to get started.
-          </p>
-        </div>
-      </section>
-
-      {/* ── FAQ ─────────────────────────────────────────────────────────────── */}
+      {/* ── FAQ ─────────────────────────────────────────────────────────────────── */}
       <section id="faq" className="py-20 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-14">
@@ -1235,60 +1068,33 @@ const Landing = ({ onStartClick, onCoopClick }) => {
         </div>
       </section>
 
-      {/* ── Mobile coming soon ───────────────────────────────────────────────── */}
-      <section className="py-16 px-4 bg-gray-50">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 text-sm font-semibold px-4 py-2 rounded-full mb-5">
-            <HiOutlineDeviceMobile size={18} /> Mobile App Coming Soon
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3">Take Kopkad everywhere</h2>
-          <p className="text-gray-500 mb-8">
-            Native iOS and Android apps are in development. The web app is fully mobile-optimised —
-            add it to your home screen today for an app-like experience.
-          </p>
-          <div className="flex justify-center gap-4 flex-wrap">
-            {['App Store', 'Google Play'].map(store => (
-              <div key={store} className="flex items-center gap-3 bg-gray-900 text-white px-6 py-3 rounded-xl opacity-50 cursor-not-allowed select-none">
-                <div className="text-2xl">{store === 'App Store' ? '' : '▶'}</div>
-                <div className="text-left">
-                  <div className="text-xs text-gray-400">Coming to</div>
-                  <div className="text-sm font-semibold">{store}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Final CTA ───────────────────────────────────────────────────────── */}
+      {/* ── Final CTA ────────────────────────────────────────────────────────────── */}
       <section className="py-20 px-4 bg-gradient-to-br from-cyan-900 to-cyan-700 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-orange-400 rounded-full opacity-10 translate-x-1/2 -translate-y-1/2 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-48 h-48 bg-white rounded-full opacity-5 -translate-x-1/2 translate-y-1/2 pointer-events-none" />
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
-            Ready to take control of your money?
+            Ready to take control of your finances?
           </h2>
-          <p className="text-cyan-200 mb-8 text-lg">
-            Join thrift operators, cooperatives, and everyday savers across Nigeria
-            already using Kopkad to save, invest, and grow. Free to get started.
+          <p className="text-cyan-200 mb-10 text-lg">
+            Whether you're saving personally, running a thrift operation, or managing a
+            cooperative society — Kopkad has a platform built for you.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={onStartClick}
               className="px-10 py-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl text-lg transition-all shadow-xl inline-flex items-center gap-2"
             >
-              Get Started Free <HiArrowRight size={20} />
+              Personal Finance App <HiArrowRight size={20} />
             </button>
-            {onCoopClick && (
-              <button
-                onClick={onCoopClick}
-                className="px-10 py-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold rounded-xl text-lg transition-all inline-flex items-center gap-2"
-              >
-                Cooperative Portal <HiArrowRight size={20} />
-              </button>
-            )}
+            <button
+              onClick={onCoopClick}
+              className="px-10 py-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold rounded-xl text-lg transition-all inline-flex items-center gap-2"
+            >
+              Run a Cooperative <HiArrowRight size={20} />
+            </button>
           </div>
-          <p className="text-cyan-300 text-sm mt-4">Personal savers always use Kopkad free · No hidden charges</p>
+          <p className="text-cyan-300 text-sm mt-6">Personal finance app is always free · No hidden charges</p>
         </div>
       </section>
 
