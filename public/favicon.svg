@@ -1,18 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <!-- Cyan-700 background -->
-  <rect width="32" height="32" rx="6" fill="#0e7490"/>
-  <!-- K lettermark in white, fills the space properly -->
-  <text
-    x="50%"
-    y="50%"
-    dominant-baseline="central"
-    text-anchor="middle"
-    font-family="Arial, sans-serif"
-    font-size="22"
-    font-weight="900"
-    fill="white"
-    letter-spacing="-1"
-  >K</text>
-  <!-- Orange accent dot (matches brand) -->
-  <circle cx="23" cy="8" r="3" fill="#f97316"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+  <!-- White rounded-square background -->
+  <rect width="36" height="36" rx="7" fill="white"/>
+  <!-- Cooperative X mark (CoopLogoMark), amber -->
+  <line x1="7" y1="9" x2="27" y2="31" stroke="#d97706" stroke-width="5.2" stroke-linecap="round"/>
+  <line x1="7" y1="31" x2="17.5" y2="18.5" stroke="#d97706" stroke-width="5.2" stroke-linecap="round"/>
+  <line x1="17.5" y1="18.5" x2="34" y2="2" stroke="#d97706" stroke-width="5.2" stroke-linecap="butt"/>
 </svg>

@@ -1,17 +1,11 @@
 import React, { useState } from 'react';
 import { goToApp } from '../utils/appNav';
 import {
-  HiOutlineChartBar, HiOutlineUserGroup, HiOutlineOfficeBuilding,
-  HiOutlineShieldCheck, HiOutlineCheck, HiOutlineChevronDown,
-  HiOutlineChevronUp, HiArrowRight, HiOutlineDeviceMobile, HiOutlineClipboardList,
-  HiOutlineFingerPrint, HiOutlineLightningBolt, HiOutlineTrendingUp,
-  HiOutlineCash, HiOutlineCalculator,
-} from 'react-icons/hi';
-import {
-  RiMoneyDollarCircleLine, RiTeamLine, RiBankLine, RiBarChartBoxLine,
-  RiHandCoinLine, RiGroupLine, RiQrCodeLine, RiRobot2Line, RiShieldUserLine,
-  RiLockLine, RiLineChartLine, RiWalletLine,
-} from 'react-icons/ri';
+  Users2, ChevronDown, ChevronUp, ArrowRight, ClipboardList,
+  Fingerprint, Zap, TrendingUp, Banknote, Calculator,
+  CircleDollarSign, UsersRound, BarChart3, HandCoins, Users,
+  QrCode, Bot, ShieldUser, Lock, LineChart, Wallet,
+} from 'lucide-react';
 import {CoopLogoMark } from './CoopLogo.jsx';
 
 // ── SVG Illustrations ─────────────────────────────────────────────────────────
@@ -550,8 +544,8 @@ const FaqItem = ({ q, a }) => {
       >
         <span className="font-semibold text-gray-800 pr-4">{q}</span>
         {open
-          ? <HiOutlineChevronUp className="text-cyan-700 flex-shrink-0" size={20} />
-          : <HiOutlineChevronDown className="text-gray-400 flex-shrink-0" size={20} />}
+          ? <ChevronUp className="text-cyan-700 flex-shrink-0" size={20} />
+          : <ChevronDown className="text-gray-400 flex-shrink-0" size={20} />}
       </button>
       {open && (
         <div className="px-6 py-4 text-gray-600 text-sm leading-relaxed bg-gray-50 border-t border-gray-100">{a}</div>
@@ -565,31 +559,31 @@ const Landing = ({ onStartClick, onCoopClick }) => {
   /* ── DATA ─────────────────────────────────────────────────────────────────── */
 
   const coopServices = [
-    { icon: RiWalletLine,         name: 'Member Savings',      desc: 'Personal wallet per member with a 10-digit account number for direct bank transfers. Earns savings interest at your configured rate.' },
-    { icon: RiGroupLine,          name: 'Thrift Contribution', desc: 'Rotating savings groups (ajo/esusu). Mark contributions, track schedules, and credit payouts to member wallets.' },
-    { icon: RiHandCoinLine,       name: 'Loans',               desc: 'Member loan applications, approval flow, interest calculations, and repayment tracking with schedules.' },
-    { icon: HiOutlineFingerPrint, name: 'KYC Enablement',      desc: 'Government ID verification, document upload, and guarantor management for loan eligibility.' },
-    { icon: RiShieldUserLine,     name: 'Custom Branding',     desc: 'Your logo, brand colours, and typography on every member-facing surface.' },
-    { icon: RiRobot2Line,         name: 'AI Website',          desc: 'AI-generated public cooperative website with your branding and content — live in minutes.' },
-    { icon: RiBarChartBoxLine,    name: 'Analytics',           desc: 'Member growth, savings trends, loan performance, and financial insights in one dashboard.' },
-    { icon: RiTeamLine,           name: 'Directory Listing',   desc: 'Appear on the Kopkad cooperative directory for new member discovery.' },
+    { icon: Wallet,         name: 'Member Savings',      desc: 'Personal wallet per member with a 10-digit account number for direct bank transfers. Earns savings interest at your configured rate.' },
+    { icon: Users,          name: 'Thrift Contribution', desc: 'Rotating savings groups (ajo/esusu). Mark contributions, track schedules, and credit payouts to member wallets.' },
+    { icon: HandCoins,       name: 'Loans',               desc: 'Member loan applications, approval flow, interest calculations, and repayment tracking with schedules.' },
+    { icon: Fingerprint, name: 'KYC Enablement',      desc: 'Government ID verification, document upload, and guarantor management for loan eligibility.' },
+    { icon: ShieldUser,     name: 'Custom Branding',     desc: 'Your logo, brand colours, and typography on every member-facing surface.' },
+    { icon: Bot,         name: 'AI Website',          desc: 'AI-generated public cooperative website with your branding and content — live in minutes.' },
+    { icon: BarChart3,    name: 'Analytics',           desc: 'Member growth, savings trends, loan performance, and financial insights in one dashboard.' },
+    { icon: UsersRound,           name: 'Directory Listing',   desc: 'Appear on the Kopkad cooperative directory for new member discovery.' },
   ];
 
   const mainAppFeatures = [
-    { icon: HiOutlineClipboardList, color: 'bg-cyan-700',   title: 'AJO Daily Card Marking',    desc: 'The core market savings workflow. QR-linked physical cards let agents mark daily contributions in seconds.' },
-    { icon: RiQrCodeLine,           color: 'bg-orange-500', title: 'QR Physical Card System',    desc: 'Print QR savings cards for members. Scan with any smartphone to instantly open their account.' },
-    { icon: RiLockLine,             color: 'bg-indigo-600', title: 'Fixed Growth Funds',         desc: 'Lock money for 3–12 months and earn guaranteed interest up to 20% p.a. Rate locked at creation.' },
-    { icon: HiOutlineTrendingUp,    color: 'bg-emerald-600',title: 'Cash Flow Monitoring',       desc: 'Real-time inflow and expense tracking with auto-generated income statements and balance sheets.' },
-    { icon: HiOutlineCalculator,    color: 'bg-orange-500', title: 'Budget Planner',             desc: 'Create budgets for any purpose and track spending against them in real time.' },
-    { icon: HiOutlineCash,          color: 'bg-cyan-700',   title: 'Daily Expense Tracker',      desc: 'Log and categorise every expense. Know exactly where every naira goes with daily breakdowns.' },
-    { icon: RiTeamLine,             color: 'bg-emerald-600',title: 'Agent & Sub-Agent Network',  desc: 'Deploy sub-agents with their own dashboards, member lists, and commission earnings tracking.' },
-    { icon: HiOutlineLightningBolt, color: 'bg-cyan-700',   title: 'SMS & Email Notifications',  desc: 'Members get instant alerts when savings are marked, payments confirmed, or payouts processed.' },
+    { icon: ClipboardList, color: 'bg-cyan-700',   title: 'AJO Daily Card Marking',    desc: 'The core market savings workflow. QR-linked physical cards let agents mark daily contributions in seconds.' },
+    { icon: QrCode,           color: 'bg-orange-500', title: 'QR Physical Card System',    desc: 'Print QR savings cards for members. Scan with any smartphone to instantly open their account.' },
+    { icon: Lock,             color: 'bg-indigo-600', title: 'Fixed Growth Funds',         desc: 'Lock money for 3–12 months and earn guaranteed interest up to 20% p.a. Rate locked at creation.' },
+    { icon: TrendingUp,    color: 'bg-emerald-600',title: 'Cash Flow Monitoring',       desc: 'Real-time inflow and expense tracking with auto-generated income statements and balance sheets.' },
+    { icon: Calculator,    color: 'bg-orange-500', title: 'Budget Planner',             desc: 'Create budgets for any purpose and track spending against them in real time.' },
+    { icon: Banknote,          color: 'bg-cyan-700',   title: 'Daily Expense Tracker',      desc: 'Log and categorise every expense. Know exactly where every naira goes with daily breakdowns.' },
+    { icon: UsersRound,             color: 'bg-emerald-600',title: 'Agent & Sub-Agent Network',  desc: 'Deploy sub-agents with their own dashboards, member lists, and commission earnings tracking.' },
+    { icon: Zap, color: 'bg-cyan-700',   title: 'SMS & Email Notifications',  desc: 'Members get instant alerts when savings are marked, payments confirmed, or payouts processed.' },
   ];
 
   const steps = [
-    { icon: HiOutlineUserGroup,      color: 'bg-cyan-700',   title: 'Sign Up & Verify',         desc: 'Create your account, choose your role, and verify your identity to unlock all features.' },
-    { icon: HiOutlineClipboardList,  color: 'bg-orange-500', title: 'Set Up Your Operation',    desc: 'Add members or savings goals, configure groups, start tracking contributions, or set up a Fixed Growth Fund.' },
-    { icon: RiMoneyDollarCircleLine, color: 'bg-cyan-700',   title: 'Grow, Track & Pay Out',    desc: 'Collect savings, monitor cash flow in real time, and process approved withdrawals with full audit trails.' },
+    { icon: Users2,      color: 'bg-cyan-700',   title: 'Sign Up & Verify',         desc: 'Create your account, choose your role, and verify your identity to unlock all features.' },
+    { icon: ClipboardList,  color: 'bg-orange-500', title: 'Set Up Your Operation',    desc: 'Add members or savings goals, configure groups, start tracking contributions, or set up a Fixed Growth Fund.' },
+    { icon: CircleDollarSign, color: 'bg-cyan-700',   title: 'Grow, Track & Pay Out',    desc: 'Collect savings, monitor cash flow in real time, and process approved withdrawals with full audit trails.' },
   ];
 
   const testimonials = [
@@ -676,16 +670,15 @@ const Landing = ({ onStartClick, onCoopClick }) => {
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <button
                 onClick={onStartClick}
-                className="px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl text-base transition-all shadow-lg flex items-center justify-center gap-2"
+                className="px-8 py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-xl text-base transition-all shadow-lg flex items-center justify-center gap-2"
               >
-                Personal Finance App <HiArrowRight size={18} />
+                Personal Finance App <ArrowRight size={18} />
               </button>
               <button
                 onClick={onCoopClick}
-                className="px-8 py-4 text-white font-semibold rounded-xl text-base transition-all border border-white/25 flex items-center justify-center gap-2"
-                style={{ background: 'rgba(255,255,255,0.12)' }}
+                className="px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl text-base transition-all flex items-center justify-center gap-2"
               >
-                Run a Cooperative <HiArrowRight size={18} />
+                Run a Cooperative <ArrowRight size={18} />
               </button>
             </div>
             <div className="grid grid-cols-3 gap-4">
@@ -729,7 +722,7 @@ const Landing = ({ onStartClick, onCoopClick }) => {
                 onClick={onCoopClick}
                 className="px-7 py-3 bg-orange-500 hover:bg-orange-400 text-white font-bold rounded-xl transition-colors inline-flex items-center gap-2 shadow-lg"
               >
-                Launch your cooperative <HiArrowRight size={18} />
+                Launch your cooperative <ArrowRight size={18} />
               </button>
             </div>
           </div>
@@ -738,19 +731,19 @@ const Landing = ({ onStartClick, onCoopClick }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-14">
             {[
               {
-                icon: RiWalletLine,
+                icon: Wallet,
                 title: 'Member Savings Wallet',
                 desc: 'Every member gets a personal cooperative wallet funded by bank transfer. Earns savings interest at a rate you set. Withdraw to their bank account any time.',
                 tag: 'Personal 10-digit account number',
               },
               {
-                icon: RiGroupLine,
+                icon: Users,
                 title: 'Thrift Contribution',
                 desc: 'Run rotating contribution groups (ajo/esusu). Mark contributions, track schedules, and credit group payouts directly to member wallets.',
                 tag: 'Multiple groups simultaneously',
               },
               {
-                icon: RiHandCoinLine,
+                icon: HandCoins,
                 title: 'Loans',
                 desc: 'Issue and track member loans with interest calculations, repayment schedules, and outstanding balances. Manager-controlled approval flow.',
                 tag: 'KYC service required',
@@ -858,9 +851,9 @@ const Landing = ({ onStartClick, onCoopClick }) => {
               </p>
               <div className="space-y-3">
                 {[
-                  { icon: HiOutlineTrendingUp, title: 'Inflow & Expense Tracking', desc: 'Monitor all money in and out for any period — daily, weekly, monthly, or yearly.' },
-                  { icon: HiOutlineCalculator,  title: 'Budget Planner',            desc: 'Set budgets for monthly expenses, projects, education, or emergencies.' },
-                  { icon: RiLineChartLine,      title: 'Financial Statements',       desc: 'Auto-generated income statements, cash flow reports, and balance sheets.' },
+                  { icon: TrendingUp, title: 'Inflow & Expense Tracking', desc: 'Monitor all money in and out for any period — daily, weekly, monthly, or yearly.' },
+                  { icon: Calculator,  title: 'Budget Planner',            desc: 'Set budgets for monthly expenses, projects, education, or emergencies.' },
+                  { icon: LineChart,      title: 'Financial Statements',       desc: 'Auto-generated income statements, cash flow reports, and balance sheets.' },
                 ].map(({ icon: Icon, title, desc }) => (
                   <div key={title} className="flex gap-3">
                     <div className="w-9 h-9 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -874,7 +867,7 @@ const Landing = ({ onStartClick, onCoopClick }) => {
                 ))}
               </div>
               <button onClick={onStartClick} className="mt-7 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl transition-colors inline-flex items-center gap-2 text-sm">
-                Start Tracking <HiArrowRight size={15} />
+                Start Tracking <ArrowRight size={15} />
               </button>
             </div>
           </div>
@@ -897,9 +890,9 @@ const Landing = ({ onStartClick, onCoopClick }) => {
               </p>
               <div className="space-y-3">
                 {[
-                  { icon: RiLockLine,       title: 'Guaranteed interest rates', desc: 'Rate locked at creation — never changes regardless of market conditions.' },
-                  { icon: RiLineChartLine,  title: 'Returns calculator',        desc: 'See your exact earnings at maturity before investing.' },
-                  { icon: RiWalletLine,     title: 'Flexible durations',        desc: '3-month, 6-month, or 12-month lock periods to match your goals.' },
+                  { icon: Lock,       title: 'Guaranteed interest rates', desc: 'Rate locked at creation — never changes regardless of market conditions.' },
+                  { icon: LineChart,  title: 'Returns calculator',        desc: 'See your exact earnings at maturity before investing.' },
+                  { icon: Wallet,     title: 'Flexible durations',        desc: '3-month, 6-month, or 12-month lock periods to match your goals.' },
                 ].map(({ icon: Icon, title, desc }) => (
                   <div key={title} className="flex gap-3">
                     <div className="w-9 h-9 bg-indigo-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -913,7 +906,7 @@ const Landing = ({ onStartClick, onCoopClick }) => {
                 ))}
               </div>
               <button onClick={onStartClick} className="mt-7 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-colors inline-flex items-center gap-2 text-sm">
-                Start Investing <HiArrowRight size={15} />
+                Start Investing <ArrowRight size={15} />
               </button>
             </div>
           </div>
@@ -955,7 +948,7 @@ const Landing = ({ onStartClick, onCoopClick }) => {
             </div>
             <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-xl px-5 py-3 flex items-center gap-3 border border-gray-100">
               <div className="w-10 h-10 bg-cyan-700 rounded-xl flex items-center justify-center flex-shrink-0">
-                <RiQrCodeLine size={20} className="text-white" />
+                <QrCode size={20} className="text-white" />
               </div>
               <div>
                 <p className="text-xs text-gray-500">Savings marked today</p>
@@ -978,9 +971,9 @@ const Landing = ({ onStartClick, onCoopClick }) => {
             </p>
             <div className="space-y-4">
               {[
-                { icon: RiQrCodeLine,           color: 'bg-orange-100 text-orange-600', title: 'QR Card Scanning',       desc: "Scan a member's physical card to pull up their account instantly — no searching or typing." },
-                { icon: RiTeamLine,             color: 'bg-cyan-100 text-cyan-700',    title: 'Agent Network',           desc: 'Deploy sub-agents with their own dashboards and earnings tracking.' },
-                { icon: HiOutlineLightningBolt, color: 'bg-emerald-100 text-emerald-700', title: 'Instant Notifications', desc: 'Members get SMS & email the moment savings are marked or a payout is approved.' },
+                { icon: QrCode,           color: 'bg-orange-100 text-orange-600', title: 'QR Card Scanning',       desc: "Scan a member's physical card to pull up their account instantly — no searching or typing." },
+                { icon: UsersRound,             color: 'bg-cyan-100 text-cyan-700',    title: 'Agent Network',           desc: 'Deploy sub-agents with their own dashboards and earnings tracking.' },
+                { icon: Zap, color: 'bg-emerald-100 text-emerald-700', title: 'Instant Notifications', desc: 'Members get SMS & email the moment savings are marked or a payout is approved.' },
               ].map(({ icon: Icon, color, title, desc }) => (
                 <div key={title} className="flex gap-4">
                   <div className={`w-10 h-10 ${color} rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5`}>
@@ -1083,15 +1076,15 @@ const Landing = ({ onStartClick, onCoopClick }) => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={onStartClick}
-              className="px-10 py-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl text-lg transition-all shadow-xl inline-flex items-center gap-2"
+              className="px-10 py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-xl text-lg transition-all shadow-xl inline-flex items-center gap-2"
             >
-              Personal Finance App <HiArrowRight size={20} />
+              Personal Finance App <ArrowRight size={20} />
             </button>
             <button
               onClick={onCoopClick}
-              className="px-10 py-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold rounded-xl text-lg transition-all inline-flex items-center gap-2"
+              className="px-10 py-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl text-lg transition-all inline-flex items-center gap-2"
             >
-              Run a Cooperative <HiArrowRight size={20} />
+              Run a Cooperative <ArrowRight size={20} />
             </button>
           </div>
           <p className="text-cyan-300 text-sm mt-6">Personal finance app is always free · No hidden charges</p>

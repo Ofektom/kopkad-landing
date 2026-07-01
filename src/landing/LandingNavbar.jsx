@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { HiMenu, HiX } from 'react-icons/hi';
+import { Menu, X } from 'lucide-react';
 import { goToApp } from '../utils/appNav';
 
 const LandingNavbar = ({ onCoopClick }) => {
@@ -79,7 +79,7 @@ const LandingNavbar = ({ onCoopClick }) => {
             className="md:hidden p-2 text-gray-600 hover:text-cyan-700"
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            {menuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>

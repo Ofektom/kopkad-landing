@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaTwitter, FaFacebookF, FaInstagram, FaLinkedinIn, FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
+import { FaTwitter, FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { MapPin, Phone, Mail } from 'lucide-react';
 import { goToApp } from '../utils/appNav';
 
 const Footer = () => {
@@ -76,7 +77,7 @@ const Footer = () => {
                   <li key={label}>
                     {isAddress ? (
                       <div className="flex items-start gap-2 text-sm">
-                        <FaMapMarkerAlt className="text-cyan-400 mt-1 flex-shrink-0" size={12} />
+                        <MapPin className="text-cyan-400 mt-1 flex-shrink-0" size={12} />
                         <span className="leading-relaxed">
                           4A Akpabio Street,<br />
                           Uyo, Akwa Ibom State
@@ -84,14 +85,14 @@ const Footer = () => {
                       </div>
                     ) : isPhone ? (
                       <div className="flex items-center gap-2 text-sm">
-                        <FaPhone className="text-cyan-400" size={12} />
+                        <Phone className="text-cyan-400" size={12} />
                         <a href="tel:+2349079095259" className="hover:text-cyan-400 transition-colors">
                           09079095259
                         </a>
                       </div>
                     ) : isEmail ? (
                       <div className="flex items-center gap-2 text-sm">
-                        <FaEnvelope className="text-cyan-400" size={12} />
+                        <Mail className="text-cyan-400" size={12} />
                         <a href="mailto:support@kopkad.ng" className="hover:text-cyan-400 transition-colors">
                           support@kopkad.ng
                         </a>
