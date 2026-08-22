@@ -8,7 +8,7 @@ const LandingPage = () => (
   <>
     <LandingNavbar onCoopClick={() => goToCoop('/login')} />
     <Landing
-      onStartClick={() => goToApp('/login')}
+      onStartClick={() => goToApp('/')}
       onCoopClick={() => goToCoop('/login')}
     />
     <Footer />

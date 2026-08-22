@@ -61,13 +61,13 @@ const LandingNavbar = ({ onCoopClick }) => {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
             <button
-              onClick={() => goToApp('/login')}
+              onClick={() => goToApp('/')}
               className="px-4 py-2 text-cyan-700 font-semibold text-sm hover:text-cyan-800 transition-colors"
             >
               Log In
             </button>
             <button
-              onClick={() => goToApp('/signup')}
+              onClick={() => goToApp('/')}
               className="px-5 py-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold text-sm rounded-lg transition-colors shadow-sm"
             >
               Get Started Free
