@@ -57,7 +57,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-sm leading-relaxed max-w-xs">
-              Smart savings management for thrift businesses, cooperatives, and personal savers across Nigeria.
+              Smart savings management for thrift businesses, cooperatives, and personal savers across Nigeria — now earning interest on every naira saved.
             </p>
             <div className="flex gap-3 mt-5">
               {socials.map(({ icon: Icon, href }, idx) => (

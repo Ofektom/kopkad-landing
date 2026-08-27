@@ -572,11 +572,12 @@ const Landing = ({ onStartClick, onCoopClick }) => {
   const mainAppFeatures = [
     { icon: ClipboardList, color: 'bg-cyan-700',   title: 'AJO Daily Card Marking',    desc: 'The core market savings workflow. QR-linked physical cards let agents mark daily contributions in seconds.' },
     { icon: QrCode,           color: 'bg-orange-500', title: 'QR Physical Card System',    desc: 'Print QR savings cards for members. Scan with any smartphone to instantly open their account.' },
+    { icon: TrendingUp,       color: 'bg-emerald-600', title: 'Interest on Your Savings',   desc: 'No commission to save. Your balance earns interest, accrued daily and credited monthly — up to 10% p.a. depending on how much and how long you save. Rate can change with notice; 10% withholding tax applies.' },
     { icon: Lock,             color: 'bg-indigo-600', title: 'Fixed Growth Funds',         desc: 'Lock money for 3–12 months and earn guaranteed interest up to 20% p.a. Rate locked at creation.' },
     { icon: TrendingUp,    color: 'bg-emerald-600',title: 'Cash Flow Monitoring',       desc: 'Real-time inflow and expense tracking with auto-generated income statements and balance sheets.' },
     { icon: Calculator,    color: 'bg-orange-500', title: 'Budget Planner',             desc: 'Create budgets for any purpose and track spending against them in real time.' },
     { icon: Banknote,          color: 'bg-cyan-700',   title: 'Daily Expense Tracker',      desc: 'Log and categorise every expense. Know exactly where every naira goes with daily breakdowns.' },
-    { icon: UsersRound,             color: 'bg-emerald-600',title: 'Agent & Sub-Agent Network',  desc: 'Deploy sub-agents with their own dashboards, member lists, and commission earnings tracking.' },
+    { icon: UsersRound,             color: 'bg-emerald-600',title: 'Agent & Sub-Agent Network',  desc: 'Deploy sub-agents with their own dashboards, member lists, and referral & performance bonus tracking.' },
     { icon: Zap, color: 'bg-cyan-700',   title: 'SMS & Email Notifications',  desc: 'Members get instant alerts when savings are marked, payments confirmed, or payouts processed.' },
   ];
 
@@ -610,8 +611,20 @@ const Landing = ({ onStartClick, onCoopClick }) => {
       a: 'Kopkad is a digital financial management platform for Nigeria with two separate products: the main app (app.kopkad.ng) for thrift operators, market savings collectors, and personal finance users — and Cooperative by Kopkad (cooperative.kopkad.ng), a full SaaS platform for managing cooperative societies.',
     },
     {
+      q: 'Does Kopkad charge a commission on savings?',
+      a: 'No — there is no commission to save. Your savings earn interest, accrued daily. The fees that do apply: an SMS alert fee, which you can avoid by using free in-app / push notifications; and a small processing fee on instant or off-cycle withdrawals to your bank after the launch period. You keep all of your principal.',
+    },
+    {
+      q: 'How does my money earn interest?',
+      a: 'Your balance accrues interest every day and it is credited to your savings monthly — up to 10% per year depending on how much and how long you save. Unlike a Fixed Growth Fund, a regular savings rate is not locked: it can change with notice. 10% withholding tax applies to interest.',
+    },
+    {
+      q: 'Do I need to verify my identity (BVN)?',
+      a: 'Complete KYC to get your own 10-digit account number for bank-transfer deposits. Card and USSD payments work without it. Agents can help market traders complete KYC on the spot.',
+    },
+    {
       q: 'What is the difference between the main app and Cooperative by Kopkad?',
-      a: 'The main app is for thrift collectors and personal finance: QR card markings, Fixed Growth Funds, cash flow monitoring, and budget tracking. Cooperative by Kopkad is a standalone platform for running a cooperative society — with personal member wallets, 10-digit account numbers, savings interest, contribution groups, loans, and a branded member portal.',
+      a: 'The main app is for thrift collectors and personal finance: QR card markings, no-commission savings that earn daily interest, Fixed Growth Funds, cash flow monitoring, and budget tracking. Cooperative by Kopkad is a standalone platform for running a cooperative society — with personal member wallets, 10-digit account numbers, savings interest, contribution groups, loans, and a branded member portal.',
     },
     {
       q: 'How does Cooperative by Kopkad pricing work?',
@@ -1088,6 +1101,7 @@ const Landing = ({ onStartClick, onCoopClick }) => {
             </button>
           </div>
           <p className="text-cyan-300 text-sm mt-6">Personal finance app is always free · No hidden charges</p>
+          <p className="text-white text-sm font-semibold mt-2">No commission on your savings — ever. Your balance earns interest.</p>
         </div>
       </section>
 
