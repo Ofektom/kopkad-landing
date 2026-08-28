@@ -169,7 +169,7 @@ const InvestmentIllustration = () => (
 
     {/* Lock badge */}
     <rect x="96" y="46" width="88" height="22" rx="11" fill="white" opacity="0.15" />
-    <text x="108" y="61" fontSize="10" fill="white" fontFamily="sans-serif" fontWeight="600">🔒 Fixed Growth Fund</text>
+    <text x="108" y="61" fontSize="10" fill="white" fontFamily="sans-serif" fontWeight="600">🔒 Locked Savings</text>
 
     {/* Principal */}
     <text x="96" y="90" fontSize="9" fill="#a5f3fc" fontFamily="sans-serif">Principal Amount</text>
@@ -224,7 +224,7 @@ const InvestmentIllustration = () => (
     {/* Floating cards */}
     <rect x="0" y="60" width="68" height="68" rx="14" fill="white" opacity="0.97" />
     <text x="18" y="92" fontSize="22" fontFamily="sans-serif">📈</text>
-    <text x="10" y="112" fontSize="7" fill="#374151" fontFamily="sans-serif" fontWeight="600">Guaranteed</text>
+    <text x="10" y="112" fontSize="7" fill="#374151" fontFamily="sans-serif" fontWeight="600">Fixed-rate</text>
     <text x="14" y="122" fontSize="7" fill="#6b7280" fontFamily="sans-serif">Returns</text>
 
     <rect x="388" y="150" width="110" height="62" rx="14" fill="white" opacity="0.97" />
@@ -573,7 +573,7 @@ const Landing = ({ onStartClick, onCoopClick }) => {
     { icon: ClipboardList, color: 'bg-cyan-700',   title: 'AJO Daily Card Marking',    desc: 'The core market savings workflow. QR-linked physical cards let agents mark daily contributions in seconds.' },
     { icon: QrCode,           color: 'bg-orange-500', title: 'QR Physical Card System',    desc: 'Print QR savings cards for members. Scan with any smartphone to instantly open their account.' },
     { icon: TrendingUp,       color: 'bg-emerald-600', title: 'Interest on Your Savings',   desc: 'No commission to save. Your balance earns interest, accrued daily and credited monthly — up to 10% p.a. depending on how much and how long you save. Rate can change with notice; 10% withholding tax applies.' },
-    { icon: Lock,             color: 'bg-indigo-600', title: 'Fixed Growth Funds',         desc: 'Lock money for 3–12 months and earn guaranteed interest up to 20% p.a. Rate locked at creation.' },
+    { icon: Lock,             color: "bg-indigo-600", title: "Locked Savings",              desc: "Lock money for 3–12 months at a fixed rate up to 13% p.a., set at creation. Add money any time (Flexible Lock) or lock a one-off sum (Fixed Lock)." },
     { icon: TrendingUp,    color: 'bg-emerald-600',title: 'Cash Flow Monitoring',       desc: 'Real-time inflow and expense tracking with auto-generated income statements and balance sheets.' },
     { icon: Calculator,    color: 'bg-orange-500', title: 'Budget Planner',             desc: 'Create budgets for any purpose and track spending against them in real time.' },
     { icon: Banknote,          color: 'bg-cyan-700',   title: 'Daily Expense Tracker',      desc: 'Log and categorise every expense. Know exactly where every naira goes with daily breakdowns.' },
@@ -583,7 +583,7 @@ const Landing = ({ onStartClick, onCoopClick }) => {
 
   const steps = [
     { icon: Users2,      color: 'bg-cyan-700',   title: 'Sign Up & Verify',         desc: 'Create your account, choose your role, and verify your identity to unlock all features.' },
-    { icon: ClipboardList,  color: 'bg-orange-500', title: 'Set Up Your Operation',    desc: 'Add members or savings goals, configure groups, start tracking contributions, or set up a Fixed Growth Fund.' },
+    { icon: ClipboardList,  color: 'bg-orange-500', title: 'Set Up Your Operation',    desc: 'Add members or savings goals, configure groups, start tracking contributions, or open a Locked Savings plan.' },
     { icon: CircleDollarSign, color: 'bg-cyan-700',   title: 'Grow, Track & Pay Out',    desc: 'Collect savings, monitor cash flow in real time, and process approved withdrawals with full audit trails.' },
   ];
 
@@ -601,7 +601,7 @@ const Landing = ({ onStartClick, onCoopClick }) => {
     {
       name: 'Fatima B.', location: 'Kano', role: 'Personal Saver',
       initials: 'FB', avatarBg: 'bg-indigo-600',
-      quote: 'The budget planner and expense tracker changed how I manage money. I know where every naira goes — and I have a Fixed Growth Fund growing for my daughter\'s education.',
+      quote: 'The budget planner and expense tracker changed how I manage money. I know where every naira goes — and I have a Locked Savings plan growing for my daughter\'s education.',
     },
   ];
 
@@ -616,7 +616,7 @@ const Landing = ({ onStartClick, onCoopClick }) => {
     },
     {
       q: 'How does my money earn interest?',
-      a: 'Your balance accrues interest every day and it is credited to your savings monthly — up to 10% per year depending on how much and how long you save. Unlike a Fixed Growth Fund, a regular savings rate is not locked: it can change with notice. 10% withholding tax applies to interest.',
+      a: 'Your balance accrues interest every day and it is credited to your savings monthly — up to 10% per year depending on how much and how long you save. Unlike a Locked Savings plan, a regular savings rate is not locked: it can change with notice. 10% withholding tax applies to interest.',
     },
     {
       q: 'Do I need to verify my identity (BVN)?',
@@ -624,7 +624,7 @@ const Landing = ({ onStartClick, onCoopClick }) => {
     },
     {
       q: 'What is the difference between the main app and Cooperative by Kopkad?',
-      a: 'The main app is for thrift collectors and personal finance: QR card markings, no-commission savings that earn daily interest, Fixed Growth Funds, cash flow monitoring, and budget tracking. Cooperative by Kopkad is a standalone platform for running a cooperative society — with personal member wallets, 10-digit account numbers, savings interest, contribution groups, loans, and a branded member portal.',
+      a: 'The main app is for thrift collectors and personal finance: QR card markings, no-commission savings that earn daily interest, Locked Savings, cash flow monitoring, and budget tracking. Cooperative by Kopkad is a standalone platform for running a cooperative society — with personal member wallets, 10-digit account numbers, savings interest, contribution groups, loans, and a branded member portal.',
     },
     {
       q: 'How does Cooperative by Kopkad pricing work?',
@@ -635,8 +635,8 @@ const Landing = ({ onStartClick, onCoopClick }) => {
       a: 'Every activated cooperative member gets a permanent 10-digit account number. Members transfer from any Nigerian bank directly to that number — no reference or narration needed. The deposit appears in their cooperative wallet within seconds.',
     },
     {
-      q: 'What are Fixed Growth Funds?',
-      a: 'Fixed Growth Funds let you lock a sum for 3 to 12 months and earn guaranteed interest up to 20% per annum. Your rate is locked at creation and never changes regardless of market conditions. The projected interest at maturity is shown before you commit a single naira.',
+      q: "What is Locked Savings?",
+      a: "Locked Savings lets you lock a sum for 3 to 12 months at a fixed rate — up to 13% per annum — set when you open the plan and unchanged for the term. Choose Flexible Lock to keep adding money until maturity, or Fixed Lock for a single lump sum. The projected interest at maturity (less 10% withholding tax) is shown before you commit a single naira.",
     },
     {
       q: 'How does the Cash Flow Monitor work?',
@@ -676,7 +676,7 @@ const Landing = ({ onStartClick, onCoopClick }) => {
               <span className="text-orange-400">financial platform</span>
             </h1>
             <p className="text-lg text-cyan-100 mb-10 leading-relaxed max-w-xl">
-              The main app handles personal savings, thrift operations, and Fixed Growth Funds.
+              The main app handles personal savings, thrift operations, and Locked Savings.
               Cooperative by Kopkad is a full SaaS for running cooperative societies — with
               member wallets, loans, and a branded member portal.
             </p>
@@ -885,27 +885,27 @@ const Landing = ({ onStartClick, onCoopClick }) => {
             </div>
           </div>
 
-          {/* Fixed Growth Funds spotlight */}
+          {/* Locked Savings spotlight */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
             <div className="order-1 lg:order-2 flex justify-center">
               <InvestmentIllustration />
             </div>
             <div className="order-2 lg:order-1">
               <span className="inline-block bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
-                Fixed Growth Funds
+                Locked Savings
               </span>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 leading-tight mb-4">
-                Lock it. Grow it. Collect guaranteed returns.
+                Lock it. Grow it. Collect a fixed-rate return.
               </h3>
               <p className="text-gray-500 text-sm leading-relaxed mb-6">
                 Choose an amount, pick a lock period, and see exactly how much you will earn at
-                maturity — before committing a single naira. Up to 20% per annum, rate locked at creation.
+                maturity — before committing a single naira. Up to 13% per annum, rate locked at creation.
               </p>
               <div className="space-y-3">
                 {[
-                  { icon: Lock,       title: 'Guaranteed interest rates', desc: 'Rate locked at creation — never changes regardless of market conditions.' },
-                  { icon: LineChart,  title: 'Returns calculator',        desc: 'See your exact earnings at maturity before investing.' },
-                  { icon: Wallet,     title: 'Flexible durations',        desc: '3-month, 6-month, or 12-month lock periods to match your goals.' },
+                  { icon: Lock,       title: "Fixed interest rate",       desc: "Rate locked at creation — never changes for the term." },
+                  { icon: LineChart,  title: "Returns calculator",        desc: "See your projected earnings at maturity before you commit." },
+                  { icon: Wallet,     title: "Flexible or Fixed Lock",     desc: "Add money any time, or lock a one-off sum. 3, 6, 9 or 12-month terms." },
                 ].map(({ icon: Icon, title, desc }) => (
                   <div key={title} className="flex gap-3">
                     <div className="w-9 h-9 bg-indigo-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">

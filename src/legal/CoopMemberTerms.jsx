@@ -74,6 +74,31 @@ const CoopMemberTerms = () => (
         appropriate legal channels in accordance with Nigerian cooperative law. Kopkad does not
         adjudicate member-cooperative disputes and cannot intervene in such matters.
       </p>
+      <p className="mt-2">
+        <strong>3.5 Fund Custody Model.</strong> Your cooperative operates in one of two modes,
+        disclosed to you by the cooperative:
+      </p>
+      <ul className="list-disc list-inside pl-2 mt-1 space-y-1 text-gray-600">
+        <li>
+          <strong>Platform-managed</strong> — member deposits settle to a pooled account
+          controlled by Kopkad on the cooperative's behalf, and your balance is an entry in the
+          cooperative's ledger on the platform.
+        </li>
+        <li>
+          <strong>Self-managed</strong> — member deposits settle directly to the cooperative's
+          own bank account, and the cooperative manages any investment of those funds itself.
+        </li>
+      </ul>
+      <p className="mt-2">
+        <strong>3.6 Deposit and Withdrawal Charges.</strong> Kopkad does not charge cooperative
+        members a deposit fee. A <strong>self-managed</strong> cooperative bears its own
+        payment-processor cost on member deposits and may pass that cost to the depositing
+        member; where it does, the amount is disclosed on the transaction record and (depending
+        on the cooperative's setting) either shown at deposit time or recovered pro-rata when
+        you withdraw. Any withdrawal or service charge set by your cooperative is disclosed
+        before you confirm the transaction. Savings interest, where your cooperative offers it,
+        is credited at the rate your cooperative sets and net of applicable withholding tax.
+      </p>
     </section>
 
     <section>

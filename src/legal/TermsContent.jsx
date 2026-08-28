@@ -145,24 +145,76 @@ const TermsContent = () => (
         cooperative purposes including loans, investments, and surplus distribution.
       </p>
       <p className="mt-2">
-        <strong>5.3 Platform Fees.</strong> The Society may charge service fees on withdrawals
-        and certain transactions. Applicable fees will always be disclosed in-app before you
-        confirm a transaction. Cooperative operators and agents accessing enterprise features are
-        subject to separate subscription and/or transaction fee agreements.
+        <strong>5.3 No Savings Commission.</strong> The Society does <strong>not</strong> charge a
+        commission on personal savings. You keep the full amount you save. Any earlier
+        commission arrangement on a savings plan created before this change remains on its
+        original terms until that plan is closed or you elect to move it to the
+        no-commission terms.
       </p>
       <p className="mt-2">
-        <strong>5.4 Payment Authorization.</strong> By linking a bank account or card, you
+        <strong>5.4 Fee Schedule.</strong> The only fees that may apply to a personal savings
+        member are, each disclosed in-app before it is charged and itemised on your statement:
+      </p>
+      <ul className="list-disc list-inside pl-2 mt-1 space-y-1 text-gray-600">
+        <li>
+          <strong>SMS alert fee</strong> — a periodic fee for transactional SMS notifications.
+          You can switch SMS alerts off in Settings and use free in-app / push notifications, in
+          which case this fee does not apply.
+        </li>
+        <li>
+          <strong>Withdrawal processing fee</strong> — a small fee on instant or off-cycle
+          withdrawals paid to a bank account. It does not apply to withdrawals taken with the
+          notice period, at a plan's cycle-end or maturity, or to internal transfers to your
+          Kopkad wallet. It is <strong>0</strong> during the launch period.
+        </li>
+        <li>
+          <strong>Early-break forfeiture</strong> — where a locked plan is broken early, the
+          current period's un-credited interest is forfeited as disclosed for that product.
+        </li>
+      </ul>
+      <p className="mt-2">
+        The Society does not charge a deposit fee on personal savings. Cooperative operators
+        and agents accessing enterprise features are subject to separate subscription and/or
+        transaction fee agreements. A cooperative that manages its own investments
+        (self-managed) may pass its payment-processor deposit cost to its own members; where
+        that applies, the charge is disclosed in that cooperative's own member terms and on the
+        transaction record.
+      </p>
+      <p className="mt-2">
+        <strong>5.5 Interest on Savings.</strong> Personal savings balances earn interest,
+        accrued daily and credited to your savings monthly, at a rate determined by the amount
+        and duration of your savings. Unlike a Locked Savings plan, the rate on ordinary savings
+        is <strong>not fixed</strong> and may change with prior notice. Interest is credited net
+        of Nigerian withholding tax (currently 10%), which is shown as a separate line on your
+        statement. Interest is funded from the return the Society earns on the pooled savings
+        float; it is not a guaranteed return and does not make the Society a deposit-taking
+        bank. The earning window runs from the value date of a deposit to the date of
+        withdrawal; an early or off-cycle withdrawal forfeits the current period's un-credited
+        interest.
+      </p>
+      <p className="mt-2">
+        <strong>5.6 Payment Authorization.</strong> By linking a bank account or card, you
         authorize the Society and KOPKAD DIGITAL SYSTEMS to initiate debits and credits as
         necessary to execute your instructions on the platform.
       </p>
       <p className="mt-2">
-        <strong>5.5 Withdrawals.</strong> Withdrawals are subject to your available balance,
-        pending obligations, and the Society's processing timelines. The Society does not guarantee
-        same-day settlement. Withdrawal requests from Active Members with outstanding obligations
-        may be withheld pending resolution.
+        <strong>5.7 Withdrawals.</strong> Withdrawals are subject to your available balance,
+        pending obligations, and the Society's processing timelines. Net amounts, including any
+        applicable fee under 5.4, are disclosed before you confirm. The Society does not
+        guarantee same-day settlement. Withdrawal requests from Active Members with outstanding
+        obligations may be withheld pending resolution.
       </p>
       <p className="mt-2">
-        <strong>5.6 Disputed Transactions.</strong> You must notify us within 30 days of any
+        <strong>5.8 Agent Cash-Out for Unbanked Members.</strong> Where a member has no bank
+        account, a verified field agent may withdraw that member's matured savings as cash on
+        the member's behalf. Each such withdrawal requires a one-time code sent by SMS to the
+        member's own registered phone number, is subject to per-transaction and daily limits,
+        and may be reversed if the member reports that they did not authorize it within the
+        disclosed dispute window. The value is settled to the agent, who hands the member the
+        cash.
+      </p>
+      <p className="mt-2">
+        <strong>5.9 Disputed Transactions.</strong> You must notify us within 30 days of any
         transaction you believe is erroneous or unauthorized. The Society will investigate and
         respond within a reasonable timeframe. Your failure to notify us within the specified
         period may limit our ability to investigate.

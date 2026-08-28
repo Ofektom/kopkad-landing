@@ -88,9 +88,9 @@ describe('Landing', () => {
     ].forEach((title) => {
       expect(screen.getByRole('heading', { level: 3, name: title })).toBeInTheDocument();
     });
-    // "Fixed Growth Funds" is also used as a badge label in the spotlight section above,
+    // "Locked Savings" is also used as a badge label in the spotlight section above,
     // so the feature-grid card heading is the second occurrence.
-    expect(screen.getAllByText('Fixed Growth Funds').length).toBeGreaterThanOrEqual(2);
+    expect(screen.getAllByText("Locked Savings").length).toBeGreaterThanOrEqual(2);
   });
 
   it('calls onStartClick from the "Start Tracking" and "Start Investing" spotlight buttons', () => {
@@ -142,7 +142,7 @@ describe('Landing', () => {
   it('each FAQ item toggles independently', () => {
     render(<Landing onStartClick={onStartClick} onCoopClick={onCoopClick} />);
     fireEvent.click(screen.getByText('What is Kopkad?'));
-    fireEvent.click(screen.getByText('What are Fixed Growth Funds?'));
+    fireEvent.click(screen.getByText("What is Locked Savings?"));
 
     expect(screen.getByText(/two separate products/i)).toBeInTheDocument();
     expect(screen.getByText(/lock a sum for 3 to 12 months/i)).toBeInTheDocument();
