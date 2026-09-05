@@ -617,7 +617,7 @@ const Landing = ({ onStartClick, onCoopClick }) => {
     },
     {
       q: 'How does Cooperative by Kopkad pricing work?',
-      a: 'There are no fixed tiers. You pick only the services you need from our catalogue (Savings, Thrift Contribution, Loans, KYC, Branding, AI Website, Analytics, and more) and pay the sum of their monthly prices. Annual billing saves 15% and 2-year billing saves 25% on the total.',
+      a: 'There are no fixed tiers. You pick only the services you need from our catalogue (Thrift Contribution, Loans, Branding, AI Website, Analytics, Listing & Promotion, and more) and pay the sum of their monthly prices. Longer billing terms come with a bulk discount — currently about 8% on annual billing and 13% on a 2-year term.',
     },
     {
       q: 'How do member account numbers work in the cooperative?',
