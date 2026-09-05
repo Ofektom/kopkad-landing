@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { goToApp } from '../utils/appNav';
 import {
   Users2, ChevronDown, ChevronUp, ArrowRight, ClipboardList,
-  Fingerprint, Zap, TrendingUp, Banknote, Calculator,
-  CircleDollarSign, UsersRound, BarChart3, HandCoins, Users,
-  QrCode, Bot, ShieldUser, Lock, LineChart, Wallet,
+  Zap, TrendingUp, Banknote, Calculator,
+  CircleDollarSign, UsersRound, HandCoins, Users,
+  QrCode, Lock, LineChart, Wallet,
 } from 'lucide-react';
 import {CoopLogoMark } from './CoopLogo.jsx';
 
@@ -558,17 +558,6 @@ const FaqItem = ({ q, a }) => {
 const Landing = ({ onStartClick, onCoopClick }) => {
   /* ── DATA ─────────────────────────────────────────────────────────────────── */
 
-  const coopServices = [
-    { icon: Wallet,         name: 'Member Savings',      desc: 'Personal wallet per member with a 10-digit account number for direct bank transfers. Earns savings interest at your configured rate.' },
-    { icon: Users,          name: 'Thrift Contribution', desc: 'Rotating savings groups (ajo/esusu). Mark contributions, track schedules, and credit payouts to member wallets.' },
-    { icon: HandCoins,       name: 'Loans',               desc: 'Member loan applications, approval flow, interest calculations, and repayment tracking with schedules.' },
-    { icon: Fingerprint, name: 'KYC Enablement',      desc: 'Government ID verification, document upload, and guarantor management for loan eligibility.' },
-    { icon: ShieldUser,     name: 'Custom Branding',     desc: 'Your logo, brand colours, and typography on every member-facing surface.' },
-    { icon: Bot,         name: 'AI Website',          desc: 'AI-generated public cooperative website with your branding and content — live in minutes.' },
-    { icon: BarChart3,    name: 'Analytics',           desc: 'Member growth, savings trends, loan performance, and financial insights in one dashboard.' },
-    { icon: UsersRound,           name: 'Directory Listing',   desc: 'Appear on the Kopkad cooperative directory for new member discovery.' },
-  ];
-
   const mainAppFeatures = [
     { icon: ClipboardList, color: 'bg-cyan-700',   title: 'AJO Daily Card Marking',    desc: 'The core market savings workflow. QR-linked physical cards let agents mark daily contributions in seconds.' },
     { icon: QrCode,           color: 'bg-orange-500', title: 'QR Physical Card System',    desc: 'Print QR savings cards for members. Scan with any smartphone to instantly open their account.' },
@@ -735,97 +724,52 @@ const Landing = ({ onStartClick, onCoopClick }) => {
                 onClick={onCoopClick}
                 className="px-7 py-3 bg-orange-500 hover:bg-orange-400 text-white font-bold rounded-xl transition-colors inline-flex items-center gap-2 shadow-lg"
               >
-                Launch your cooperative <ArrowRight size={18} />
+                Explore Cooperative by Kopkad <ArrowRight size={18} />
               </button>
             </div>
           </div>
 
           {/* 3 core pillars */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-14">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
             {[
               {
                 icon: Wallet,
                 title: 'Member Savings Wallet',
-                desc: 'Every member gets a personal cooperative wallet funded by bank transfer. Earns savings interest at a rate you set. Withdraw to their bank account any time.',
-                tag: 'Personal 10-digit account number',
+                desc: 'Every member gets a personal cooperative wallet with a 10-digit account number. Funded by bank transfer, earns interest at a rate you set.',
               },
               {
                 icon: Users,
                 title: 'Thrift Contribution',
-                desc: 'Run rotating contribution groups (ajo/esusu). Mark contributions, track schedules, and credit group payouts directly to member wallets.',
-                tag: 'Multiple groups simultaneously',
+                desc: 'Run rotating contribution groups (ajo/esusu). Mark contributions, track schedules, and credit payouts directly to member wallets.',
               },
               {
                 icon: HandCoins,
                 title: 'Loans',
-                desc: 'Issue and track member loans with interest calculations, repayment schedules, and outstanding balances. Manager-controlled approval flow.',
-                tag: 'KYC service required',
+                desc: 'Issue and track member loans with interest, repayment schedules, and a manager-controlled approval flow.',
               },
-            ].map(({ icon: Icon, title, desc, tag }) => (
+            ].map(({ icon: Icon, title, desc }) => (
               <div key={title} className="rounded-2xl p-6" style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.12)' }}>
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ background: 'rgba(249,115,22,0.25)' }}>
                   <Icon size={22} className="text-orange-400" />
                 </div>
                 <h3 className="font-bold text-white mb-2">{title}</h3>
-                <p className="text-sm leading-relaxed mb-4" style={{ color: 'rgba(254,215,170,0.65)' }}>{desc}</p>
-                <span className="inline-block text-xs font-semibold px-2.5 py-1 rounded-full" style={{ background: 'rgba(249,115,22,0.18)', color: '#fbd38d' }}>
-                  {tag}
-                </span>
+                <p className="text-sm leading-relaxed" style={{ color: 'rgba(254,215,170,0.65)' }}>{desc}</p>
               </div>
             ))}
           </div>
 
-          {/* Service catalog — buffet model */}
-          <div className="mb-10">
-            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
-              <div>
-                <h3 className="text-xl font-bold text-white">Build your own bundle</h3>
-                <p className="text-sm mt-1" style={{ color: 'rgba(254,215,170,0.55)' }}>
-                  Pick only the services you need. Pay the sum of their monthly prices.
-                </p>
-              </div>
-              <div className="flex items-center gap-5 text-xs" style={{ color: 'rgba(254,215,170,0.55)' }}>
-                <span className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-orange-400 flex-shrink-0" />
-                  Annual: <strong className="text-orange-300 ml-0.5">15% off</strong>
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-orange-400 flex-shrink-0" />
-                  2-Year: <strong className="text-orange-300 ml-0.5">25% off</strong>
-                </span>
-              </div>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-              {coopServices.map(({ icon: Icon, name, desc }) => (
-                <div key={name} className="rounded-xl p-4" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.09)' }}>
-                  <div className="flex items-center gap-2.5 mb-2">
-                    <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(249,115,22,0.18)' }}>
-                      <Icon size={15} className="text-orange-400" />
-                    </div>
-                    <span className="text-sm font-semibold text-white">{name}</span>
-                  </div>
-                  <p className="text-xs leading-relaxed" style={{ color: 'rgba(254,215,170,0.5)' }}>{desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Free subdomain callout */}
-          <div className="rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center gap-4 justify-between" style={{ background: 'rgba(249,115,22,0.12)', border: '1px solid rgba(249,115,22,0.3)' }}>
-            <div>
-              <p className="text-white font-semibold">Every cooperative gets a free subdomain at signup</p>
-              <p className="text-sm mt-0.5" style={{ color: 'rgba(254,215,170,0.65)' }}>
-                <span className="font-mono text-orange-300">yourname.kopkad.ng</span> — permanent, free, no code needed.
-                Upgrade to a custom domain later with the Custom Domain service.
-              </p>
-            </div>
-            <button
-              onClick={onCoopClick}
-              className="flex-shrink-0 px-5 py-2.5 rounded-xl font-semibold text-sm transition-colors whitespace-nowrap"
-              style={{ background: 'rgba(249,115,22,0.28)', color: '#fdba74', border: '1px solid rgba(249,115,22,0.4)' }}
-            >
-              Get started
-            </button>
+          {/* Overview of the rest of the catalogue — full detail lives on the coop site */}
+          <div className="rounded-2xl p-6" style={{ background: 'rgba(249,115,22,0.12)', border: '1px solid rgba(249,115,22,0.3)' }}>
+            <p className="text-sm leading-relaxed" style={{ color: 'rgba(254,215,170,0.8)' }}>
+              Also on the menu: custom branding, an AI-generated public website, analytics, and a
+              directory listing. Pick only the services you need and pay the sum of their monthly
+              prices — every cooperative gets a free{' '}
+              <span className="font-mono text-orange-300">yourname.kopkad.ng</span> subdomain at signup.
+              See it all on{' '}
+              <button onClick={onCoopClick} className="font-semibold text-orange-300 underline hover:text-orange-200">
+                cooperative.kopkad.ng
+              </button>.
+            </p>
           </div>
         </div>
       </section>

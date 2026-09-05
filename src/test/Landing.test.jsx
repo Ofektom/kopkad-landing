@@ -45,33 +45,19 @@ describe('Landing', () => {
     expect(screen.getByRole('heading', { level: 3, name: 'Loans' })).toBeInTheDocument();
   });
 
-  it('calls onCoopClick when "Launch your cooperative" is clicked', () => {
+  it('calls onCoopClick when "Explore Cooperative by Kopkad" is clicked', () => {
     render(<Landing onStartClick={onStartClick} onCoopClick={onCoopClick} />);
-    fireEvent.click(screen.getByRole('button', { name: /Launch your cooperative/i }));
+    fireEvent.click(screen.getByRole('button', { name: /Explore Cooperative by Kopkad/i }));
     expect(onCoopClick).toHaveBeenCalledTimes(1);
   });
 
-  it('renders the full cooperative service catalogue', () => {
+  it('gives only an overview of the wider catalogue and points to the coop site', () => {
     render(<Landing onStartClick={onStartClick} onCoopClick={onCoopClick} />);
-    [
-      'Member Savings',
-      'KYC Enablement',
-      'Custom Branding',
-      'AI Website',
-      'Analytics',
-      'Directory Listing',
-    ].forEach((name) => {
-      expect(screen.getByText(name)).toBeInTheDocument();
-    });
-    // "Thrift Contribution" and "Loans" also appear as pillar headings above the
-    // catalogue, so the catalogue entry is the second occurrence of each.
-    expect(screen.getAllByText('Thrift Contribution').length).toBeGreaterThanOrEqual(2);
-    expect(screen.getAllByText('Loans').length).toBeGreaterThanOrEqual(2);
-  });
-
-  it('calls onCoopClick from the free subdomain callout "Get started" button', () => {
-    render(<Landing onStartClick={onStartClick} onCoopClick={onCoopClick} />);
-    fireEvent.click(screen.getByRole('button', { name: 'Get started' }));
+    // The detailed 8-item service grid moved to cooperative.kopkad.ng — the
+    // landing page keeps a one-line summary and a link instead.
+    expect(screen.queryByText('KYC Enablement')).not.toBeInTheDocument();
+    expect(screen.queryByText('Directory Listing')).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'cooperative.kopkad.ng' }));
     expect(onCoopClick).toHaveBeenCalledTimes(1);
   });
 

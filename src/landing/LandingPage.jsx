@@ -6,10 +6,10 @@ import { goToApp, goToCoop } from '../utils/appNav';
 
 const LandingPage = () => (
   <>
-    <LandingNavbar onCoopClick={() => goToCoop('/login')} />
+    <LandingNavbar onCoopClick={() => goToCoop('/')} />
     <Landing
       onStartClick={() => goToApp('/')}
-      onCoopClick={() => goToCoop('/login')}
+      onCoopClick={() => goToCoop('/')}
     />
     <Footer />
   </>
