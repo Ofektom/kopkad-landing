@@ -15,6 +15,7 @@ const Footer = () => {
     ],
     Platform: [
       { label: 'For Merchants',    action: () => document.getElementById('merchants')?.scrollIntoView({ behavior: 'smooth' }) },
+      { label: 'For Field Agents', action: () => document.getElementById('field-agents')?.scrollIntoView({ behavior: 'smooth' }) },
       { label: 'For Cooperatives', action: () => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' }) },
       { label: 'For Individuals',  action: () => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' }) },
     ],

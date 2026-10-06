@@ -4,7 +4,7 @@ import {
   Users2, ChevronDown, ChevronUp, ArrowRight, ClipboardList,
   Zap, TrendingUp, CircleDollarSign, HandCoins, Users,
   QrCode, Lock, LineChart, Wallet, Store, Smartphone, Send,
-  Landmark, MessageSquareText, ShieldCheck,
+  Landmark, MessageSquareText, UserPlus, Coins, Trophy,
 } from 'lucide-react';
 import {CoopLogoMark } from './CoopLogo.jsx';
 
@@ -524,7 +524,7 @@ const Landing = ({ onStartClick, onCoopClick, onMerchantClick }) => {
   /* ── DATA ─────────────────────────────────────────────────────────────────── */
 
   const mainAppFeatures = [
-    { icon: ClipboardList, color: 'bg-cyan-700',   title: 'AJO Daily Card Marking',    desc: 'The core market savings workflow. QR-linked physical cards let agents mark daily contributions in seconds.' },
+    { icon: ClipboardList, color: 'bg-cyan-700',   title: 'AJO Daily Card Marking',    desc: 'The core market savings workflow. Field agents register customers and mark their daily contributions in seconds, earning commission paid by Kopkad.' },
     { icon: QrCode,           color: 'bg-orange-500', title: 'QR Physical Card System',    desc: 'Print QR savings cards for members. Scan with any smartphone to instantly open their account.' },
     { icon: TrendingUp,       color: 'bg-emerald-600', title: 'Interest on Your Savings',   desc: 'No commission to save. Your balance earns interest, accrued daily and credited monthly — up to 20% p.a. depending on how much and how long you save. Rate can change with notice; 10% withholding tax applies.' },
     { icon: Lock,             color: "bg-indigo-600", title: "Locked Savings",              desc: "Lock money for 3–12 months at a fixed rate of up to 20% p.a., set at creation. Add money any time (Flexible Lock) or lock a one-off sum (Fixed Lock)." },
@@ -598,6 +598,10 @@ const Landing = ({ onStartClick, onCoopClick, onMerchantClick }) => {
     {
       q: 'Do my customers need the Kopkad app, a smartphone, or data?',
       a: 'No. To be charged with an SMS code, a customer only needs a Kopkad wallet and a phone that can receive texts, so even a basic phone works. Customers who don\'t use Kopkad can pay you by bank transfer: scan your QR sticker, or transfer to your permanent account number from any bank app.',
+    },
+    {
+      q: 'How do field agents earn?',
+      a: 'Field agents register customers and mark their savings. You earn commission on the savings you mark, plus bonuses for marking streaks, milestones and referred customers who keep saving. Kopkad pays your commission. It is never charged to or deducted from your customers, who save commission-free. Earnings are paid out on scheduled payout days, and you can withdraw them to your bank. Savings groups for your customers are coming soon.',
     },
     {
       q: 'Who can become a merchant?',
@@ -863,8 +867,8 @@ const Landing = ({ onStartClick, onCoopClick, onMerchantClick }) => {
         </div>
       </section>
 
-      {/* ── Field Operations ─────────────────────────────────────────────────────── */}
-      <section className="py-20 px-4 bg-gray-50 overflow-hidden">
+      {/* ── Field Agents ─────────────────────────────────────────────────────────── */}
+      <section id="field-agents" className="py-20 px-4 bg-gray-50 overflow-hidden scroll-mt-16">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1 relative">
             <div className="grid grid-cols-2 gap-4">
@@ -890,33 +894,47 @@ const Landing = ({ onStartClick, onCoopClick, onMerchantClick }) => {
           </div>
           <div className="order-1 lg:order-2">
             <span className="inline-block bg-orange-100 text-orange-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
-              Field Operations
+              Field Agents
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-5">
-              Built for people who collect savings in the field
+              Collect savings in your community and earn commission
             </h2>
             <p className="text-gray-500 text-base leading-relaxed mb-8">
-              From street-level ajo operators to market traders, Kopkad is designed for how
-              Nigerians actually save and spend money: in the community, face to face, one
-              naira at a time.
+              Register customers, mark their daily savings, and get paid for it. Your commission is
+              paid by Kopkad, never deducted from your customers&apos; savings. From street-level ajo
+              collectors to market traders, Kopkad works the way Nigerians actually save: in the
+              community, face to face, one naira at a time.
             </p>
             <div className="space-y-4">
               {[
-                { icon: QrCode,           color: 'bg-orange-100 text-orange-600', title: 'QR Card Scanning',       desc: "Scan a member's physical card to pull up their account instantly — no searching or typing." },
-                { icon: Store,            color: 'bg-cyan-100 text-cyan-700',    title: 'Collect & Get Paid',      desc: 'Merchants mark savings cards and take payments for their goods from the same app.' },
-                { icon: ShieldCheck, color: 'bg-emerald-100 text-emerald-700', title: 'Every Payment Confirmed', desc: 'Payers and merchants get an alert the moment savings are marked or money moves.' },
-              ].map(({ icon: Icon, color, title, desc }) => (
+                { icon: UserPlus, color: 'bg-cyan-100 text-cyan-700',       title: 'Register customers',            desc: 'Sign up new customers on the spot, or share your referral code and link. Everyone you bring in joins your customer list.' },
+                { icon: QrCode,   color: 'bg-orange-100 text-orange-600',   title: 'Mark savings in seconds',       desc: "Scan a customer's QR savings card and record their daily contribution. They get an alert straight away." },
+                { icon: Coins,    color: 'bg-emerald-100 text-emerald-700', title: 'Earn commission, paid by Kopkad', desc: 'Earn on the savings you mark, plus streak, milestone and referral bonuses. Kopkad pays you; your customers never pay commission.' },
+                { icon: Trophy,   color: 'bg-amber-100 text-amber-700',     title: 'Grow your rank',                desc: 'Climb the tiers from Starter to Champion, top the monthly leaderboard, and see which customers need a follow-up.' },
+                { icon: Users,    color: 'bg-indigo-100 text-indigo-700',   title: 'Savings groups', soon: true,    desc: 'Create ajo/esusu savings groups for the customers you register: fixed contributions, rotating payouts, all tracked for you.' },
+              ].map(({ icon: Icon, color, title, desc, soon }) => (
                 <div key={title} className="flex gap-4">
                   <div className={`w-10 h-10 ${color} rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5`}>
                     <Icon size={18} />
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900 text-sm">{title}</p>
+                    <p className="font-semibold text-gray-900 text-sm">
+                      {title}
+                      {soon && (
+                        <span className="ml-2 align-middle bg-indigo-100 text-indigo-700 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
+                          Coming soon
+                        </span>
+                      )}
+                    </p>
                     <p className="text-gray-500 text-sm">{desc}</p>
                   </div>
                 </div>
               ))}
             </div>
+            <button onClick={onMerchantClick} className="mt-8 px-6 py-3 bg-cyan-700 hover:bg-cyan-800 text-white font-semibold rounded-xl transition-colors inline-flex items-center gap-2 text-sm">
+              Become a Field Agent <ArrowRight size={15} />
+            </button>
+            <p className="text-gray-400 text-xs mt-3">Field agent tools come with every Kopkad merchant account.</p>
           </div>
         </div>
       </section>

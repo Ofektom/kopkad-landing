@@ -95,6 +95,18 @@ describe('Landing', () => {
     });
   });
 
+  it('renders the field agent section: register, mark, platform-paid commission, and savings groups coming soon', () => {
+    render(<Landing onStartClick={onStartClick} onCoopClick={onCoopClick} onMerchantClick={onMerchantClick} />);
+    expect(document.getElementById('field-agents')).toBeInTheDocument();
+    ['Register customers', 'Mark savings in seconds', 'Earn commission, paid by Kopkad', 'Grow your rank'].forEach((title) => {
+      expect(screen.getByText(title, { selector: 'p' })).toBeInTheDocument();
+    });
+    expect(screen.getByText(/your customers never pay commission/i)).toBeInTheDocument();
+    expect(screen.getByText('Coming soon')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: /Become a Field Agent/i }));
+    expect(onMerchantClick).toHaveBeenCalledTimes(1);
+  });
+
   it('calls onMerchantClick from "Become a Merchant" and onStartClick from "Start Investing"', () => {
     render(<Landing onStartClick={onStartClick} onCoopClick={onCoopClick} onMerchantClick={onMerchantClick} />);
     fireEvent.click(screen.getByRole('button', { name: 'Become a Merchant' }));

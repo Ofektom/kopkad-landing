@@ -22,7 +22,7 @@ describe('LandingNavbar', () => {
   it('renders the logo and all desktop nav links', () => {
     render(<LandingNavbar />);
     expect(screen.getByAltText('Kopkad')).toBeInTheDocument();
-    ['Features', 'Merchants', 'How It Works', 'Pricing', 'FAQ'].forEach((label) => {
+    ['Features', 'Merchants', 'Field Agents', 'How It Works', 'Pricing', 'FAQ'].forEach((label) => {
       expect(screen.getByRole('button', { name: label })).toBeInTheDocument();
     });
   });

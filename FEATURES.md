@@ -106,9 +106,12 @@ happen in one app.
 transfers currently default to no fee; To Bank and merchant deposits carry a fee.
 
 ### 1.7 Field agent (savings collection) — Live
-Field agents collect and record customers' daily savings in the community. Every
-merchant account includes these tools on its **Dashboard**:
+Field agents register customers and collect and record their daily savings in the
+community, and **earn commission for it, paid by Kopkad**. Customers save
+commission-free; agent commission is never charged to or deducted from customers.
+Every merchant account includes these tools on its **Dashboard**:
 
+- **Register customers:** sign up new customers on the spot (Add Member), or share your referral code, link or QR so they sign up themselves. Either way they join your customer list.
 - **Scan Savings Card:** scan a customer's **QR savings card** to open their account instantly, then choose which savings plan to mark.
 - **AJO daily card marking:** record a customer's contribution for one or many days, paid from the agent's wallet. The customer gets an alert.
 - **Agent Customers:** two lists, **QR card** customers (those you've marked for) and **Referred customers** (those who signed up with your code). Shows each customer's total markings and savings, and lets you add a new customer.
@@ -120,13 +123,20 @@ merchant account includes these tools on its **Dashboard**:
 - **Recent Earnings:** the latest bonuses and payouts.
 - **Leaderboard:** monthly ranking against other agents by customer growth and savings volume.
 - **My Referral Code:** agent code, sign-up link, and a pre-built share message to onboard customers.
-- **Earnings:** marking and streak bonuses, a one-off activation milestone, referral bonuses when a referred customer funds and keeps a balance for the retention period, and a monthly trail on retained customers' balances. There is no flat sign-up bonus and no per-marking commission. Earnings are paid out on scheduled payout days and can be withdrawn to bank.
+- **Commission and earnings (paid by Kopkad):**
+  - Commission on the savings you mark for your customers.
+  - Marking-streak bonuses and milestone bonuses, including a one-off activation milestone.
+  - Referral bonuses when a referred customer funds and keeps a balance.
+  - A monthly trail on retained customers' balances.
+  - There is no flat sign-up bonus. Earnings are paid out on scheduled payout days and can be withdrawn to bank.
+- **Savings groups for your customers — Coming soon:** agents will be able to create ajo/esusu savings groups (see 1.8) for the customers they register.
 - **Learn:** in-app guides for every merchant and agent feature.
 
 ### 1.8 Thrift savings groups (main app) — Not public yet
-**Status:** built, but hidden for customers and merchants on staging and production
+**Status:** coming soon. It is built but currently hidden on staging and production
 during the gradual launch. Thrift is fully live in **CoopX** (section 2). In the main
-app it is called **Savings Groups**.
+app it is called **Savings Groups**. When it launches, **field agents will create
+savings groups for the customers they register** and run them from their dashboard.
 
 - **Group types:**
   - **Rigid Group (Ajo / Esusu):** a fixed contribution on a fixed schedule with rotational payout, so each member collects the pot in turn.
