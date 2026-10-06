@@ -19,6 +19,7 @@ const LandingNavbar = ({ onCoopClick }) => {
 
   const navLinks = [
     { label: 'Features', id: 'features' },
+    { label: 'Merchants', id: 'merchants' },
     { label: 'How It Works', id: 'how-it-works' },
     { label: 'Pricing', id: 'pricing' },
     { label: 'FAQ', id: 'faq' },

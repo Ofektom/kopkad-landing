@@ -14,7 +14,7 @@ const Footer = () => {
       { label: 'FAQ',          action: () => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' }) },
     ],
     Platform: [
-      { label: 'For Agents',       action: () => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' }) },
+      { label: 'For Merchants',    action: () => document.getElementById('merchants')?.scrollIntoView({ behavior: 'smooth' }) },
       { label: 'For Cooperatives', action: () => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' }) },
       { label: 'For Individuals',  action: () => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' }) },
     ],
@@ -57,7 +57,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-sm leading-relaxed max-w-xs">
-              Smart savings management for thrift businesses, cooperatives, and personal savers across Nigeria — now earning interest on every naira saved.
+              Smart savings, merchant payments, and cooperative management for Nigeria — now earning interest on every naira saved.
             </p>
             <div className="flex gap-3 mt-5">
               {socials.map(({ icon: Icon, href }, idx) => (

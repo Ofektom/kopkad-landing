@@ -1,0 +1,16 @@
+# Dependencies & build output — never commit these
+node_modules/
+dist/
+
+# Local env overrides (.env.example is the committed template)
+.env.local
+.env.*.local
+
+# Tooling caches
+.pytest_cache/
+.vite/
+.DS_Store
+*.log
+
+# Local Claude Code settings
+.claude/

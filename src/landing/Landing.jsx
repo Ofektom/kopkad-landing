@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { goToApp } from '../utils/appNav';
 import {
   Users2, ChevronDown, ChevronUp, ArrowRight, ClipboardList,
-  Zap, TrendingUp, Banknote, Calculator,
-  CircleDollarSign, UsersRound, HandCoins, Users,
-  QrCode, Lock, LineChart, Wallet,
+  Zap, TrendingUp, CircleDollarSign, HandCoins, Users,
+  QrCode, Lock, LineChart, Wallet, Store, Smartphone, Send,
+  Landmark, MessageSquareText, ShieldCheck,
 } from 'lucide-react';
 import {CoopLogoMark } from './CoopLogo.jsx';
 
@@ -62,97 +62,86 @@ const SavingsIllustration = () => (
   </svg>
 );
 
-const CashFlowIllustration = () => (
+const PosIllustration = () => (
   <svg viewBox="0 0 520 420" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-lg">
-    {/* Phone frame */}
-    <rect x="120" y="10" width="220" height="400" rx="28" fill="#0e4f63" />
-    <rect x="128" y="26" width="204" height="368" rx="20" fill="#f8fafc" />
-    <rect x="128" y="26" width="204" height="40" rx="20" fill="#155e75" />
-    <circle cx="230" cy="46" r="6" fill="#0e4f63" />
+    {/* Merchant phone */}
+    <rect x="150" y="10" width="220" height="400" rx="28" fill="#0e4f63" />
+    <rect x="158" y="26" width="204" height="368" rx="20" fill="#f8fafc" />
+    <rect x="158" y="26" width="204" height="40" rx="20" fill="#155e75" />
+    <text x="196" y="52" fontSize="11" fill="#a5f3fc" fontFamily="sans-serif" fontWeight="600">Kopkad Pay · POS</text>
 
-    {/* Header */}
-    <text x="160" y="52" fontSize="11" fill="#a5f3fc" fontFamily="sans-serif" fontWeight="600">Cash Flow Monitor</text>
+    {/* Wallet card */}
+    <rect x="168" y="76" width="184" height="78" rx="14" fill="#155e75" />
+    <text x="182" y="96" fontSize="8" fill="#a5f3fc" fontFamily="sans-serif">Wallet Balance</text>
+    <text x="182" y="118" fontSize="18" fill="white" fontWeight="bold" fontFamily="sans-serif">₦184,250</text>
+    <text x="182" y="138" fontSize="7.5" fill="#a5f3fc" fontFamily="sans-serif">Wema Bank · 99•• ••• 678</text>
+    <rect x="296" y="128" width="46" height="16" rx="8" fill="white" opacity="0.2" />
+    <text x="303" y="139" fontSize="7" fill="white" fontFamily="sans-serif">Share QR</text>
 
-    {/* Period tabs */}
-    <rect x="136" y="74" width="188" height="24" rx="8" fill="#e2e8f0" />
-    <rect x="138" y="76" width="58" height="20" rx="6" fill="#155e75" />
-    <text x="152" y="90" fontSize="8" fill="white" fontFamily="sans-serif" fontWeight="600">Today</text>
-    <text x="204" y="90" fontSize="8" fill="#64748b" fontFamily="sans-serif">Week</text>
-    <text x="248" y="90" fontSize="8" fill="#64748b" fontFamily="sans-serif">Month</text>
-    <text x="290" y="90" fontSize="8" fill="#64748b" fontFamily="sans-serif">Year</text>
+    {/* Three equal tiles */}
+    {[
+      { x: 168, label1: 'Charge', label2: 'Customer', bg: '#fff7ed', fg: '#c2410c', glyph: '₦' },
+      { x: 231, label1: 'To', label2: 'Kopkad', bg: '#ecfeff', fg: '#0e7490', glyph: '→' },
+      { x: 294, label1: 'To', label2: 'Bank', bg: '#eef2ff', fg: '#4338ca', glyph: '⌂' },
+    ].map(({ x, label1, label2, bg, fg, glyph }) => (
+      <g key={label2}>
+        <rect x={x} y="166" width="58" height="66" rx="12" fill={bg} />
+        <circle cx={x + 29} cy="188" r="11" fill="white" />
+        <text x={x + 29} y="192" fontSize="11" fill={fg} fontFamily="sans-serif" fontWeight="700" textAnchor="middle">{glyph}</text>
+        <text x={x + 29} y="212" fontSize="7.5" fill={fg} fontFamily="sans-serif" fontWeight="600" textAnchor="middle">{label1}</text>
+        <text x={x + 29} y="222" fontSize="7.5" fill={fg} fontFamily="sans-serif" fontWeight="600" textAnchor="middle">{label2}</text>
+      </g>
+    ))}
 
-    {/* Net cash badge */}
-    <rect x="148" y="106" width="164" height="44" rx="12" fill="#f0fdf4" />
-    <text x="168" y="122" fontSize="9" fill="#166534" fontFamily="sans-serif">Net Cash Flow</text>
-    <text x="168" y="140" fontSize="16" fill="#166534" fontWeight="bold" fontFamily="sans-serif">+₦145,000</text>
-    <circle cx="300" cy="128" r="10" fill="#dcfce7" />
-    <text x="295" y="133" fontSize="12" fill="#16a34a" fontFamily="sans-serif">↑</text>
+    {/* Code entry */}
+    <text x="168" y="252" fontSize="8" fill="#374151" fontFamily="sans-serif" fontWeight="600">Enter customer&apos;s code</text>
+    {[0, 1, 2, 3, 4, 5].map(i => (
+      <rect key={i} x={168 + i * 31} y="260" width="26" height="30" rx="6" fill="white" stroke="#cbd5e1" />
+    ))}
+    {/* One text run, one glyph per box — keeps the code a single string */}
+    <text x="181 212 243 274 305 336" y="280" fontSize="12" fill="#0f172a" fontFamily="sans-serif" fontWeight="700" textAnchor="middle">482913</text>
+    <rect x="168" y="302" width="184" height="30" rx="10" fill="#0e7490" />
+    <text x="260" y="321" fontSize="9" fill="white" fontFamily="sans-serif" fontWeight="700" textAnchor="middle">Charge ₦2,500</text>
 
-    {/* Inflow bar */}
-    <text x="136" y="166" fontSize="8" fill="#6b7280" fontFamily="sans-serif">Inflow</text>
-    <text x="264" y="166" fontSize="8" fill="#0e7490" fontFamily="sans-serif" fontWeight="600">₦320,000</text>
-    <rect x="136" y="170" width="188" height="14" rx="7" fill="#e0f2fe" />
-    <rect x="136" y="170" width="140" height="14" rx="7" fill="#0e7490" />
+    {/* Success row */}
+    <rect x="168" y="344" width="184" height="36" rx="10" fill="#f0fdf4" />
+    <circle cx="186" cy="362" r="9" fill="#dcfce7" />
+    <text x="182" y="366" fontSize="10" fill="#16a34a" fontFamily="sans-serif">✓</text>
+    <text x="202" y="359" fontSize="8" fill="#166534" fontFamily="sans-serif" fontWeight="600">Payment received</text>
+    <text x="202" y="370" fontSize="7" fill="#6b7280" fontFamily="sans-serif">From Ada · 0803••••412</text>
 
-    {/* Outflow bar */}
-    <text x="136" y="198" fontSize="8" fill="#6b7280" fontFamily="sans-serif">Expenses</text>
-    <text x="255" y="198" fontSize="8" fill="#dc2626" fontFamily="sans-serif" fontWeight="600">₦175,000</text>
-    <rect x="136" y="202" width="188" height="14" rx="7" fill="#fee2e2" />
-    <rect x="136" y="202" width="82" height="14" rx="7" fill="#ef4444" />
+    {/* Customer's basic phone with SMS */}
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0,0;0,-6;0,0" dur="3s" repeatCount="indefinite" />
+      <rect x="10" y="150" width="120" height="200" rx="16" fill="#334155" />
+      <rect x="20" y="166" width="100" height="92" rx="6" fill="#d9f99d" />
+      <text x="28" y="182" fontSize="7" fill="#365314" fontFamily="monospace" fontWeight="700">KOPKAD</text>
+      <text x="28" y="196" fontSize="6.5" fill="#365314" fontFamily="monospace">Pay ₦2,500 to</text>
+      <text x="28" y="207" fontSize="6.5" fill="#365314" fontFamily="monospace">Mama Ngozi Store</text>
+      <text x="28" y="222" fontSize="6.5" fill="#365314" fontFamily="monospace">Code:</text>
+      <text x="28" y="238" fontSize="12" fill="#1a2e05" fontFamily="monospace" fontWeight="700">482913</text>
+      <text x="28" y="251" fontSize="5.5" fill="#365314" fontFamily="monospace">Expires in 3 min</text>
+      {[0, 1, 2].map(r => [0, 1, 2].map(c => (
+        <rect key={`${r}-${c}`} x={30 + c * 28} y={270 + r * 24} width="22" height="16" rx="5" fill="#475569" />
+      )))}
+    </g>
+    <rect x="22" y="362" width="100" height="20" rx="10" fill="#fff7ed" />
+    <text x="72" y="376" fontSize="7" fill="#c2410c" fontFamily="sans-serif" fontWeight="600" textAnchor="middle">No data · No app</text>
 
-    {/* Divider */}
-    <line x1="136" y1="226" x2="324" y2="226" stroke="#e2e8f0" strokeWidth="1" />
+    {/* QR sticker */}
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="2.6s" repeatCount="indefinite" />
+      <rect x="392" y="90" width="112" height="132" rx="14" fill="white" opacity="0.97" />
+      <text x="448" y="110" fontSize="8" fill="#155e75" fontFamily="sans-serif" fontWeight="700" textAnchor="middle">Pay this shop</text>
+      {[[0,0],[0,1],[1,0],[2,2],[3,1],[1,3],[4,4],[0,4],[4,0],[2,0],[3,3],[1,2]].map(([r, c]) => (
+        <rect key={`${r}${c}`} x={420 + c * 12} y={118 + r * 12} width="10" height="10" fill="#0e7490" />
+      ))}
+      <text x="448" y="196" fontSize="7" fill="#6b7280" fontFamily="sans-serif" textAnchor="middle">Transfer from</text>
+      <text x="448" y="207" fontSize="7" fill="#6b7280" fontFamily="sans-serif" textAnchor="middle">any bank app</text>
+    </g>
 
-    {/* Transactions */}
-    <text x="136" y="242" fontSize="8" fill="#374151" fontFamily="sans-serif" fontWeight="600">Recent Transactions</text>
-
-    {/* Transaction 1 */}
-    <circle cx="148" cy="260" r="9" fill="#dcfce7" />
-    <text x="143" y="264" fontSize="10" fill="#16a34a" fontFamily="sans-serif">↑</text>
-    <text x="162" y="258" fontSize="8" fill="#111827" fontFamily="sans-serif" fontWeight="600">Salary Credit</text>
-    <text x="162" y="268" fontSize="7" fill="#9ca3af" fontFamily="sans-serif">08:30 AM</text>
-    <text x="278" y="262" fontSize="9" fill="#16a34a" fontFamily="sans-serif" fontWeight="700">+₦280k</text>
-
-    {/* Transaction 2 */}
-    <circle cx="148" cy="285" r="9" fill="#fee2e2" />
-    <text x="143" y="289" fontSize="10" fill="#dc2626" fontFamily="sans-serif">↓</text>
-    <text x="162" y="283" fontSize="8" fill="#111827" fontFamily="sans-serif" fontWeight="600">Grocery Shopping</text>
-    <text x="162" y="293" fontSize="7" fill="#9ca3af" fontFamily="sans-serif">11:45 AM</text>
-    <text x="275" y="287" fontSize="9" fill="#dc2626" fontFamily="sans-serif" fontWeight="700">-₦12.5k</text>
-
-    {/* Transaction 3 */}
-    <circle cx="148" cy="310" r="9" fill="#fee2e2" />
-    <text x="143" y="314" fontSize="10" fill="#dc2626" fontFamily="sans-serif">↓</text>
-    <text x="162" y="308" fontSize="8" fill="#111827" fontFamily="sans-serif" fontWeight="600">Fuel & Transport</text>
-    <text x="162" y="318" fontSize="7" fill="#9ca3af" fontFamily="sans-serif">02:15 PM</text>
-    <text x="278" y="312" fontSize="9" fill="#dc2626" fontFamily="sans-serif" fontWeight="700">-₦8.5k</text>
-
-    {/* Budget progress */}
-    <rect x="136" y="330" width="188" height="52" rx="10" fill="#fff7ed" />
-    <text x="148" y="345" fontSize="8" fill="#9a3412" fontFamily="sans-serif" fontWeight="600">Monthly Budget</text>
-    <text x="274" y="345" fontSize="7" fill="#9a3412" fontFamily="sans-serif">68% used</text>
-    <rect x="148" y="350" width="164" height="8" rx="4" fill="#fed7aa" />
-    <rect x="148" y="350" width="111" height="8" rx="4" fill="#f97316" />
-    <text x="148" y="374" fontSize="7" fill="#6b7280" fontFamily="sans-serif">₦175,000 of ₦260,000</text>
-
-    {/* Floating cards */}
-    <rect x="0" y="80" width="110" height="52" rx="12" fill="white" opacity="0.96" />
-    <circle cx="20" cy="106" r="12" fill="#dbeafe" />
-    <text x="14" y="111" fontSize="11" fill="#2563eb" fontFamily="sans-serif">📊</text>
-    <text x="38" y="100" fontSize="7" fill="#6b7280" fontFamily="sans-serif">Statements</text>
-    <text x="38" y="112" fontSize="9" fill="#111827" fontFamily="sans-serif" fontWeight="700">3 Reports</text>
-    <text x="38" y="123" fontSize="7" fill="#16a34a" fontFamily="sans-serif">Ready to view</text>
-
-    <rect x="350" y="240" width="130" height="56" rx="12" fill="white" opacity="0.96" />
-    <circle cx="370" cy="268" r="12" fill="#fef3c7" />
-    <text x="364" y="273" fontSize="11" fontFamily="sans-serif">🎯</text>
-    <text x="388" y="258" fontSize="7" fill="#6b7280" fontFamily="sans-serif">Budget Goal</text>
-    <text x="388" y="270" fontSize="9" fill="#111827" fontFamily="sans-serif" fontWeight="700">Emergency Fund</text>
-    <text x="388" y="282" fontSize="7" fill="#d97706" fontFamily="sans-serif">₦50k of ₦200k</text>
-    <text x="388" y="292" fontSize="7" fill="#6b7280" fontFamily="sans-serif">25% complete</text>
-
-    <circle cx="30" cy="360" r="8" fill="#f97316" opacity="0.3" />
-    <circle cx="470" cy="100" r="10" fill="#155e75" opacity="0.2" />
+    <circle cx="480" cy="300" r="10" fill="#f97316" opacity="0.3" />
+    <circle cx="420" cy="380" r="7" fill="#155e75" opacity="0.2" />
   </svg>
 );
 
@@ -386,72 +375,48 @@ const MobilePaymentSVG = () => (
   </svg>
 );
 
-const BudgetPlannerSVG = () => (
+const ShopCounterSVG = () => (
   <svg viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
     <rect width="320" height="180" fill="#eef2ff" />
-    {/* Desk */}
-    <rect x="20" y="138" width="200" height="10" rx="5" fill="#c7d2fe" />
-    <rect x="40" y="148" width="8" height="24" rx="3" fill="#a5b4fc" />
-    <rect x="172" y="148" width="8" height="24" rx="3" fill="#a5b4fc" />
-    {/* Chair */}
-    <rect x="55" y="120" width="90" height="20" rx="6" fill="#818cf8" />
-    <rect x="80" y="140" width="10" height="20" rx="3" fill="#6366f1" />
-    <rect x="110" y="140" width="10" height="20" rx="3" fill="#6366f1" />
-    {/* Person sitting */}
-    {/* Body */}
-    <path d="M72 82 C68 82 64 86 64 96 L62 126 C62 130 68 132 100 132 L120 132 C140 130 136 126 134 118 L128 96 C128 86 124 82 120 82 Z" fill="#6366f1" />
-    {/* Neck */}
-    <rect x="91" y="70" width="10" height="14" rx="5" fill="#fed7aa" />
-    {/* Head */}
-    <circle cx="96" cy="58" r="20" fill="#fed7aa" />
-    {/* Hair */}
-    <path d="M76 52 Q96 30 116 52 Q114 42 96 36 Q78 42 76 52 Z" fill="#1c1917" />
-    {/* Eyes */}
-    <circle cx="90" cy="60" r="2" fill="#44403c" />
-    <circle cx="102" cy="60" r="2" fill="#44403c" />
-    <path d="M91 67 Q96 71 101 67" stroke="#92400e" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-    {/* Arms — reaching to laptop */}
-    <path d="M72 98 L48 110 L32 116" stroke="#fed7aa" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-    <path d="M120 98 L148 108 L180 112" stroke="#fed7aa" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-    {/* Laptop */}
-    <rect x="20" y="112" width="200" height="28" rx="5" fill="#1e293b" />
-    <rect x="24" y="115" width="192" height="22" rx="4" fill="#0f172a" />
-    {/* Screen content — mini charts */}
-    <rect x="28" y="119" width="50" height="14" rx="2" fill="#155e75" opacity="0.8" />
-    <text x="30" y="128" fontSize="5.5" fill="#a5f3fc" fontFamily="sans-serif">Cash Flow ↑</text>
-    <rect x="82" y="119" width="40" height="14" rx="2" fill="#4f46e5" opacity="0.8" />
-    <text x="84" y="128" fontSize="5.5" fill="#c7d2fe" fontFamily="sans-serif">Budgets</text>
-    <rect x="126" y="119" width="36" height="14" rx="2" fill="#059669" opacity="0.8" />
-    <text x="128" y="128" fontSize="5.5" fill="#d1fae5" fontFamily="sans-serif">+₦18k</text>
-    <rect x="166" y="119" width="44" height="14" rx="2" fill="#b45309" opacity="0.7" />
-    <text x="168" y="128" fontSize="5.5" fill="#fef3c7" fontFamily="sans-serif">Expenses</text>
-    {/* === Floating chart bars (right side) === */}
-    <g>
-      <rect x="240" y="80" width="14" height="50" rx="3" fill="#6366f1" opacity="0.5">
-        <animate attributeName="height" values="50;64;50" dur="2.4s" repeatCount="indefinite" />
-        <animate attributeName="y" values="80;66;80" dur="2.4s" repeatCount="indefinite" />
-      </rect>
-      <rect x="258" y="68" width="14" height="62" rx="3" fill="#6366f1" opacity="0.7">
-        <animate attributeName="height" values="62;74;62" dur="2s" repeatCount="indefinite" />
-        <animate attributeName="y" values="68;56;68" dur="2s" repeatCount="indefinite" />
-      </rect>
-      <rect x="276" y="56" width="14" height="74" rx="3" fill="#6366f1">
-        <animate attributeName="height" values="74;86;74" dur="1.8s" repeatCount="indefinite" />
-        <animate attributeName="y" values="56;44;56" dur="1.8s" repeatCount="indefinite" />
-      </rect>
-      <rect x="294" y="70" width="14" height="60" rx="3" fill="#f97316">
-        <animate attributeName="height" values="60;72;60" dur="2.2s" repeatCount="indefinite" />
-        <animate attributeName="y" values="70;58;70" dur="2.2s" repeatCount="indefinite" />
-      </rect>
-      <text x="248" y="145" fontSize="7" fill="#6366f1" fontFamily="sans-serif" fontWeight="600">Monthly Budget</text>
-    </g>
-    {/* Floating goal badge */}
+    {/* Shop awning */}
+    <rect x="0" y="0" width="320" height="22" fill="#6366f1" />
+    {[0, 1, 2, 3, 4, 5, 6, 7].map(i => (
+      <path key={i} d={`M${i * 40} 22 Q${i * 40 + 20} 36 ${i * 40 + 40} 22`} fill={i % 2 ? '#6366f1' : '#f97316'} />
+    ))}
+    {/* Counter */}
+    <rect x="20" y="128" width="280" height="14" rx="5" fill="#c7d2fe" />
+    <rect x="30" y="142" width="260" height="34" fill="#a5b4fc" />
+    {/* Goods */}
+    <rect x="36" y="104" width="22" height="24" rx="3" fill="#fbbf24" />
+    <rect x="62" y="96" width="18" height="32" rx="3" fill="#34d399" />
+    <rect x="84" y="108" width="26" height="20" rx="3" fill="#f87171" />
+    {/* Merchant */}
+    <path d="M152 92 C148 92 144 96 144 104 L142 128 L198 128 L196 104 C196 96 192 92 188 92 Z" fill="#0e7490" />
+    <rect x="164" y="76" width="12" height="18" rx="6" fill="#c47a3a" />
+    <circle cx="170" cy="62" r="18" fill="#c47a3a" />
+    <ellipse cx="170" cy="48" rx="20" ry="12" fill="#2d1400" />
+    <circle cx="164" cy="64" r="2" fill="#4a2008" />
+    <circle cx="176" cy="64" r="2" fill="#4a2008" />
+    <path d="M165 71 Q170 75 175 71" stroke="#9a5020" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+    {/* Merchant's phone */}
+    <path d="M196 104 L214 110" stroke="#c47a3a" strokeWidth="9" strokeLinecap="round" />
+    <rect x="212" y="94" width="20" height="34" rx="4" fill="#1e293b" />
+    <rect x="214" y="98" width="16" height="24" rx="2" fill="#dcfce7" />
+    <text x="222" y="113" fontSize="9" fill="#16a34a" fontFamily="sans-serif" textAnchor="middle">✓</text>
+    {/* QR sticker on counter */}
+    <rect x="246" y="98" width="34" height="30" rx="4" fill="white" />
+    <rect x="251" y="102" width="8" height="8" fill="#0e7490" />
+    <rect x="267" y="102" width="8" height="8" fill="#0e7490" />
+    <rect x="251" y="116" width="8" height="8" fill="#0e7490" />
+    <rect x="262" y="113" width="5" height="5" fill="#0e7490" />
+    {/* Floating badge */}
     <g>
       <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="3s" repeatCount="indefinite" />
-      <rect x="228" y="18" width="80" height="30" rx="10" fill="white" opacity="0.95" />
-      <text x="236" y="30" fontSize="7" fill="#4338ca" fontFamily="sans-serif" fontWeight="700">🎯 Goal: ₦200k</text>
-      <text x="236" y="42" fontSize="6" fill="#6366f1" fontFamily="sans-serif">38% complete</text>
+      <rect x="226" y="44" width="84" height="30" rx="10" fill="white" opacity="0.95" />
+      <text x="234" y="56" fontSize="7" fill="#4338ca" fontFamily="sans-serif" fontWeight="700">₦2,500 received</text>
+      <text x="234" y="67" fontSize="6" fill="#6366f1" fontFamily="sans-serif">via SMS code</text>
     </g>
+    <text x="160" y="166" fontSize="8" fill="#3730a3" fontFamily="sans-serif" fontWeight="600" textAnchor="middle">Your phone is the POS</text>
   </svg>
 );
 
@@ -555,32 +520,31 @@ const FaqItem = ({ q, a }) => {
 };
 
 // ── Main ──────────────────────────────────────────────────────────────────────
-const Landing = ({ onStartClick, onCoopClick }) => {
+const Landing = ({ onStartClick, onCoopClick, onMerchantClick }) => {
   /* ── DATA ─────────────────────────────────────────────────────────────────── */
 
   const mainAppFeatures = [
     { icon: ClipboardList, color: 'bg-cyan-700',   title: 'AJO Daily Card Marking',    desc: 'The core market savings workflow. QR-linked physical cards let agents mark daily contributions in seconds.' },
     { icon: QrCode,           color: 'bg-orange-500', title: 'QR Physical Card System',    desc: 'Print QR savings cards for members. Scan with any smartphone to instantly open their account.' },
-    { icon: TrendingUp,       color: 'bg-emerald-600', title: 'Interest on Your Savings',   desc: 'No commission to save. Your balance earns interest, accrued daily and credited monthly — up to 10% p.a. depending on how much and how long you save. Rate can change with notice; 10% withholding tax applies.' },
-    { icon: Lock,             color: "bg-indigo-600", title: "Locked Savings",              desc: "Lock money for 3–12 months at a fixed rate up to 13% p.a., set at creation. Add money any time (Flexible Lock) or lock a one-off sum (Fixed Lock)." },
-    { icon: TrendingUp,    color: 'bg-emerald-600',title: 'Cash Flow Monitoring',       desc: 'Real-time inflow and expense tracking with auto-generated income statements and balance sheets.' },
-    { icon: Calculator,    color: 'bg-orange-500', title: 'Budget Planner',             desc: 'Create budgets for any purpose and track spending against them in real time.' },
-    { icon: Banknote,          color: 'bg-cyan-700',   title: 'Daily Expense Tracker',      desc: 'Log and categorise every expense. Know exactly where every naira goes with daily breakdowns.' },
-    { icon: UsersRound,             color: 'bg-emerald-600',title: 'Agent & Sub-Agent Network',  desc: 'Deploy sub-agents with their own dashboards, member lists, and referral & performance bonus tracking.' },
-    { icon: Zap, color: 'bg-cyan-700',   title: 'SMS & Email Notifications',  desc: 'Members get instant alerts when savings are marked, payments confirmed, or payouts processed.' },
+    { icon: TrendingUp,       color: 'bg-emerald-600', title: 'Interest on Your Savings',   desc: 'No commission to save. Your balance earns interest, accrued daily and credited monthly — up to 20% p.a. depending on how much and how long you save. Rate can change with notice; 10% withholding tax applies.' },
+    { icon: Lock,             color: "bg-indigo-600", title: "Locked Savings",              desc: "Lock money for 3–12 months at a fixed rate of up to 20% p.a., set at creation. Add money any time (Flexible Lock) or lock a one-off sum (Fixed Lock)." },
+    { icon: Wallet,        color: 'bg-cyan-700',   title: 'Wallet & Account Number',    desc: 'Complete KYC to get your own permanent 10-digit account number. Top up from any bank app, withdraw to your bank any time.' },
+    { icon: Store,         color: 'bg-orange-500', title: 'Merchant POS',               desc: 'Turn your phone into a POS with Kopkad Pay: charge customers, send to any Kopkad user, or pay out to any bank.' },
+    { icon: MessageSquareText, color: 'bg-indigo-600', title: 'Pay Without Data',       desc: 'Pay a Kopkad merchant from your wallet by reading out a one-time SMS code. You don\'t need a smartphone, data or a card.' },
+    { icon: Zap,           color: 'bg-emerald-600',title: 'SMS & Email Notifications',  desc: 'Instant alerts when savings are marked, money lands in or leaves your wallet, or a payout is processed.' },
   ];
 
   const steps = [
     { icon: Users2,      color: 'bg-cyan-700',   title: 'Sign Up & Verify',         desc: 'Create your account, choose your role, and verify your identity to unlock all features.' },
-    { icon: ClipboardList,  color: 'bg-orange-500', title: 'Set Up Your Operation',    desc: 'Add members or savings goals, configure groups, start tracking contributions, or open a Locked Savings plan.' },
-    { icon: CircleDollarSign, color: 'bg-cyan-700',   title: 'Grow, Track & Pay Out',    desc: 'Collect savings, monitor cash flow in real time, and process approved withdrawals with full audit trails.' },
+    { icon: ClipboardList,  color: 'bg-orange-500', title: 'Set Up Your Operation',    desc: 'Start a savings plan, open a Locked Savings plan, or switch on your merchant POS and print your QR sticker.' },
+    { icon: CircleDollarSign, color: 'bg-cyan-700',   title: 'Grow, Track & Pay Out',    desc: 'Save and earn interest, take payments at your shop, and withdraw to any bank, with a full record of every transaction.' },
   ];
 
   const testimonials = [
     {
       name: 'Amaka O.', location: 'Lagos', role: 'Thrift Operator',
       initials: 'AO', avatarBg: 'bg-cyan-700',
-      quote: 'I used to carry exercise books everywhere for 60+ customers. Kopkad replaced all that. The cash flow reports show me exactly how my business is doing every single day.',
+      quote: 'I used to carry exercise books everywhere for 60+ customers. Kopkad replaced all that. Now I mark cards and take payment for my provisions from the same phone.',
     },
     {
       name: 'Chukwudi E.', location: 'Enugu', role: 'Cooperative Manager',
@@ -590,14 +554,14 @@ const Landing = ({ onStartClick, onCoopClick }) => {
     {
       name: 'Fatima B.', location: 'Kano', role: 'Personal Saver',
       initials: 'FB', avatarBg: 'bg-indigo-600',
-      quote: 'The budget planner and expense tracker changed how I manage money. I know where every naira goes — and I have a Locked Savings plan growing for my daughter\'s education.',
+      quote: 'I top up my wallet straight from my bank app, pay at the shop with just an SMS code, and I have a Locked Savings plan growing for my daughter\'s education.',
     },
   ];
 
   const faqs = [
     {
       q: 'What is Kopkad?',
-      a: 'Kopkad is a digital financial management platform for Nigeria with two separate products: the main app (app.kopkad.ng) for thrift operators, market savings collectors, and personal finance users — and Cooperative by Kopkad (cooperative.kopkad.ng), a full SaaS platform for managing cooperative societies.',
+      a: 'Kopkad is a digital financial management platform for Nigeria with two separate products: the main app (app.kopkad.ng) for personal savers, merchants, and market savings collectors — and Cooperative by Kopkad (cooperative.kopkad.ng), a full SaaS platform for managing cooperative societies.',
     },
     {
       q: 'Does Kopkad charge a commission on savings?',
@@ -605,7 +569,7 @@ const Landing = ({ onStartClick, onCoopClick }) => {
     },
     {
       q: 'How does my money earn interest?',
-      a: 'Your balance accrues interest every day and it is credited to your savings monthly — up to 10% per year depending on how much and how long you save. Unlike a Locked Savings plan, a regular savings rate is not locked: it can change with notice. 10% withholding tax applies to interest.',
+      a: 'Your balance accrues interest every day and it is credited to your savings monthly — up to 20% per year depending on how much and how long you save. Unlike a Locked Savings plan, a regular savings rate is not locked: it can change with notice. 10% withholding tax applies to interest.',
     },
     {
       q: 'Do I need to verify my identity (BVN)?',
@@ -613,7 +577,7 @@ const Landing = ({ onStartClick, onCoopClick }) => {
     },
     {
       q: 'What is the difference between the main app and Cooperative by Kopkad?',
-      a: 'The main app is for thrift collectors and personal finance: QR card markings, no-commission savings that earn daily interest, Locked Savings, cash flow monitoring, and budget tracking. Cooperative by Kopkad is a standalone platform for running a cooperative society — with personal member wallets, 10-digit account numbers, savings interest, contribution groups, loans, and a branded member portal.',
+      a: 'The main app is for savers, merchants, and savings collectors: QR card markings, no-commission savings that earn daily interest, Locked Savings, a personal wallet with its own account number, and the Kopkad Pay merchant POS. Cooperative by Kopkad is a standalone platform for running a cooperative society — with personal member wallets, 10-digit account numbers, savings interest, contribution groups, loans, and a branded member portal.',
     },
     {
       q: 'How does Cooperative by Kopkad pricing work?',
@@ -625,11 +589,19 @@ const Landing = ({ onStartClick, onCoopClick }) => {
     },
     {
       q: "What is Locked Savings?",
-      a: "Locked Savings lets you lock a sum for 3 to 12 months at a fixed rate — up to 13% per annum — set when you open the plan and unchanged for the term. Choose Flexible Lock to keep adding money until maturity, or Fixed Lock for a single lump sum. The projected interest at maturity (less 10% withholding tax) is shown before you commit a single naira.",
+      a: "Locked Savings lets you lock a sum for 3 to 12 months at a fixed rate — up to 20% per annum — set when you open the plan and unchanged for the term. Choose Flexible Lock to keep adding money until maturity, or Fixed Lock for a single lump sum. The projected interest at maturity (less 10% withholding tax) is shown before you commit a single naira.",
     },
     {
-      q: 'How does the Cash Flow Monitor work?',
-      a: 'The Cash Flow Monitor gives you a real-time view of all money in and out. View an income statement, cash flow report, or balance sheet for any period — today, this week, this month, or this year. Expenses are categorised automatically from your daily entries.',
+      q: 'How does a merchant charge a customer?',
+      a: 'On the POS, the merchant enters the customer\'s phone number and the amount. Kopkad texts the customer a 6-digit code that expires in 3 minutes, and the customer reads it out to the merchant. Once the code is entered, the money moves from the customer\'s Kopkad wallet to the merchant\'s instantly. Charges of ₦50,000 or more also need the customer\'s own security answer.',
+    },
+    {
+      q: 'Do my customers need the Kopkad app, a smartphone, or data?',
+      a: 'No. To be charged with an SMS code, a customer only needs a Kopkad wallet and a phone that can receive texts, so even a basic phone works. Customers who don\'t use Kopkad can pay you by bank transfer: scan your QR sticker, or transfer to your permanent account number from any bank app.',
+    },
+    {
+      q: 'Who can become a merchant?',
+      a: 'Anyone who sells goods or services: shop owners, market traders, and transport operators like keke, danfo and ride-hailing drivers. Sign up and choose "Become a Merchant", or switch to a merchant account from your personal dashboard. Complete KYC to get your account number, then send to other Kopkad users or any Nigerian bank, protected by your transaction PIN.',
     },
     {
       q: 'How do QR savings cards work?',
@@ -658,15 +630,15 @@ const Landing = ({ onStartClick, onCoopClick }) => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
           <div>
             <span className="inline-block bg-orange-500/20 text-orange-300 text-xs font-semibold px-4 py-1.5 rounded-full mb-6 border border-orange-500/30">
-              Personal Finance · Thrift Operations · Cooperative SaaS
+              Personal Savings · Merchant POS · Cooperative SaaS
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
               Nigeria's complete{' '}
               <span className="text-orange-400">financial platform</span>
             </h1>
             <p className="text-lg text-cyan-100 mb-10 leading-relaxed max-w-xl">
-              The main app handles personal savings, thrift operations, and Locked Savings.
-              Cooperative by Kopkad is a full SaaS for running cooperative societies — with
+              The main app handles personal savings, Locked Savings, and Kopkad Pay, a POS on
+              your phone for merchants. Cooperative by Kopkad is a full SaaS for running cooperative societies — with
               member wallets, loans, and a branded member portal.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -775,46 +747,48 @@ const Landing = ({ onStartClick, onCoopClick }) => {
       </section>
 
       {/* ── Main App ─────────────────────────────────────────────────────────────── */}
-      <section className="py-20 px-4 bg-white">
+      <section id="features" className="py-20 px-4 bg-white scroll-mt-16">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
             <span className="text-cyan-700 text-sm font-semibold uppercase tracking-widest">Personal Finance App</span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">
-              For thrift operators, savings collectors,{' '}
-              <br className="hidden sm:block" />and personal finance
+              For savers, merchants,{' '}
+              <br className="hidden sm:block" />and savings collectors
             </h2>
             <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
               The main app at{' '}
               <span className="font-mono text-cyan-700 text-sm">app.kopkad.ng</span>{' '}
-              is built for market savings operators and anyone who wants better control of their personal finances.
+              is built for everyday savers, the merchants they buy from, and the agents who collect savings in the market.
             </p>
           </div>
 
-          {/* Cash flow spotlight */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+          {/* Merchant POS spotlight */}
+          <div id="merchants" className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20 scroll-mt-20">
             <div className="flex justify-center">
-              <CashFlowIllustration />
+              <PosIllustration />
             </div>
             <div>
-              <span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
-                Cash Flow Intelligence
+              <span className="inline-block bg-orange-100 text-orange-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
+                New · Kopkad Pay for Merchants
               </span>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 leading-tight mb-4">
-                Know exactly where every naira goes
+                Your phone is the POS. Your customer doesn&apos;t need one.
               </h3>
               <p className="text-gray-500 text-sm leading-relaxed mb-6">
-                Real-time financial monitoring with complete visibility. Track income, log expenses,
-                set budgets, and generate professional financial statements — all from your phone.
+                Shops, market traders, and transport operators (keke, danfo, ride-hailing) take
+                payment straight from a customer&apos;s Kopkad wallet. The customer reads out a
+                one-time SMS code, so they don&apos;t need a smartphone, data, or a card.
               </p>
               <div className="space-y-3">
                 {[
-                  { icon: TrendingUp, title: 'Inflow & Expense Tracking', desc: 'Monitor all money in and out for any period — daily, weekly, monthly, or yearly.' },
-                  { icon: Calculator,  title: 'Budget Planner',            desc: 'Set budgets for monthly expenses, projects, education, or emergencies.' },
-                  { icon: LineChart,      title: 'Financial Statements',       desc: 'Auto-generated income statements, cash flow reports, and balance sheets.' },
+                  { icon: Smartphone,  title: 'Charge Customer',      desc: 'Enter the customer\'s phone number and amount, then type the code they read out. Paid instantly. ₦50,000 or more also needs their security answer.' },
+                  { icon: Send,        title: 'To Kopkad',            desc: 'Send money instantly to any Kopkad user by phone number, and see their name before you confirm.' },
+                  { icon: Landmark,    title: 'To Bank',              desc: 'Pay out to any Nigerian bank account, protected by your transaction PIN.' },
+                  { icon: QrCode,      title: 'One account, one QR',  desc: 'Print your QR sticker once. Anyone can pay you by bank transfer to your permanent account number, with no app needed.' },
                 ].map(({ icon: Icon, title, desc }) => (
                   <div key={title} className="flex gap-3">
-                    <div className="w-9 h-9 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Icon className="text-emerald-700" size={17} />
+                    <div className="w-9 h-9 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Icon className="text-orange-600" size={17} />
                     </div>
                     <div>
                       <p className="font-semibold text-gray-900 text-sm">{title}</p>
@@ -823,8 +797,8 @@ const Landing = ({ onStartClick, onCoopClick }) => {
                   </div>
                 ))}
               </div>
-              <button onClick={onStartClick} className="mt-7 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl transition-colors inline-flex items-center gap-2 text-sm">
-                Start Tracking <ArrowRight size={15} />
+              <button onClick={onMerchantClick} className="mt-7 px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition-colors inline-flex items-center gap-2 text-sm">
+                Become a Merchant <ArrowRight size={15} />
               </button>
             </div>
           </div>
@@ -843,7 +817,7 @@ const Landing = ({ onStartClick, onCoopClick }) => {
               </h3>
               <p className="text-gray-500 text-sm leading-relaxed mb-6">
                 Choose an amount, pick a lock period, and see exactly how much you will earn at
-                maturity — before committing a single naira. Up to 13% per annum, rate locked at creation.
+                maturity — before committing a single naira. Up to 20% per annum, rate locked at creation.
               </p>
               <div className="space-y-3">
                 {[
@@ -899,7 +873,7 @@ const Landing = ({ onStartClick, onCoopClick }) => {
                 <div className="rounded-2xl overflow-hidden h-36 shadow-lg bg-[#fff7ed]"><MobilePaymentSVG /></div>
               </div>
               <div className="space-y-4 mt-8">
-                <div className="rounded-2xl overflow-hidden h-36 shadow-lg bg-[#eef2ff]"><BudgetPlannerSVG /></div>
+                <div className="rounded-2xl overflow-hidden h-36 shadow-lg bg-[#eef2ff]"><ShopCounterSVG /></div>
                 <div className="rounded-2xl overflow-hidden h-52 shadow-lg bg-[#f0fdf4]"><CoopGroupSVG /></div>
               </div>
             </div>
@@ -922,15 +896,15 @@ const Landing = ({ onStartClick, onCoopClick }) => {
               Built for people who collect savings in the field
             </h2>
             <p className="text-gray-500 text-base leading-relaxed mb-8">
-              From street-level ajo operators to market thrift collectors,
-              Kopkad is designed for how Nigerians actually save money — in the community,
-              face to face, one naira at a time.
+              From street-level ajo operators to market traders, Kopkad is designed for how
+              Nigerians actually save and spend money: in the community, face to face, one
+              naira at a time.
             </p>
             <div className="space-y-4">
               {[
                 { icon: QrCode,           color: 'bg-orange-100 text-orange-600', title: 'QR Card Scanning',       desc: "Scan a member's physical card to pull up their account instantly — no searching or typing." },
-                { icon: UsersRound,             color: 'bg-cyan-100 text-cyan-700',    title: 'Agent Network',           desc: 'Deploy sub-agents with their own dashboards and earnings tracking.' },
-                { icon: Zap, color: 'bg-emerald-100 text-emerald-700', title: 'Instant Notifications', desc: 'Members get SMS & email the moment savings are marked or a payout is approved.' },
+                { icon: Store,            color: 'bg-cyan-100 text-cyan-700',    title: 'Collect & Get Paid',      desc: 'Merchants mark savings cards and take payments for their goods from the same app.' },
+                { icon: ShieldCheck, color: 'bg-emerald-100 text-emerald-700', title: 'Every Payment Confirmed', desc: 'Payers and merchants get an alert the moment savings are marked or money moves.' },
               ].map(({ icon: Icon, color, title, desc }) => (
                 <div key={title} className="flex gap-4">
                   <div className={`w-10 h-10 ${color} rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5`}>
@@ -1027,8 +1001,8 @@ const Landing = ({ onStartClick, onCoopClick }) => {
             Ready to take control of your finances?
           </h2>
           <p className="text-cyan-200 mb-10 text-lg">
-            Whether you're saving personally, running a thrift operation, or managing a
-            cooperative society — Kopkad has a platform built for you.
+            Whether you're saving personally, running a shop, or managing a cooperative
+            society — Kopkad has a platform built for you.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button

@@ -27,7 +27,7 @@ describe('Footer', () => {
   it('renders the brand logo and description', () => {
     renderFooter();
     expect(screen.getByAltText('Kopkad')).toBeInTheDocument();
-    expect(screen.getByText(/Smart savings management for thrift businesses/i)).toBeInTheDocument();
+    expect(screen.getByText(/Smart savings, merchant payments, and cooperative management/i)).toBeInTheDocument();
   });
 
   it('renders exactly four social icon links pointing to "#"', () => {
@@ -61,14 +61,14 @@ describe('Footer', () => {
     expect(() => fireEvent.click(screen.getByRole('button', { name: 'FAQ' }))).not.toThrow();
   });
 
-  it('scrolls to "how-it-works" for the "For Agents" platform link', () => {
+  it('scrolls to "merchants" for the "For Merchants" platform link', () => {
     renderFooter();
     const el = document.createElement('div');
-    el.id = 'how-it-works';
+    el.id = 'merchants';
     el.scrollIntoView = vi.fn();
     document.body.appendChild(el);
 
-    fireEvent.click(screen.getByRole('button', { name: 'For Agents' }));
+    fireEvent.click(screen.getByRole('button', { name: 'For Merchants' }));
 
     expect(el.scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth' });
   });

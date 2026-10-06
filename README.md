@@ -2,6 +2,9 @@
 
 Public marketing site for Kopkad. Deployed at the base domain `kopkad.ng`; the main web app runs at `app.kopkad.ng`.
 
+> **Full list of Kopkad features** (main app, Kopkad Pay merchant POS, CoopX cooperative
+> platform), including what's live and what isn't: see [`FEATURES.md`](./FEATURES.md).
+
 ## Tech Stack
 
 - React 19 + Vite 6
@@ -34,6 +37,7 @@ Dev server runs on `http://localhost:5173`.
 
 ```env
 VITE_APP_URL=https://app.kopkad.ng        # CTA links target (Log In / Get Started)
+VITE_COOP_URL=https://cooperative.kopkad.ng   # Cooperative CTA links
 VITE_API_BASE_URL=https://kopkad.onrender.com   # Backend API for /c/:token card scan
 ```
 

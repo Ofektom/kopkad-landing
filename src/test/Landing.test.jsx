@@ -5,10 +5,12 @@ import Landing from '../landing/Landing';
 describe('Landing', () => {
   let onStartClick;
   let onCoopClick;
+  let onMerchantClick;
 
   beforeEach(() => {
     onStartClick = vi.fn();
     onCoopClick = vi.fn();
+    onMerchantClick = vi.fn();
   });
 
   it('renders the hero headline and highlight stats', () => {
@@ -66,24 +68,39 @@ describe('Landing', () => {
     [
       'AJO Daily Card Marking',
       'QR Physical Card System',
-      'Cash Flow Monitoring',
-      'Budget Planner',
-      'Daily Expense Tracker',
-      'Agent & Sub-Agent Network',
+      'Wallet & Account Number',
+      'Merchant POS',
+      'Pay Without Data',
       'SMS & Email Notifications',
     ].forEach((title) => {
       expect(screen.getByRole('heading', { level: 3, name: title })).toBeInTheDocument();
     });
+    // Cash flow / budgets / expenses and the sub-agent network are no longer
+    // offered to main-app users, so the landing page must not advertise them.
+    ['Cash Flow Monitoring', 'Budget Planner', 'Daily Expense Tracker', 'Agent & Sub-Agent Network'].forEach((title) => {
+      expect(screen.queryByText(title)).not.toBeInTheDocument();
+    });
+    expect(screen.queryByRole('button', { name: /Start Tracking/i })).not.toBeInTheDocument();
     // "Locked Savings" is also used as a badge label in the spotlight section above,
     // so the feature-grid card heading is the second occurrence.
     expect(screen.getAllByText("Locked Savings").length).toBeGreaterThanOrEqual(2);
   });
 
-  it('calls onStartClick from the "Start Tracking" and "Start Investing" spotlight buttons', () => {
-    render(<Landing onStartClick={onStartClick} onCoopClick={onCoopClick} />);
-    fireEvent.click(screen.getByRole('button', { name: /Start Tracking/i }));
+  it('renders the merchant POS spotlight with its three POS actions and the QR account', () => {
+    render(<Landing onStartClick={onStartClick} onCoopClick={onCoopClick} onMerchantClick={onMerchantClick} />);
+    expect(document.getElementById('merchants')).toBeInTheDocument();
+    expect(screen.getByText(/Your phone is the POS\. Your customer doesn.t need one\./)).toBeInTheDocument();
+    ['Charge Customer', 'To Kopkad', 'To Bank', 'One account, one QR'].forEach((title) => {
+      expect(screen.getByText(title, { selector: 'p' })).toBeInTheDocument();
+    });
+  });
+
+  it('calls onMerchantClick from "Become a Merchant" and onStartClick from "Start Investing"', () => {
+    render(<Landing onStartClick={onStartClick} onCoopClick={onCoopClick} onMerchantClick={onMerchantClick} />);
+    fireEvent.click(screen.getByRole('button', { name: 'Become a Merchant' }));
+    expect(onMerchantClick).toHaveBeenCalledTimes(1);
     fireEvent.click(screen.getByRole('button', { name: /Start Investing/i }));
-    expect(onStartClick).toHaveBeenCalledTimes(2);
+    expect(onStartClick).toHaveBeenCalledTimes(1);
   });
 
   it('renders the "How It Works" steps in order', () => {
@@ -132,6 +149,15 @@ describe('Landing', () => {
 
     expect(screen.getByText(/two separate products/i)).toBeInTheDocument();
     expect(screen.getByText(/lock a sum for 3 to 12 months/i)).toBeInTheDocument();
+  });
+
+  it('answers the merchant FAQs and no longer has the Cash Flow Monitor FAQ', () => {
+    render(<Landing onStartClick={onStartClick} onCoopClick={onCoopClick} />);
+    expect(screen.queryByText('How does the Cash Flow Monitor work?')).not.toBeInTheDocument();
+    fireEvent.click(screen.getByText('How does a merchant charge a customer?'));
+    expect(screen.getByText(/6-digit code that expires in 3 minutes/i)).toBeInTheDocument();
+    fireEvent.click(screen.getByText('Do my customers need the Kopkad app, a smartphone, or data?'));
+    expect(screen.getByText(/even a basic phone works/i)).toBeInTheDocument();
   });
 
   it('renders the final CTA section and wires both buttons to their handlers', () => {

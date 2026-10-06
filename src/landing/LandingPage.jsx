@@ -10,6 +10,7 @@ const LandingPage = () => (
     <Landing
       onStartClick={() => goToApp('/')}
       onCoopClick={() => goToCoop('/')}
+      onMerchantClick={() => goToApp('/signup')}
     />
     <Footer />
   </>
