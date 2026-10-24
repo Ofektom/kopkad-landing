@@ -2,22 +2,25 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaTwitter, FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import { MapPin, Phone, Mail } from 'lucide-react';
-import { goToApp } from '../utils/appNav';
+import { goToApp, goToSection } from '../utils/appNav';
 
 const Footer = () => {
 
   const links = {
     Product: [
-      { label: 'Features',     action: () => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' }) },
-      { label: 'How It Works', action: () => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' }) },
-      { label: 'Pricing',      action: () => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' }) },
-      { label: 'FAQ',          action: () => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' }) },
+      { label: 'Features',     action: () => goToSection('features') },
+      { label: 'Wealth Builder', action: () => goToSection('wealth-builder') },
+      { label: 'Money Lessons (Blog)', action: () => window.location.assign('/blog') },
+      { label: 'How It Works', action: () => goToSection('how-it-works') },
+      { label: 'Pricing',      action: () => goToSection('pricing') },
+      { label: 'FAQ',          action: () => goToSection('faq') },
     ],
     Platform: [
-      { label: 'For Merchants',    action: () => document.getElementById('merchants')?.scrollIntoView({ behavior: 'smooth' }) },
-      { label: 'For Field Agents', action: () => document.getElementById('field-agents')?.scrollIntoView({ behavior: 'smooth' }) },
-      { label: 'For Cooperatives', action: () => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' }) },
-      { label: 'For Individuals',  action: () => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' }) },
+      { label: 'For Merchants',    action: () => goToSection('merchants') },
+      { label: 'For Field Agents', action: () => goToSection('field-agents') },
+      { label: 'Thrift Groups',    action: () => goToSection('field-agents') },
+      { label: 'For Cooperatives', action: () => goToSection('features') },
+      { label: 'For Individuals',  action: () => goToSection('features') },
     ],
     Account: [
       { label: 'Sign Up', action: () => goToApp('/signup') },

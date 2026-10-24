@@ -4,7 +4,8 @@ import { MemoryRouter } from 'react-router-dom';
 import Footer from '../landing/Footer';
 import { goToApp } from '../utils/appNav';
 
-vi.mock('../utils/appNav', () => ({
+vi.mock('../utils/appNav', async (importOriginal) => ({
+  ...(await importOriginal()),
   goToApp: vi.fn(),
 }));
 

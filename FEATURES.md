@@ -39,7 +39,9 @@ Company: 4A Akpabio Street, Uyo, Akwa Ibom State, Nigeria · support@kopkad.ng �
 - The same phone number can hold a personal account and a merchant account, and you can switch between them from the dashboard.
 - **KYC** (legal name, BVN, bank account) unlocks your own permanent account number.
 - Security: login PIN, OTP verification, a security question (needed for merchant charges of ₦50,000+), automatic logout after inactivity, and a transaction PIN for merchant transfers.
-- **Learn** help centre: in-app guides with screenshots for every feature.
+- **Learn** help centre, in two parts:
+  - **Using Kopkad:** in-app guides with screenshots for every feature.
+  - **Financial Literacy:** 21 short money lessons (see 1.11). The website blog previews their key points.
 
 ### 1.2 Savings — Live
 - **No commission to save.** Commission is not charged on any personal savings account.
@@ -129,14 +131,16 @@ Every merchant account includes these tools on its **Dashboard**:
   - Referral bonuses when a referred customer funds and keeps a balance.
   - A monthly trail on retained customers' balances.
   - There is no flat sign-up bonus. Earnings are paid out on scheduled payout days and can be withdrawn to bank.
-- **Savings groups for your customers — Coming soon:** agents will be able to create ajo/esusu savings groups (see 1.8) for the customers they register.
+- **Thrift groups for your customers — Live:** create ajo/esusu groups (see 1.8) for the customers you register, and earn a share of the group commission.
 - **Learn:** in-app guides for every merchant and agent feature.
 
-### 1.8 Thrift savings groups (main app) — Not public yet
-**Status:** coming soon. It is built but currently hidden on staging and production
-during the gradual launch. Thrift is fully live in **CoopX** (section 2). In the main
-app it is called **Savings Groups**. When it launches, **field agents will create
-savings groups for the customers they register** and run them from their dashboard.
+### 1.8 Thrift savings groups (main app) — Live
+In the main app it is called **Thrift** (web and Android). **Field agents create
+thrift groups for the customers they register** and run them from their dashboard;
+customers see their groups under Thrift. Thrift is also live in **CoopX** (section 2).
+
+- **Who can be in a field agent's group:** that agent's own customers, plus brand-new people who sign up through the group's **join link**.
+- **Commission:** the group commission is split between the field agent and Kopkad. Field-agent payouts are approved by Kopkad before they are paid.
 
 - **Group types:**
   - **Rigid Group (Ajo / Esusu):** a fixed contribution on a fixed schedule with rotational payout, so each member collects the pot in turn.
@@ -157,9 +161,33 @@ savings groups for the customers they register** and run them from their dashboa
 - The mobile app mirrors the web app's merchant, field-agent and customer features.
 
 ### 1.10 Other main-app features that are not public
-- Cash flow monitoring, budget planner, daily expense tracker and financial statements (hidden for customers and merchants)
 - Agents creating their own savings business with sub-agents (closed to new sign-ups)
 - Escrow, NFC wearables, tap-a-card "soft POS", offline merchant payments (future)
+
+### 1.11 Wealth Builder — Live
+A free money planner for personal savers and merchants. It replaces the old cash flow,
+budget and expense tools, and it is not part of CoopX.
+
+- **Plan:** pick a tier. Every income is split into **Living · Savings · Give**:
+  - **Seed:** 70 · 20 · 10
+  - **Grow:** 60 · 25 · 15
+  - **Harvest:** 50 · 30 · 20
+
+  Unspent Give at the end of a period rolls into the emergency fund, so savings can reach 50%.
+- **Track:** log income and spending, marking needs vs wants and fixed vs variable costs. Entries can be edited or deleted.
+- **Budget:** the Living share becomes a spending limit per day, by category.
+- **Insights:**
+  - Savings rate, debt-to-income, emergency-fund months and a health score.
+  - Charts.
+  - Money statements: income statement, cash flow and balance sheet.
+- **Grow:** the next step to take, a financial-independence number (30× yearly living costs), and a tier ladder: move up when income grows while living costs hold steady.
+- **Savings first, wallet never locked:** the savings share goes into the user's own existing savings plans (Serial, Target, Locked Savings). Kopkad does not lock or earmark wallet money.
+- **Investing is education only:** apart from Locked Savings there is no in-app investment product. Investing lessons carry the note *"For educational purposes only. This is not financial advice."*
+- **Prompts:** a "Set up your Wealth Builder" invitation on Home, Wallet and Savings, plus a nudge when money comes in.
+- **Financial Literacy lessons:** 21 lessons with quick checks, each ending with the Wealth Builder tool that puts it into practice.
+  - The core course: pay yourself first, the snowball, cut costs, emergency fund, good vs bad debt, money statements, the FI number, investing basics, avoiding scams.
+  - Lessons drawn from well-known money books and Nigerian sources.
+  - The website blog previews each lesson's key points only. The full lessons (examples, quick checks) are in the app, and every blog post prompts the reader to sign up.
 
 ---
 
@@ -222,6 +250,10 @@ savings groups for the customers they register** and run them from their dashboa
 | `/coop-member-terms` | Cooperative member terms |
 | `/coop-platform-terms` | Cooperative platform operator agreement |
 | `/bylaws` | Cooperative bye-laws |
+| `/blog` | Money lessons: a preview of the app's Financial Literacy lessons |
+| `/blog/:slug` | One lesson's key points, links to read more elsewhere (books, Wikipedia, Investopedia, SEC Nigeria, NBS, CBN), a sign-up prompt for the full lesson and the matching Wealth Builder tool, then likes and comments |
+
+Blog likes and comments: anyone can like (once per browser) or comment with just a name. Comments appear only after a Kopkad admin approves them. The feature is switched off until launch.
 
 ---
 

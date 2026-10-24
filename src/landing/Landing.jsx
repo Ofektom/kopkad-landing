@@ -5,7 +5,9 @@ import {
   Zap, TrendingUp, CircleDollarSign, HandCoins, Users,
   QrCode, Lock, LineChart, Wallet, Store, Smartphone, Send,
   Landmark, MessageSquareText, UserPlus, Coins, Trophy,
+  Sprout, PieChart, BookOpen, Link2, ListChecks, BarChart3, Target,
 } from 'lucide-react';
+import { getPost } from '../blog/posts';
 import {CoopLogoMark } from './CoopLogo.jsx';
 
 // ── SVG Illustrations ─────────────────────────────────────────────────────────
@@ -531,6 +533,8 @@ const Landing = ({ onStartClick, onCoopClick, onMerchantClick }) => {
     { icon: Wallet,        color: 'bg-cyan-700',   title: 'Wallet & Account Number',    desc: 'Complete KYC to get your own permanent 10-digit account number. Top up from any bank app, withdraw to your bank any time.' },
     { icon: Store,         color: 'bg-orange-500', title: 'Merchant POS',               desc: 'Turn your phone into a POS with Kopkad Pay: charge customers, send to any Kopkad user, or pay out to any bank.' },
     { icon: MessageSquareText, color: 'bg-indigo-600', title: 'Pay Without Data',       desc: 'Pay a Kopkad merchant from your wallet by reading out a one-time SMS code. You don\'t need a smartphone, data or a card.' },
+    { icon: Sprout,        color: 'bg-cyan-700',   title: 'Wealth Builder',             desc: 'Split every income into Living, Savings and Give, track what you spend, and see your money statements and progress. Free money lessons show you how.' },
+    { icon: Users,         color: 'bg-orange-500', title: 'Thrift (Ajo/Esusu) Groups',  desc: 'Join a field agent\'s thrift group with a link: fixed contributions, a rotating payout schedule, and every slot paid by card, transfer or wallet.' },
     { icon: Zap,           color: 'bg-emerald-600',title: 'SMS & Email Notifications',  desc: 'Instant alerts when savings are marked, money lands in or leaves your wallet, or a payout is processed.' },
   ];
 
@@ -601,7 +605,15 @@ const Landing = ({ onStartClick, onCoopClick, onMerchantClick }) => {
     },
     {
       q: 'How do field agents earn?',
-      a: 'Field agents register customers and mark their savings. You earn commission on the savings you mark, plus bonuses for marking streaks, milestones and referred customers who keep saving. Kopkad pays your commission. It is never charged to or deducted from your customers, who save commission-free. Earnings are paid out on scheduled payout days, and you can withdraw them to your bank. Savings groups for your customers are coming soon.',
+      a: 'Field agents register customers and mark their savings. You earn commission on the savings you mark, plus bonuses for marking streaks, milestones and referred customers who keep saving. Kopkad pays your commission. It is never charged to or deducted from your customers, who save commission-free. Earnings are paid out on scheduled payout days, and you can withdraw them to your bank. You can also run Thrift (ajo/esusu) groups for the customers you register and earn a share of the group commission.',
+    },
+    {
+      q: 'What is Wealth Builder?',
+      a: 'Wealth Builder is a free money planner inside the Kopkad app. Pick a tier (Seed saves 20%, Grow 25%, Harvest 30%) and every income is split into Living, Savings and Give before you spend. Track income and spending, keep to a daily budget, and see your savings rate, emergency-fund progress and money statements. It never locks your wallet: your savings share goes into your own Kopkad savings plans. Free money lessons on the Kopkad blog explain each technique.',
+    },
+    {
+      q: 'How do Thrift groups work?',
+      a: 'A Thrift group is a digital ajo/esusu. A field agent sets the contribution and schedule and shares a join link. Each member pays their slot by card, bank transfer or wallet, and the pot goes to members in turn on the payout schedule, to their bank or Kopkad wallet. Everyone gets an alert for contributions and payouts.',
     },
     {
       q: 'Who can become a merchant?',
@@ -641,8 +653,8 @@ const Landing = ({ onStartClick, onCoopClick, onMerchantClick }) => {
               <span className="text-orange-400">financial platform</span>
             </h1>
             <p className="text-lg text-cyan-100 mb-10 leading-relaxed max-w-xl">
-              The main app handles personal savings, Locked Savings, and Kopkad Pay, a POS on
-              your phone for merchants. Cooperative by Kopkad is a full SaaS for running cooperative societies — with
+              The main app handles personal savings, Locked Savings, Wealth Builder for planning
+              every naira, Thrift groups, and Kopkad Pay, a POS on your phone for merchants. Cooperative by Kopkad is a full SaaS for running cooperative societies — with
               member wallets, loans, and a branded member portal.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -867,6 +879,89 @@ const Landing = ({ onStartClick, onCoopClick, onMerchantClick }) => {
         </div>
       </section>
 
+      {/* ── Wealth Builder ───────────────────────────────────────────────────────── */}
+      <section id="wealth-builder" className="py-20 px-4 bg-gradient-to-b from-cyan-50 to-white scroll-mt-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            <div>
+              <span className="inline-block bg-cyan-100 text-cyan-800 text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-wide">
+                New · Wealth Builder
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-5">
+                Save first, spend what&apos;s left, and watch your money grow
+              </h2>
+              <p className="text-gray-500 text-base leading-relaxed mb-6">
+                Most people save whatever is left at the end of the month, which is usually nothing.
+                Wealth Builder turns that around: every income is split the moment it lands, so your
+                savings come first and your spending has a clear limit.
+              </p>
+              <div className="grid grid-cols-3 gap-3 mb-8">
+                {[
+                  { name: 'Seed',    split: '70 · 20 · 10', save: 'Save 20%', tone: 'border-emerald-200 bg-emerald-50 text-emerald-800' },
+                  { name: 'Grow',    split: '60 · 25 · 15', save: 'Save 25%', tone: 'border-cyan-200 bg-cyan-50 text-cyan-800' },
+                  { name: 'Harvest', split: '50 · 30 · 20', save: 'Save 30%', tone: 'border-orange-200 bg-orange-50 text-orange-800' },
+                ].map(({ name, split, save, tone }) => (
+                  <div key={name} className={`rounded-2xl border p-4 ${tone}`}>
+                    <p className="font-extrabold text-lg">{name}</p>
+                    <p className="text-sm font-semibold">{save}</p>
+                    <p className="text-xs opacity-70 mt-1">Living · Savings · Give<br />{split}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="space-y-4">
+                {[
+                  { icon: PieChart,   title: 'Plan',     desc: 'Pick a tier and see exactly how much of each income to save, give and live on. Unspent Give rolls into your emergency fund.' },
+                  { icon: ListChecks, title: 'Track',    desc: 'Log income and spending in seconds, marking needs and wants, fixed and variable costs.' },
+                  { icon: Target,     title: 'Budget',   desc: 'Your Living share becomes a daily spending limit, broken down by category.' },
+                  { icon: BarChart3,  title: 'Insights', desc: 'Your savings rate, debt-to-income, emergency-fund months and full money statements, in clear charts.' },
+                  { icon: Sprout,     title: 'Grow',     desc: 'Your next step, your financial-independence number and a tier ladder: earn more while living costs hold steady, and your savings rise to 50%.' },
+                ].map(({ icon: Icon, title, desc }) => (
+                  <div key={title} className="flex gap-4">
+                    <div className="w-10 h-10 bg-cyan-700 text-white rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Icon size={18} />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900 text-sm">{title}</p>
+                      <p className="text-gray-500 text-sm">{desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3 mt-8">
+                <button onClick={() => goToApp('/signup')} className="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition-colors inline-flex items-center justify-center gap-2 text-sm">
+                  Start your Wealth Builder <ArrowRight size={15} />
+                </button>
+                <a href="/blog" className="px-6 py-3 border border-cyan-700 text-cyan-800 hover:bg-cyan-50 font-semibold rounded-xl transition-colors inline-flex items-center justify-center gap-2 text-sm">
+                  <BookOpen size={15} /> Read the money lessons
+                </a>
+              </div>
+              <p className="text-gray-400 text-xs mt-3">
+                Kopkad never locks your wallet: your savings share goes into your own savings plans. Investing lessons are for education only, not financial advice.
+              </p>
+            </div>
+
+            <div className="rounded-3xl bg-white shadow-xl border border-cyan-100 p-6 sm:p-8">
+              <p className="text-xs font-bold uppercase tracking-widest text-cyan-700">Free money lessons</p>
+              <h3 className="text-2xl font-extrabold text-gray-900 mt-1">Learn it, then do it</h3>
+              <p className="text-gray-500 text-sm mt-2 mb-5">
+                21 short lessons, from paying yourself first to spotting Ponzi schemes. Read the key points on our blog, then sign up free for the full lessons and the Wealth Builder tools that put them into practice.
+              </p>
+              <div className="space-y-3">
+                {['the-pie-pay-yourself-first', 'emergency-fund', 'cut-costs-cut-back-cut-out'].map(getPost).filter(Boolean).map((post) => (
+                  <a key={post.slug} href={`/blog/${post.slug}`} className="block rounded-2xl border border-gray-100 hover:border-cyan-300 hover:bg-cyan-50/50 p-4 transition-colors">
+                    <p className="font-semibold text-gray-900 text-sm">{post.title}</p>
+                    <p className="text-gray-500 text-xs mt-1 leading-relaxed">{post.summary}</p>
+                  </a>
+                ))}
+              </div>
+              <a href="/blog" className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-cyan-700 hover:text-cyan-900">
+                See all money lessons <ArrowRight size={14} />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Field Agents ─────────────────────────────────────────────────────────── */}
       <section id="field-agents" className="py-20 px-4 bg-gray-50 overflow-hidden scroll-mt-16">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -911,21 +1006,15 @@ const Landing = ({ onStartClick, onCoopClick, onMerchantClick }) => {
                 { icon: QrCode,   color: 'bg-orange-100 text-orange-600',   title: 'Mark savings in seconds',       desc: "Scan a customer's QR savings card and record their daily contribution. They get an alert straight away." },
                 { icon: Coins,    color: 'bg-emerald-100 text-emerald-700', title: 'Earn commission, paid by Kopkad', desc: 'Earn on the savings you mark, plus streak, milestone and referral bonuses. Kopkad pays you; your customers never pay commission.' },
                 { icon: Trophy,   color: 'bg-amber-100 text-amber-700',     title: 'Grow your rank',                desc: 'Climb the tiers from Starter to Champion, top the monthly leaderboard, and see which customers need a follow-up.' },
-                { icon: Users,    color: 'bg-indigo-100 text-indigo-700',   title: 'Savings groups', soon: true,    desc: 'Create ajo/esusu savings groups for the customers you register: fixed contributions, rotating payouts, all tracked for you.' },
-              ].map(({ icon: Icon, color, title, desc, soon }) => (
+                { icon: Users,    color: 'bg-indigo-100 text-indigo-700',   title: 'Run Thrift groups',             desc: 'Create ajo/esusu groups for the customers you register: fixed contributions, a rotating payout schedule, all tracked for you. You earn a share of the group commission.' },
+                { icon: Link2,    color: 'bg-sky-100 text-sky-700',         title: 'Invite with one link',          desc: 'Share your group\'s join link. New people sign up straight into your group and onto your customer list.' },
+              ].map(({ icon: Icon, color, title, desc }) => (
                 <div key={title} className="flex gap-4">
                   <div className={`w-10 h-10 ${color} rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5`}>
                     <Icon size={18} />
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900 text-sm">
-                      {title}
-                      {soon && (
-                        <span className="ml-2 align-middle bg-indigo-100 text-indigo-700 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
-                          Coming soon
-                        </span>
-                      )}
-                    </p>
+                    <p className="font-semibold text-gray-900 text-sm">{title}</p>
                     <p className="text-gray-500 text-sm">{desc}</p>
                   </div>
                 </div>

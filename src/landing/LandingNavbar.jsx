@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { goToApp } from '../utils/appNav';
+import { goToApp, goToSection } from '../utils/appNav';
 
 const LandingNavbar = ({ onCoopClick }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -14,11 +14,12 @@ const LandingNavbar = ({ onCoopClick }) => {
 
   const scrollTo = (id) => {
     setMenuOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    goToSection(id);
   };
 
   const navLinks = [
     { label: 'Features', id: 'features' },
+    { label: 'Wealth Builder', id: 'wealth-builder' },
     { label: 'Merchants', id: 'merchants' },
     { label: 'Field Agents', id: 'field-agents' },
     { label: 'How It Works', id: 'how-it-works' },
@@ -31,7 +32,10 @@ const LandingNavbar = ({ onCoopClick }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex-shrink-0 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <div
+            className="flex-shrink-0 cursor-pointer"
+            onClick={() => (window.location.pathname === '/' ? window.scrollTo({ top: 0, behavior: 'smooth' }) : window.location.assign('/'))}
+          >
             <img
               src="/logo.svg"
               alt="Kopkad"
@@ -40,7 +44,7 @@ const LandingNavbar = ({ onCoopClick }) => {
           </div>
 
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-5 xl:gap-7 ml-6">
             {navLinks.map(({ label, id }) => (
               <button
                 key={id}
@@ -50,6 +54,9 @@ const LandingNavbar = ({ onCoopClick }) => {
                 {label}
               </button>
             ))}
+            <a href="/blog" className="text-gray-600 hover:text-cyan-700 text-sm font-medium transition-colors">
+              Blog
+            </a>
             {onCoopClick && (
               <button
                 onClick={onCoopClick}
@@ -61,7 +68,7 @@ const LandingNavbar = ({ onCoopClick }) => {
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             <button
               onClick={() => goToApp('/')}
               className="px-4 py-2 text-cyan-700 font-semibold text-sm hover:text-cyan-800 transition-colors"
@@ -78,7 +85,7 @@ const LandingNavbar = ({ onCoopClick }) => {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 text-gray-600 hover:text-cyan-700"
+            className="lg:hidden p-2 text-gray-600 hover:text-cyan-700"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -88,7 +95,7 @@ const LandingNavbar = ({ onCoopClick }) => {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3 shadow-lg">
+        <div className="lg:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3 shadow-lg">
           {navLinks.map(({ label, id }) => (
             <button
               key={id}
@@ -98,6 +105,9 @@ const LandingNavbar = ({ onCoopClick }) => {
               {label}
             </button>
           ))}
+          <a href="/blog" className="block w-full text-left text-gray-600 hover:text-cyan-700 py-2 text-sm font-medium">
+            Blog
+          </a>
           {onCoopClick && (
             <button
               onClick={() => { setMenuOpen(false); onCoopClick(); }}

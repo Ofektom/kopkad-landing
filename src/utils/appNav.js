@@ -3,3 +3,14 @@ const COOP_URL = import.meta.env.VITE_COOP_URL || 'https://cooperative.kopkad.ng
 
 export const goToApp  = (path = '') => { window.location.href = APP_URL  + path; };
 export const goToCoop = (path = '') => { window.location.href = COOP_URL + path; };
+
+/**
+ * Scroll to a landing-page section; from another page (the blog, the terms)
+ * go to the landing page at that section instead (LandingPage scrolls to the
+ * hash once it renders).
+ */
+export const goToSection = (id) => {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+  else window.location.assign(`/#${id}`);
+};

@@ -6,6 +6,8 @@ import TermsPage from './pages/TermsPage';
 import CoopMemberTermsPage from './pages/CoopMemberTermsPage';
 import CoopPlatformTermsPage from './pages/CoopPlatformTermsPage';
 import BylawsPage from './pages/BylawsPage';
+import BlogPage from './pages/BlogPage';
+import BlogPostPage from './pages/BlogPostPage';
 
 const App = () => (
   <Routes>
@@ -15,6 +17,8 @@ const App = () => (
     <Route path="/coop-member-terms"    element={<CoopMemberTermsPage />} />
     <Route path="/coop-platform-terms"  element={<CoopPlatformTermsPage />} />
     <Route path="/bylaws"               element={<BylawsPage />} />
+    <Route path="/blog"                 element={<BlogPage />} />
+    <Route path="/blog/:slug"           element={<BlogPostPage />} />
     <Route path="*"                     element={<Navigate to="/" replace />} />
   </Routes>
 );

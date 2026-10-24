@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, within } from '@testing-library/react';
 import Landing from '../landing/Landing';
 
 describe('Landing', () => {
@@ -75,8 +75,11 @@ describe('Landing', () => {
     ].forEach((title) => {
       expect(screen.getByRole('heading', { level: 3, name: title })).toBeInTheDocument();
     });
-    // Cash flow / budgets / expenses and the sub-agent network are no longer
-    // offered to main-app users, so the landing page must not advertise them.
+    // Wealth Builder (which replaced the old cash flow / budget / expense
+    // tracker) and Thrift are advertised; the old tools by name and the
+    // sub-agent network are not.
+    expect(screen.getByRole('heading', { level: 3, name: 'Wealth Builder' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 3, name: 'Thrift (Ajo/Esusu) Groups' })).toBeInTheDocument();
     ['Cash Flow Monitoring', 'Budget Planner', 'Daily Expense Tracker', 'Agent & Sub-Agent Network'].forEach((title) => {
       expect(screen.queryByText(title)).not.toBeInTheDocument();
     });
@@ -95,16 +98,27 @@ describe('Landing', () => {
     });
   });
 
-  it('renders the field agent section: register, mark, platform-paid commission, and savings groups coming soon', () => {
+  it('renders the field agent section: register, mark, platform-paid commission, and Thrift groups', () => {
     render(<Landing onStartClick={onStartClick} onCoopClick={onCoopClick} onMerchantClick={onMerchantClick} />);
     expect(document.getElementById('field-agents')).toBeInTheDocument();
-    ['Register customers', 'Mark savings in seconds', 'Earn commission, paid by Kopkad', 'Grow your rank'].forEach((title) => {
+    ['Register customers', 'Mark savings in seconds', 'Earn commission, paid by Kopkad', 'Grow your rank', 'Run Thrift groups', 'Invite with one link'].forEach((title) => {
       expect(screen.getByText(title, { selector: 'p' })).toBeInTheDocument();
     });
     expect(screen.getByText(/your customers never pay commission/i)).toBeInTheDocument();
-    expect(screen.getByText('Coming soon')).toBeInTheDocument();
+    expect(screen.queryByText('Coming soon')).not.toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: /Become a Field Agent/i }));
     expect(onMerchantClick).toHaveBeenCalledTimes(1);
+  });
+
+  it('renders the Wealth Builder section: tiers, five tools, lessons and a sign-up call to action', () => {
+    render(<Landing onStartClick={onStartClick} onCoopClick={onCoopClick} onMerchantClick={onMerchantClick} />);
+    const section = document.getElementById('wealth-builder');
+    expect(section).toBeInTheDocument();
+    ['Seed', 'Grow', 'Harvest'].forEach((tier) => expect(within(section).getAllByText(tier).length).toBeGreaterThan(0));
+    ['Plan', 'Track', 'Budget', 'Insights'].forEach((tool) => expect(within(section).getByText(tool, { selector: 'p' })).toBeInTheDocument());
+    expect(within(section).getByText('The pie: pay yourself first').closest('a')).toHaveAttribute('href', '/blog/the-pie-pay-yourself-first');
+    expect(within(section).getByRole('link', { name: /Read the money lessons/i })).toHaveAttribute('href', '/blog');
+    expect(within(section).getByText(/education only, not financial advice/i)).toBeInTheDocument();
   });
 
   it('calls onMerchantClick from "Become a Merchant" and onStartClick from "Start Investing"', () => {

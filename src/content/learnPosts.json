@@ -1,0 +1,617 @@
+[
+ {
+  "slug": "financial-intelligence-journey",
+  "title": "Financial intelligence: your money journey",
+  "summary": "Six steps to take control of your money: where you are, where you're going, and how to get there.",
+  "order": 1,
+  "disclaimer": false,
+  "lesson_count": 2,
+  "quiz_count": 1,
+  "lessons": [
+   {
+    "title": "What financial intelligence means",
+    "points": [
+     "Financial intelligence is not about how much you earn. It is about the daily habit of controlling spending, living below your means, choosing needs over wants, and keeping part…"
+    ],
+    "key_idea": "Without this discipline, saving stays weak and financial freedom stays out of reach — no matter how big the income.",
+    "action": null
+   },
+   {
+    "title": "The six steps of the journey",
+    "points": [
+     "1. Know where you are — your income, expenses, what you own and what you owe.",
+     "2. Choose your destination — goals for your business, family, home and future.",
+     "3. Find the gap — the difference between where you are and where you want to be.",
+     "4. Plan the route — earn more, cut expenses, save regularly.",
+     "5. Watch for risks — job loss, sickness, price increases."
+    ],
+    "key_idea": "Talk about money with the people close to you. A family that plans together reaches the destination together.",
+    "action": "money_split"
+   }
+  ]
+ },
+ {
+  "slug": "the-pie-pay-yourself-first",
+  "title": "The pie: pay yourself first",
+  "summary": "Split every income into Living, Savings and Give — and choose your tier: Seed, Grow or Harvest.",
+  "order": 2,
+  "disclaimer": false,
+  "lesson_count": 2,
+  "quiz_count": 1,
+  "lessons": [
+   {
+    "title": "Turn the formula around",
+    "points": [
+     "Most people do this: Income − Expenses = whatever is left to save. Usually nothing is left."
+    ],
+    "key_idea": null,
+    "action": null
+   },
+   {
+    "title": "Your three slices",
+    "points": [
+     "Living — food, rent, transport, bills, daily spending. Practise contentment here.",
+     "Savings — your future: emergency fund, goals, long-term savings.",
+     "Give & Family — family support, religious giving, helping your community."
+    ],
+    "key_idea": "Whatever is left of your Give share at the end of the period moves into your emergency fund. On Harvest, that can take your savings to 50%.",
+    "action": "money_split"
+   }
+  ]
+ },
+ {
+  "slug": "the-snowball",
+  "title": "The snowball: get rich slowly",
+  "summary": "Small savings, kept up for years, grow into real wealth. Why ₦10 a day beats ₦1 a day by far more than 10×.",
+  "order": 3,
+  "disclaimer": false,
+  "lesson_count": 2,
+  "quiz_count": 1,
+  "lessons": [
+   {
+    "title": "Two people, same income",
+    "points": [
+     "Trader A spends ₦9,900 and saves ₦100 a day → ₦10,000 after 100 days.",
+     "Trader B spends ₦9,000 and saves ₦1,000 a day → ₦100,000 after 100 days."
+    ],
+    "key_idea": "Earning more will not make you wealthy if you keep spending it all.",
+    "action": null
+   },
+   {
+    "title": "Why the snowball grows faster over time",
+    "points": [
+     "Savings that earn interest grow, and the interest earns interest too. This is compounding. Over many years it turns steady saving into a large sum."
+    ],
+    "key_idea": "Beware of 'get rich quick'. Wealth is built slowly, by saving regularly for a long time.",
+    "action": "savings"
+   }
+  ]
+ },
+ {
+  "slug": "cut-costs-cut-back-cut-out",
+  "title": "Cut costs, cut back, cut out",
+  "summary": "Three simple ways to reduce what you spend without making life miserable.",
+  "order": 4,
+  "disclaimer": false,
+  "lesson_count": 2,
+  "quiz_count": 1,
+  "lessons": [
+   {
+    "title": "The three cuts",
+    "points": [
+     "Cut costs — do the same thing, cheaper. Buy foodstuff in bulk at the market instead of daily.",
+     "Cut back — do it less often. Eat out twice a week instead of five times.",
+     "Cut out — stop it completely. Cancel the subscription you never use."
+    ],
+    "key_idea": null,
+    "action": null
+   },
+   {
+    "title": "Don't spend what you saved",
+    "points": [
+     "When you cut an expense, the money must go somewhere useful — or it quietly disappears into other spending. Move what you cut straight into savings."
+    ],
+    "key_idea": "Need or want? Before each purchase, ask: do I need this, or do I just want it?",
+    "action": "log_expense"
+   }
+  ]
+ },
+ {
+  "slug": "budget-track-system",
+  "title": "Budgeting, tracking, or a system?",
+  "summary": "Three ways to control expenses, and when each one works best.",
+  "order": 5,
+  "disclaimer": false,
+  "lesson_count": 2,
+  "quiz_count": 1,
+  "lessons": [
+   {
+    "title": "Track first, budget later",
+    "points": [
+     "Budget — plan ahead. Best when life is changing (new job, marriage, moving).",
+     "Tracking — see what really happens. Best when spending feels out of control.",
+     "A system — split income automatically. Best for building savings for years."
+    ],
+    "key_idea": null,
+    "action": null
+   },
+   {
+    "title": "Make it realistic",
+    "points": [
+     "Keep a 10% buffer for unexpected costs.",
+     "Allow a little fun and gifts — a budget that's too strict breaks.",
+     "Aim to save at least 20% of your income.",
+     "Involve your partner or family."
+    ],
+    "key_idea": "Kopkad logs your Kopkad wallet and savings transactions for you, so tracking takes less effort.",
+    "action": "log_expense"
+   }
+  ]
+ },
+ {
+  "slug": "emergency-fund",
+  "title": "Your emergency fund",
+  "summary": "From a small cash buffer to six months of living costs — your protection when life happens.",
+  "order": 6,
+  "disclaimer": false,
+  "lesson_count": 2,
+  "quiz_count": 1,
+  "lessons": [
+   {
+    "title": "Why you need one",
+    "points": [
+     "Sickness, a slow market, a broken phone, a rent increase — emergencies come without warning. Without savings, people borrow at high cost or sell what they own."
+    ],
+    "key_idea": null,
+    "action": null
+   },
+   {
+    "title": "How big, and where",
+    "points": [
+     "Step 1: never let your spending money run to zero — keep a small buffer.",
+     "Step 2: save one month of living costs.",
+     "Step 3: grow it to three, then six months."
+    ],
+    "key_idea": "Your unspent Give share moves into your emergency fund first.",
+    "action": "emergency_fund"
+   }
+  ]
+ },
+ {
+  "slug": "good-debt-bad-debt",
+  "title": "Good debt vs bad debt",
+  "summary": "When borrowing builds wealth, and when it quietly destroys it.",
+  "order": 7,
+  "disclaimer": false,
+  "lesson_count": 2,
+  "quiz_count": 1,
+  "lessons": [
+   {
+    "title": "Bad debt",
+    "points": [
+     "Borrowing to pay for daily expenses or celebrations.",
+     "Buy-now-pay-later that you can't clear quickly.",
+     "Loans for things that lose value, like phones and cars.",
+     "Borrowing to gamble or chase quick profits."
+    ],
+    "key_idea": null,
+    "action": null
+   },
+   {
+    "title": "Good debt",
+    "points": [
+     "Good debt helps you buy something that grows in value or brings in more money than the loan costs — for example, stock for your shop that you are sure will sell at a profit."
+    ],
+    "key_idea": "Before you borrow, ask: will this bring in more than it costs me, and can I repay even if business is slow?",
+    "action": "money_split"
+   }
+  ]
+ },
+ {
+  "slug": "three-money-statements",
+  "title": "Your three money statements",
+  "summary": "What you own, what you earn, and where your cash goes — explained simply.",
+  "order": 8,
+  "disclaimer": false,
+  "lesson_count": 2,
+  "quiz_count": 1,
+  "lessons": [
+   {
+    "title": "Balance sheet and income statement",
+    "points": [
+     "Balance sheet: what you own − what you owe = your net worth. A snapshot on one day.",
+     "Income statement: income − expenses = your profit (what you saved) over a month."
+    ],
+    "key_idea": null,
+    "action": null
+   },
+   {
+    "title": "Cash flow is different",
+    "points": [
+     "Cash flow tracks actual money moving in and out. A loan brings cash in, but it is not income — you owe it back. Repaying a loan sends cash out, but it is not an expense."
+    ],
+    "key_idea": "Treating borrowed money as income is how many people overspend.",
+    "action": "statements"
+   }
+  ]
+ },
+ {
+  "slug": "fixed-vs-variable-costs",
+  "title": "Fixed vs variable costs",
+  "summary": "Why high fixed costs make you fragile when income drops.",
+  "order": 9,
+  "disclaimer": false,
+  "lesson_count": 2,
+  "quiz_count": 1,
+  "lessons": [
+   {
+    "title": "Two kinds of expense",
+    "points": [
+     "Fixed — the same every month whatever you earn: rent, school fees, loan repayments.",
+     "Variable — changes with your choices: food out, transport, data, clothes."
+    ],
+    "key_idea": null,
+    "action": null
+   },
+   {
+    "title": "Stay flexible",
+    "points": [
+     "Before taking on a new fixed cost — a bigger flat, a car loan — ask whether you could still pay it in your worst month. Mark each expense as fixed or variable in Wealth Builder…"
+    ],
+    "key_idea": "Lower fixed costs plus an emergency fund = less fear when business slows down.",
+    "action": "log_expense"
+   }
+  ]
+ },
+ {
+  "slug": "financial-independence-number",
+  "title": "Financial independence: your number",
+  "summary": "The point where your savings can pay your living costs — and how to estimate it.",
+  "order": 10,
+  "disclaimer": false,
+  "lesson_count": 2,
+  "quiz_count": 1,
+  "lessons": [
+   {
+    "title": "Independence, not just being rich",
+    "points": [
+     "Financial independence means your savings and investments earn enough to cover your living costs, so work becomes a choice. It is not about flashy cars or houses — those often…"
+    ],
+    "key_idea": null,
+    "action": null
+   },
+   {
+    "title": "Estimate your number",
+    "points": [
+     "A common rule of thumb: multiply your yearly living costs by 30."
+    ],
+    "key_idea": "For educational purposes only. This is not financial advice.",
+    "action": "money_split"
+   }
+  ]
+ },
+ {
+  "slug": "investing-basics",
+  "title": "Investing basics: risk and time",
+  "summary": "The main types of assets, how risky they are, and how long to hold them. Education only.",
+  "order": 11,
+  "disclaimer": true,
+  "lesson_count": 2,
+  "quiz_count": 1,
+  "lessons": [
+   {
+    "title": "Types of assets",
+    "points": [
+     "Cash and savings — low risk, low return, easy to reach. For money you need within a year.",
+     "Fixed-income (treasury bills, bonds) — a little more return, money tied up for a period. For one to five years.",
+     "Property — can grow over many years but costly to buy and slow to sell. Five years or more.",
+     "Shares (e.g. companies on the Nigerian Exchange) — can grow and pay dividends, but prices rise and fall. Five years or more."
+    ],
+    "key_idea": "For educational purposes only. This is not financial advice. Kopkad does not offer investment products; Locked Savings is a savings product.",
+    "action": null
+   },
+   {
+    "title": "Risk, time and spreading out",
+    "points": [
+     "Higher possible return comes with higher risk of loss.",
+     "Only put money in long-term assets if you won't need it for years.",
+     "Don't put everything in one place — spread it out (diversify).",
+     "Build your emergency fund first.",
+     "Your skills are your biggest asset — investing in learning raises your income."
+    ],
+    "key_idea": "Speak to a licensed professional before making investment decisions.",
+    "action": "locked_savings"
+   }
+  ]
+ },
+ {
+  "slug": "avoid-scams-and-speculation",
+  "title": "Avoiding scams and speculation",
+  "summary": "How to spot 'double your money' schemes and why speculation is closer to gambling than investing.",
+  "order": 12,
+  "disclaimer": true,
+  "lesson_count": 2,
+  "quiz_count": 1,
+  "lessons": [
+   {
+    "title": "Red flags",
+    "points": [
+     "Guaranteed high returns in a short time ('double your money in 30 days').",
+     "Pressure to pay quickly or recruit friends and family.",
+     "No clear business that produces the returns.",
+     "Withdrawals that keep getting delayed."
+    ],
+    "key_idea": "For educational purposes only. This is not financial advice.",
+    "action": null
+   },
+   {
+    "title": "Speculation is not investing",
+    "points": [
+     "Short-term trading of crypto, forex or 'signals', and contracts for difference, depend on prices moving the right way in a short time. Most people who try it lose money. The…"
+    ],
+    "key_idea": "Get rich slowly: steady saving over many years beats chasing quick wins.",
+    "action": "savings"
+   }
+  ]
+ },
+ {
+  "slug": "seven-cures-lean-purse",
+  "title": "The seven cures for a thin wallet",
+  "summary": "Timeless rules from a 100-year-old classic: keep part of every income, control spending, and make money work.",
+  "order": 13,
+  "disclaimer": false,
+  "lesson_count": 2,
+  "quiz_count": 1,
+  "lessons": [
+   {
+    "title": "Keep part of everything you earn",
+    "points": [
+     "A famous story set in ancient Babylon asks: why do hard-working people stay broke? The answer it gives is simple — they spend everything that comes in. The first cure is to keep…"
+    ],
+    "key_idea": null,
+    "action": null
+   },
+   {
+    "title": "Make money work, and protect it",
+    "points": [
+     "Make your savings earn — money sitting idle loses value.",
+     "Guard it from loss — never chase promises that sound too good.",
+     "Own your home in time — rent paid forever never comes back.",
+     "Plan for the day you can't work — an emergency fund and insurance.",
+     "Grow your ability to earn — a new skill is the best raise."
+    ],
+    "key_idea": "Save first, spend what's left, protect what you save, and keep learning.",
+    "action": "money_split"
+   }
+  ]
+ },
+ {
+  "slug": "assets-vs-liabilities",
+  "title": "Assets put money in your pocket",
+  "summary": "The simple test that separates things that make you richer from things that quietly make you poorer.",
+  "order": 14,
+  "disclaimer": false,
+  "lesson_count": 2,
+  "quiz_count": 1,
+  "lessons": [
+   {
+    "title": "The pocket test",
+    "points": [
+     "Asset: savings that earn interest, a shop or tricycle that earns more than it costs to run, a skill people pay you for.",
+     "Liability: a car you only use to show off, a phone bought on credit, a loan for a party."
+    ],
+    "key_idea": null,
+    "action": null
+   },
+   {
+    "title": "Buy assets first, enjoy later",
+    "points": [
+     "Robert T. Kiyosaki, Rich Dad Poor Dad (1997) — assets vs liabilities. Some of the book's other claims are debated; the pocket test is the…"
+    ],
+    "key_idea": "Before a big purchase, ask: will this put money in my pocket, or take it out every month?",
+    "action": "statements"
+   }
+  ]
+ },
+ {
+  "slug": "psychology-of-money",
+  "title": "Money is about behaviour, not cleverness",
+  "summary": "Why doing ordinary things consistently beats being smart — and why knowing 'enough' protects you.",
+  "order": 15,
+  "disclaimer": false,
+  "lesson_count": 2,
+  "quiz_count": 1,
+  "lessons": [
+   {
+    "title": "Behaviour beats knowledge",
+    "points": [
+     "Your past shapes your money habits — what feels 'normal' to you may not be normal for others.",
+     "Luck and risk both play a part — don't copy a lucky winner, and don't judge yourself by one bad year.",
+     "Compounding needs time more than it needs high returns."
+    ],
+    "key_idea": null,
+    "action": null
+   },
+   {
+    "title": "Know your 'enough' and leave room for error",
+    "points": [
+     "Morgan Housel, The Psychology of Money (2020) — behaviour over knowledge, 'enough', luck and risk, room for error."
+    ],
+    "key_idea": "Getting rich and staying rich are different skills. Staying rich means not taking risks you can't survive.",
+    "action": "emergency_fund"
+   }
+  ]
+ },
+ {
+  "slug": "rich-vs-looking-rich",
+  "title": "Being rich vs looking rich",
+  "summary": "Most people who build real wealth live quietly below their means. Here's how to handle the pressure to show off.",
+  "order": 16,
+  "disclaimer": false,
+  "lesson_count": 2,
+  "quiz_count": 1,
+  "lessons": [
+   {
+    "title": "Wealth is what you don't see",
+    "points": [
+     "A long-running study of self-made millionaires found that most of them live well below their means: ordinary houses, ordinary cars, and a habit of saving the difference. The…"
+    ],
+    "key_idea": "Wealth is the money you didn't spend. You can't see it — that's the point.",
+    "action": null
+   },
+   {
+    "title": "Owambe, aso-ebi and the pressure to spend",
+    "points": [
+     "Put celebrations in your Give & Family share, not in borrowed money.",
+     "Set a yearly aso-ebi and gifts budget and stick to it.",
+     "Say 'not this time' to one event a month — that's a cut you can save.",
+     "Spend on what you value, not on what others will see."
+    ],
+    "key_idea": null,
+    "action": "log_expense"
+   }
+  ]
+ },
+ {
+  "slug": "clearing-debt-snowball-avalanche",
+  "title": "Clearing debt: snowball or avalanche",
+  "summary": "Two proven ways to pay off several debts — pick the one you'll actually stick with.",
+  "order": 17,
+  "disclaimer": false,
+  "lesson_count": 2,
+  "quiz_count": 1,
+  "lessons": [
+   {
+    "title": "List every debt",
+    "points": [
+     "Write down every debt: who you owe, how much, the interest or fees, and the minimum payment. Include loan apps, buy-now-pay-later, money owed to family and the shop credit you…"
+    ],
+    "key_idea": "Stop adding new debt while you clear the old — otherwise you're filling a bucket with a hole.",
+    "action": null
+   },
+   {
+    "title": "Two ways to pay it down",
+    "points": [
+     "Snowball — the smallest balance first. Clearing one quickly feels good and keeps you going; its payment then rolls onto the next.",
+     "Avalanche — the highest interest first. It costs the least in total, but the first win can take longer."
+    ],
+    "key_idea": null,
+    "action": "learn:good-debt-bad-debt"
+   }
+  ]
+ },
+ {
+  "slug": "inflation-rule-of-72",
+  "title": "Inflation and the Rule of 72",
+  "summary": "Why cash kept at home shrinks, and a quick trick to see how fast money doubles — or halves.",
+  "order": 18,
+  "disclaimer": false,
+  "lesson_count": 2,
+  "quiz_count": 1,
+  "lessons": [
+   {
+    "title": "Inflation eats idle money",
+    "points": [
+     "Inflation is prices rising over time. If prices go up 15% in a year, ₦10,000 kept under the mattress buys only what about ₦8,700 bought a year ago."
+    ],
+    "key_idea": "Keep only what you need for the next few weeks as idle cash. Savings that earn something fight back against inflation.",
+    "action": null
+   },
+   {
+    "title": "The Rule of 72",
+    "points": [
+     "At 12% a year, savings double in about 72 ÷ 12 = 6 years.",
+     "At 15% inflation, idle cash loses half its buying power in about 72 ÷ 15 ≈ 5 years."
+    ],
+    "key_idea": "For educational purposes only. This is not financial advice.",
+    "action": "locked_savings"
+   }
+  ]
+ },
+ {
+  "slug": "automate-saving",
+  "title": "Make saving automatic",
+  "summary": "Willpower runs out. Set things up once so saving happens before you can spend.",
+  "order": 19,
+  "disclaimer": false,
+  "lesson_count": 2,
+  "quiz_count": 1,
+  "lessons": [
+   {
+    "title": "Don't rely on willpower",
+    "points": [
+     "Fixed costs — rent, bills, school fees.",
+     "Savings and long-term money — taken out first.",
+     "Guilt-free spending — whatever remains is yours to enjoy without worry."
+    ],
+    "key_idea": "When your savings are already set aside, the rest of your money is truly free to spend.",
+    "action": null
+   },
+   {
+    "title": "Automating it in Kopkad",
+    "points": [
+     "Ramit Sethi, I Will Teach You to Be Rich (2009) — the 'conscious spending plan' and automating your money."
+    ],
+    "key_idea": null,
+    "action": "money_split"
+   }
+  ]
+ },
+ {
+  "slug": "time-is-money",
+  "title": "What does it really cost? Count it in hours",
+  "summary": "Turn prices into hours of your life — the quickest way to tell a need from a want.",
+  "order": 20,
+  "disclaimer": false,
+  "lesson_count": 2,
+  "quiz_count": 1,
+  "lessons": [
+   {
+    "title": "Your real hourly earning",
+    "points": [
+     "Every naira you spend cost you time to earn. Work out what you really earn per hour: take what you keep in a week and divide by all the hours work takes — including travel and…"
+    ],
+    "key_idea": null,
+    "action": null
+   },
+   {
+    "title": "Is it worth the hours?",
+    "points": [
+     "Vicki Robin & Joe Dominguez, Your Money or Your Life (1992) — money as 'life energy' and your real hourly wage."
+    ],
+    "key_idea": "Spend your life energy on what you truly value.",
+    "action": "log_expense"
+   }
+  ]
+ },
+ {
+  "slug": "spotting-ponzi-schemes",
+  "title": "Spotting Ponzi schemes: lessons from CBEX",
+  "summary": "How 'double your money' schemes work, why they collapse, and how to check a company before you invest.",
+  "order": 21,
+  "disclaimer": true,
+  "lesson_count": 2,
+  "quiz_count": 1,
+  "lessons": [
+   {
+    "title": "How a Ponzi scheme works",
+    "points": [
+     "A Ponzi scheme pays early members with money from new members, not from real profit. It works only while new money keeps coming in — when it slows, withdrawals stop and most…"
+    ],
+    "key_idea": "For educational purposes only. This is not financial advice.",
+    "action": null
+   },
+   {
+    "title": "Check before you invest",
+    "points": [
+     "Guaranteed high returns in days or weeks — no real business can promise that.",
+     "You must recruit people to earn or to withdraw.",
+     "Withdrawals that get delayed, capped or 'upgraded'.",
+     "A big name or 'AI' and 'crypto' words, but no clear way the money is made."
+    ],
+    "key_idea": "Under the Investments and Securities Act 2025, Ponzi promoters can face up to 10 years in prison. If it sounds too good to be true, it is.",
+    "action": "savings"
+   }
+  ]
+ }
+]

@@ -3,7 +3,8 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import LandingNavbar from '../landing/LandingNavbar';
 import { goToApp } from '../utils/appNav';
 
-vi.mock('../utils/appNav', () => ({
+vi.mock('../utils/appNav', async (importOriginal) => ({
+  ...(await importOriginal()),
   goToApp: vi.fn(),
 }));
 
@@ -22,9 +23,10 @@ describe('LandingNavbar', () => {
   it('renders the logo and all desktop nav links', () => {
     render(<LandingNavbar />);
     expect(screen.getByAltText('Kopkad')).toBeInTheDocument();
-    ['Features', 'Merchants', 'Field Agents', 'How It Works', 'Pricing', 'FAQ'].forEach((label) => {
+    ['Features', 'Wealth Builder', 'Merchants', 'Field Agents', 'How It Works', 'Pricing', 'FAQ'].forEach((label) => {
       expect(screen.getByRole('button', { name: label })).toBeInTheDocument();
     });
+    expect(screen.getByRole('link', { name: 'Blog' })).toHaveAttribute('href', '/blog');
   });
 
   it('does not render the Cooperative link when onCoopClick is not provided', () => {
