@@ -12,8 +12,8 @@ const IMAGE = '/og-image.jpg';
 const BLOG_IMAGE = '/og-blog.jpg';
 
 const HOME = {
-  title: 'Kopkad — Save. Invest. Grow.',
-  description: 'Savings that earn interest, Wealth Builder to plan every naira, Thrift groups, a phone POS for merchants, and cooperative management software across Nigeria.',
+  title: 'Kopkad — Financial Intelligence for Wealth Growth',
+  description: 'Know your money, grow your wealth. Plan every income with Wealth Builder, track spending, save with interest, lock money for your goals, and learn the habits that build wealth.',
   image: IMAGE,
   type: 'website',
 };

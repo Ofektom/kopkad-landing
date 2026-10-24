@@ -525,24 +525,30 @@ const FaqItem = ({ q, a }) => {
 const Landing = ({ onStartClick, onCoopClick, onMerchantClick }) => {
   /* ── DATA ─────────────────────────────────────────────────────────────────── */
 
+  // The wealth-building tools first, then the money-movement and business tools.
   const mainAppFeatures = [
-    { icon: ClipboardList, color: 'bg-cyan-700',   title: 'AJO Daily Card Marking',    desc: 'The core market savings workflow. Field agents register customers and mark their daily contributions in seconds, earning commission paid by Kopkad.' },
-    { icon: QrCode,           color: 'bg-orange-500', title: 'QR Physical Card System',    desc: 'Print QR savings cards for members. Scan with any smartphone to instantly open their account.' },
+    { icon: Sprout,        color: 'bg-cyan-700',   title: 'Wealth Builder',             desc: 'Split every income into Living, Savings and Give before you spend, keep to a daily budget, and climb from Seed to Harvest as your savings grow.' },
+    { icon: BookOpen,      color: 'bg-orange-500', title: 'Financial Awareness',        desc: 'Short money lessons, from paying yourself first to spotting Ponzi schemes, each paired with the tool that puts it into practice.' },
     { icon: TrendingUp,       color: 'bg-emerald-600', title: 'Interest on Your Savings',   desc: 'No commission to save. Your balance earns interest, accrued daily and credited monthly — up to 20% p.a. depending on how much and how long you save. Rate can change with notice; 10% withholding tax applies.' },
     { icon: Lock,             color: "bg-indigo-600", title: "Locked Savings",              desc: "Lock money for 3–12 months at a fixed rate of up to 20% p.a., set at creation. Add money any time (Flexible Lock) or lock a one-off sum (Fixed Lock)." },
-    { icon: Wallet,        color: 'bg-cyan-700',   title: 'Wallet & Account Number',    desc: 'Complete KYC to get your own permanent 10-digit account number. Top up from any bank app, withdraw to your bank any time.' },
-    { icon: Store,         color: 'bg-orange-500', title: 'Merchant POS',               desc: 'Turn your phone into a POS with Kopkad Pay: charge customers, send to any Kopkad user, or pay out to any bank.' },
-    { icon: MessageSquareText, color: 'bg-indigo-600', title: 'Pay Without Data',       desc: 'Pay a Kopkad merchant from your wallet by reading out a one-time SMS code. You don\'t need a smartphone, data or a card.' },
-    { icon: Sprout,        color: 'bg-cyan-700',   title: 'Wealth Builder',             desc: 'Split every income into Living, Savings and Give, track what you spend, and see your money statements and progress. Free money lessons show you how.' },
+    { icon: ListChecks,    color: 'bg-cyan-700',   title: 'Expense Tracking',           desc: 'Log income and spending in seconds, see needs vs wants, and get your own income statement, cash flow and balance sheet.' },
     { icon: Users,         color: 'bg-orange-500', title: 'Thrift (Ajo/Esusu) Groups',  desc: 'Join a field agent\'s thrift group with a link: fixed contributions, a rotating payout schedule, and every slot paid by card, transfer or wallet.' },
-    { icon: Zap,           color: 'bg-emerald-600',title: 'SMS & Email Notifications',  desc: 'Instant alerts when savings are marked, money lands in or leaves your wallet, or a payout is processed.' },
+    { icon: Wallet,        color: 'bg-emerald-600', title: 'Wallet & Account Number',    desc: 'Complete KYC to get your own permanent 10-digit account number. Top up from any bank app, withdraw to your bank any time.' },
+    { icon: Store,         color: 'bg-indigo-600', title: 'Merchant POS',               desc: 'Turn your phone into a POS with Kopkad Pay: charge customers, send to any Kopkad user, or pay out to any bank.' },
+    { icon: MessageSquareText, color: 'bg-cyan-700', title: 'Pay Without Data',         desc: 'Pay a Kopkad merchant from your wallet by reading out a one-time SMS code. You don\'t need a smartphone, data or a card.' },
+    { icon: ClipboardList, color: 'bg-orange-500', title: 'AJO Daily Card Marking',    desc: 'The core market savings workflow. Field agents register customers and mark their daily contributions in seconds, earning commission paid by Kopkad.' },
+    { icon: QrCode,           color: 'bg-emerald-600', title: 'QR Physical Card System',    desc: 'Print QR savings cards for members. Scan with any smartphone to instantly open their account.' },
+    { icon: Zap,           color: 'bg-indigo-600', title: 'SMS & Email Notifications',  desc: 'Instant alerts when savings are marked, money lands in or leaves your wallet, or a payout is processed.' },
   ];
 
+
+  // How Kopkad grows wealth: the three habits, each backed by tools in the app.
   const steps = [
-    { icon: Users2,      color: 'bg-cyan-700',   title: 'Sign Up & Verify',         desc: 'Create your account, choose your role, and verify your identity to unlock all features.' },
-    { icon: ClipboardList,  color: 'bg-orange-500', title: 'Set Up Your Operation',    desc: 'Start a savings plan, open a Locked Savings plan, or switch on your merchant POS and print your QR sticker.' },
-    { icon: CircleDollarSign, color: 'bg-cyan-700',   title: 'Grow, Track & Pay Out',    desc: 'Save and earn interest, take payments at your shop, and withdraw to any bank, with a full record of every transaction.' },
+    { icon: ListChecks,  color: 'bg-cyan-700',   title: 'Know Your Money',        desc: 'Track your income and spending and see your own money statements, so you know exactly where every naira goes.' },
+    { icon: PieChart,    color: 'bg-orange-500', title: 'Plan & Save First',      desc: 'Split every income with Wealth Builder, save before you spend, and lock money away for your goals, earning interest as you go.' },
+    { icon: Sprout,      color: 'bg-cyan-700',   title: 'Grow & Keep Learning',   desc: 'Watch your savings rate, emergency fund and net worth grow, and learn the money habits that keep it growing.' },
   ];
+
 
   const testimonials = [
     {
@@ -565,7 +571,7 @@ const Landing = ({ onStartClick, onCoopClick, onMerchantClick }) => {
   const faqs = [
     {
       q: 'What is Kopkad?',
-      a: 'Kopkad is a digital financial management platform for Nigeria with two separate products: the main app (app.kopkad.ng) for personal savers, merchants, and market savings collectors — and Cooperative by Kopkad (cooperative.kopkad.ng), a full SaaS platform for managing cooperative societies.',
+      a: 'Kopkad is a financial intelligence and wealth growth app for Nigerians. The main app (app.kopkad.ng) helps you understand your money and grow it, with Wealth Builder to plan every income, expense tracking and money statements, savings that earn interest, Locked Savings, Thrift groups and free money lessons. It also has Kopkad Pay for merchants and tools for field agents. Cooperative by Kopkad (cooperative.kopkad.ng) is a separate platform for running cooperative societies.',
     },
     {
       q: 'Does Kopkad charge a commission on savings?',
@@ -646,23 +652,24 @@ const Landing = ({ onStartClick, onCoopClick, onMerchantClick }) => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
           <div>
             <span className="inline-block bg-orange-500/20 text-orange-300 text-xs font-semibold px-4 py-1.5 rounded-full mb-6 border border-orange-500/30">
-              Personal Savings · Merchant POS · Cooperative SaaS
+              Financial Intelligence · Wealth Growth
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
-              Nigeria's complete{' '}
-              <span className="text-orange-400">financial platform</span>
+              Know your money.{' '}
+              <span className="text-orange-400">Grow your wealth.</span>
             </h1>
             <p className="text-lg text-cyan-100 mb-10 leading-relaxed max-w-xl">
-              The main app handles personal savings, Locked Savings, Wealth Builder for planning
-              every naira, Thrift groups, and Kopkad Pay, a POS on your phone for merchants. Cooperative by Kopkad is a full SaaS for running cooperative societies — with
-              member wallets, loans, and a branded member portal.
+              Kopkad is a financial intelligence app. It shows you where your money goes and gives
+              you the tools to grow it: Wealth Builder to plan every income, savings that earn
+              interest, Locked Savings for your goals, expense tracking, Thrift groups, and free
+              money lessons. Merchants and cooperatives run on Kopkad too.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <button
                 onClick={onStartClick}
                 className="px-8 py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-xl text-base transition-all shadow-lg flex items-center justify-center gap-2"
               >
-                Personal Finance App <ArrowRight size={18} />
+                Start Building Wealth <ArrowRight size={18} />
               </button>
               <button
                 onClick={onCoopClick}
@@ -766,15 +773,16 @@ const Landing = ({ onStartClick, onCoopClick, onMerchantClick }) => {
       <section id="features" className="py-20 px-4 bg-white scroll-mt-16">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
-            <span className="text-cyan-700 text-sm font-semibold uppercase tracking-widest">Personal Finance App</span>
+            <span className="text-cyan-700 text-sm font-semibold uppercase tracking-widest">Your Wealth Toolkit</span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">
-              For savers, merchants,{' '}
-              <br className="hidden sm:block" />and savings collectors
+              Every tool works toward one goal:{' '}
+              <br className="hidden sm:block" />growing your wealth
             </h2>
             <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
-              The main app at{' '}
-              <span className="font-mono text-cyan-700 text-sm">app.kopkad.ng</span>{' '}
-              is built for everyday savers, the merchants they buy from, and the agents who collect savings in the market.
+              Track where your money goes, save before you spend, lock money for your goals, and learn
+              the habits that build wealth, all in the app at{' '}
+              <span className="font-mono text-cyan-700 text-sm">app.kopkad.ng</span>. Merchants and the
+              agents who collect savings in the market run their business on the same app.
             </p>
           </div>
 
@@ -1032,9 +1040,9 @@ const Landing = ({ onStartClick, onCoopClick, onMerchantClick }) => {
       <section id="how-it-works" className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
-            <span className="text-orange-500 text-sm font-semibold uppercase tracking-widest">Getting Started</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">Up and running in minutes</h2>
-            <p className="text-gray-500 mt-4 max-w-xl mx-auto">No training required. If you can use a smartphone, you can use Kopkad.</p>
+            <span className="text-orange-500 text-sm font-semibold uppercase tracking-widest">How It Works</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">Three habits that build wealth</h2>
+            <p className="text-gray-500 mt-4 max-w-xl mx-auto">Kopkad turns each habit into a simple tool. If you can use a smartphone, you can use Kopkad.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {steps.map(({ icon, color, title, desc }, i) => (
@@ -1047,7 +1055,7 @@ const Landing = ({ onStartClick, onCoopClick, onMerchantClick }) => {
           </div>
           <div className="text-center mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button onClick={onStartClick} className="px-8 py-3.5 bg-cyan-800 hover:bg-cyan-900 text-white font-semibold rounded-xl transition-colors shadow-md">
-              Start with the Main App
+              Start Building Wealth
             </button>
             <button onClick={onCoopClick} className="px-8 py-3.5 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition-colors shadow-md">
               Launch a Cooperative
@@ -1105,18 +1113,18 @@ const Landing = ({ onStartClick, onCoopClick, onMerchantClick }) => {
         <div className="absolute bottom-0 left-0 w-48 h-48 bg-white rounded-full opacity-5 -translate-x-1/2 translate-y-1/2 pointer-events-none" />
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
-            Ready to take control of your finances?
+            Ready to grow your wealth?
           </h2>
           <p className="text-cyan-200 mb-10 text-lg">
-            Whether you're saving personally, running a shop, or managing a cooperative
-            society — Kopkad has a platform built for you.
+            It starts with knowing your money. Kopkad gives you the tools and the know-how to grow it,
+            whether you're saving for yourself, running a shop, or managing a cooperative society.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={onStartClick}
               className="px-10 py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-xl text-lg transition-all shadow-xl inline-flex items-center gap-2"
             >
-              Personal Finance App <ArrowRight size={20} />
+              Start Building Wealth <ArrowRight size={20} />
             </button>
             <button
               onClick={onCoopClick}
@@ -1125,7 +1133,7 @@ const Landing = ({ onStartClick, onCoopClick, onMerchantClick }) => {
               Run a Cooperative <ArrowRight size={20} />
             </button>
           </div>
-          <p className="text-cyan-300 text-sm mt-6">Personal finance app is always free · No hidden charges</p>
+          <p className="text-cyan-300 text-sm mt-6">The Kopkad app is free to use · No hidden charges</p>
           <p className="text-white text-sm font-semibold mt-2">No commission on your savings — ever. Your balance earns interest.</p>
         </div>
       </section>

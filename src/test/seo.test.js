@@ -18,7 +18,7 @@ describe('per-page share and search tags (prerendered at build time)', () => {
   });
 
   it('falls back to the home page details for unknown paths', () => {
-    expect(pageMeta('/nope').title).toBe('Kopkad — Save. Invest. Grow.');
+    expect(pageMeta('/nope').title).toBe('Kopkad — Financial Intelligence for Wealth Growth');
     expect(pageMeta('/').imageUrl).toBe('https://kopkad.ng/og-image.jpg');
   });
 

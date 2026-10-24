@@ -13,6 +13,14 @@ _Last updated: October 2026._
 
 ---
 
+## Positioning
+Kopkad is a **financial intelligence and wealth growth** app. Its tools serve that goal:
+- **Know your money:** expense tracking and money statements.
+- **Plan and save first:** Wealth Builder, savings with interest, Locked Savings and Thrift.
+- **Grow and keep learning:** insights, the money lessons, and the financial-independence number.
+
+Lead with this, not with "a savings app". Merchant (Kopkad Pay), field-agent and cooperative (CoopX) tools are the platform's other products.
+
 ## Products
 
 | Product | Address | For |

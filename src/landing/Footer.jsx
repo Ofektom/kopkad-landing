@@ -61,7 +61,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-sm leading-relaxed max-w-xs">
-              Smart savings, merchant payments, and cooperative management for Nigeria — now earning interest on every naira saved.
+              Financial intelligence and wealth growth for Nigeria: plan every naira, save with interest, track your spending, and learn the habits that build wealth.
             </p>
             <div className="flex gap-3 mt-5">
               {socials.map(({ icon: Icon, href }, idx) => (

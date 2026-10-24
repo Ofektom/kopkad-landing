@@ -15,15 +15,16 @@ describe('Landing', () => {
 
   it('renders the hero headline and highlight stats', () => {
     render(<Landing onStartClick={onStartClick} onCoopClick={onCoopClick} />);
-    expect(screen.getByText(/Nigeria's complete/i)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Know your money. Grow your wealth.');
+    expect(screen.getByText('Financial Intelligence · Wealth Growth')).toBeInTheDocument();
     expect(screen.getByText('₦2.4T+')).toBeInTheDocument();
     expect(screen.getByText('40,000+')).toBeInTheDocument();
     expect(screen.getByText('80M+')).toBeInTheDocument();
   });
 
-  it('calls onStartClick when a "Personal Finance App" button is clicked', () => {
+  it('calls onStartClick when a "Start Building Wealth" button is clicked', () => {
     render(<Landing onStartClick={onStartClick} onCoopClick={onCoopClick} />);
-    const buttons = screen.getAllByRole('button', { name: /Personal Finance App/i });
+    const buttons = screen.getAllByRole('button', { name: /Start Building Wealth/i });
     expect(buttons.length).toBeGreaterThanOrEqual(2);
     fireEvent.click(buttons[0]);
     expect(onStartClick).toHaveBeenCalledTimes(1);
@@ -72,9 +73,15 @@ describe('Landing', () => {
       'Merchant POS',
       'Pay Without Data',
       'SMS & Email Notifications',
+      'Expense Tracking',
+      'Financial Awareness',
     ].forEach((title) => {
       expect(screen.getByRole('heading', { level: 3, name: title })).toBeInTheDocument();
     });
+    // Sold as a wealth-growth toolkit: the wealth tools lead the grid.
+    const grid = screen.getByRole('heading', { level: 3, name: 'AJO Daily Card Marking' }).closest('.grid');
+    expect(grid.querySelector('h3')).toHaveTextContent('Wealth Builder');
+    expect(screen.getByText('Your Wealth Toolkit')).toBeInTheDocument();
     // Wealth Builder (which replaced the old cash flow / budget / expense
     // tracker) and Thrift are advertised; the old tools by name and the
     // sub-agent network are not.
@@ -131,9 +138,9 @@ describe('Landing', () => {
 
   it('renders the "How It Works" steps in order', () => {
     render(<Landing onStartClick={onStartClick} onCoopClick={onCoopClick} />);
-    expect(screen.getByText('Sign Up & Verify')).toBeInTheDocument();
-    expect(screen.getByText('Set Up Your Operation')).toBeInTheDocument();
-    expect(screen.getByText('Grow, Track & Pay Out')).toBeInTheDocument();
+    expect(screen.getByText('Know Your Money')).toBeInTheDocument();
+    expect(screen.getByText('Plan & Save First')).toBeInTheDocument();
+    expect(screen.getByText('Grow & Keep Learning')).toBeInTheDocument();
     expect(screen.getByText('1')).toBeInTheDocument();
     expect(screen.getByText('2')).toBeInTheDocument();
     expect(screen.getByText('3')).toBeInTheDocument();
@@ -141,7 +148,7 @@ describe('Landing', () => {
 
   it('calls the correct handler for the "How It Works" CTA buttons', () => {
     render(<Landing onStartClick={onStartClick} onCoopClick={onCoopClick} />);
-    fireEvent.click(screen.getByRole('button', { name: /Start with the Main App/i }));
+    fireEvent.click(screen.getAllByRole('button', { name: /Start Building Wealth/i })[1]);
     expect(onStartClick).toHaveBeenCalledTimes(1);
 
     fireEvent.click(screen.getByRole('button', { name: /Launch a Cooperative/i }));
@@ -159,13 +166,13 @@ describe('Landing', () => {
   it('FAQ answers are hidden until their question is clicked, and toggle closed again', () => {
     render(<Landing onStartClick={onStartClick} onCoopClick={onCoopClick} />);
     const question = screen.getByText('What is Kopkad?');
-    expect(screen.queryByText(/two separate products/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/financial intelligence and wealth growth app/i)).not.toBeInTheDocument();
 
     fireEvent.click(question);
-    expect(screen.getByText(/two separate products/i)).toBeInTheDocument();
+    expect(screen.getByText(/financial intelligence and wealth growth app/i)).toBeInTheDocument();
 
     fireEvent.click(question);
-    expect(screen.queryByText(/two separate products/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/financial intelligence and wealth growth app/i)).not.toBeInTheDocument();
   });
 
   it('each FAQ item toggles independently', () => {
@@ -173,7 +180,7 @@ describe('Landing', () => {
     fireEvent.click(screen.getByText('What is Kopkad?'));
     fireEvent.click(screen.getByText("What is Locked Savings?"));
 
-    expect(screen.getByText(/two separate products/i)).toBeInTheDocument();
+    expect(screen.getByText(/financial intelligence and wealth growth app/i)).toBeInTheDocument();
     expect(screen.getByText(/lock a sum for 3 to 12 months/i)).toBeInTheDocument();
   });
 
@@ -188,9 +195,9 @@ describe('Landing', () => {
 
   it('renders the final CTA section and wires both buttons to their handlers', () => {
     render(<Landing onStartClick={onStartClick} onCoopClick={onCoopClick} />);
-    expect(screen.getByText('Ready to take control of your finances?')).toBeInTheDocument();
+    expect(screen.getByText('Ready to grow your wealth?')).toBeInTheDocument();
 
-    const startButtons = screen.getAllByRole('button', { name: /Personal Finance App/i });
+    const startButtons = screen.getAllByRole('button', { name: /Start Building Wealth/i });
     const coopButtons = screen.getAllByRole('button', { name: /Run a Cooperative/i });
 
     fireEvent.click(startButtons[startButtons.length - 1]);
@@ -202,7 +209,7 @@ describe('Landing', () => {
 
   it('renders without crashing and without invoking handlers when props are omitted', () => {
     expect(() => render(<Landing />)).not.toThrow();
-    const buttons = screen.getAllByRole('button', { name: /Personal Finance App/i });
+    const buttons = screen.getAllByRole('button', { name: /Start Building Wealth/i });
     expect(() => fireEvent.click(buttons[0])).not.toThrow();
   });
 });

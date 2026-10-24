@@ -28,7 +28,7 @@ describe('Footer', () => {
   it('renders the brand logo and description', () => {
     renderFooter();
     expect(screen.getByAltText('Kopkad')).toBeInTheDocument();
-    expect(screen.getByText(/Smart savings, merchant payments, and cooperative management/i)).toBeInTheDocument();
+    expect(screen.getByText(/Financial intelligence and wealth growth for Nigeria/i)).toBeInTheDocument();
   });
 
   it('renders exactly four social icon links pointing to "#"', () => {
