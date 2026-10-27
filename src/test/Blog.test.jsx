@@ -153,7 +153,7 @@ describe('BlogPostPage — likes and comments', () => {
 
 describe('Blog — free Money Map', () => {
   it('points at the /money-map page of the app', () => {
-    expect(MONEY_MAP_URL).toMatch(/\/money-map$/);
+    expect(MONEY_MAP_URL).toMatch(/\/resources#money-map$/);
   });
 
   it('links the blog index to the Money Map page on the app', () => {
