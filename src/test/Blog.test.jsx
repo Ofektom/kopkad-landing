@@ -4,7 +4,7 @@ import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import BlogPage from '../pages/BlogPage';
 import BlogPostPage from '../pages/BlogPostPage';
 import { ACTIONS, getPost, postAction, posts } from '../blog/posts';
-import { goToApp } from '../utils/appNav';
+import { goToApp, MONEY_MAP_URL } from '../utils/appNav';
 
 vi.mock('../utils/appNav', async (importOriginal) => ({
   ...(await importOriginal()),
@@ -148,5 +148,22 @@ describe('BlogPostPage — likes and comments', () => {
     fireEvent.change(within(panel).getByLabelText('Comment'), { target: { value: 'Another one' } });
     fireEvent.click(within(panel).getByRole('button', { name: /Post comment/ }));
     expect(await within(panel).findByRole('status')).toHaveTextContent('several comments already');
+  });
+});
+
+describe('Blog — free Money Map', () => {
+  it('points at the /money-map page of the app', () => {
+    expect(MONEY_MAP_URL).toMatch(/\/money-map$/);
+  });
+
+  it('links the blog index to the Money Map page on the app', () => {
+    renderAt('/blog');
+    expect(screen.getByTestId('money-map-link')).toHaveAttribute('href', MONEY_MAP_URL);
+  });
+
+  it('offers the Money Map on every lesson', () => {
+    renderAt(`/blog/${posts[0].slug}`);
+    expect(screen.getByTestId('money-map-cta')).toBeInTheDocument();
+    expect(screen.getByTestId('money-map-link')).toHaveAttribute('href', MONEY_MAP_URL);
   });
 });

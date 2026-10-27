@@ -4,6 +4,7 @@ import { BookOpen, ArrowRight } from 'lucide-react';
 import LandingNavbar from '../landing/LandingNavbar';
 import Footer from '../landing/Footer';
 import SignupCta from '../blog/SignupCta';
+import MoneyMapCta from '../blog/MoneyMapCta';
 import { ACTIONS, inAppSummary, posts } from '../blog/posts';
 import { goToCoop } from '../utils/appNav';
 
@@ -38,6 +39,8 @@ const BlogPage = () => {
         </section>
 
         <div className="max-w-5xl mx-auto px-4 py-12 space-y-14">
+          <MoneyMapCta title="New here? Start with your free Money Map" />
+
           {GROUPS.map(([group, intro]) => (
             <section key={group} aria-labelledby={`group-${group}`}>
               <h2 id={`group-${group}`} className="text-2xl font-extrabold text-gray-900">{group}</h2>
