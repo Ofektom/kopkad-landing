@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, BookOpen, CircleCheck, ExternalLink, Lightbulb, 
 import LandingNavbar from '../landing/LandingNavbar';
 import Footer from '../landing/Footer';
 import SignupCta from '../blog/SignupCta';
+import MoneyMapCta from '../blog/MoneyMapCta';
 import BlogEngagement from '../blog/BlogEngagement';
 import { DISCLAIMER, getPost, inAppSummary, neighbours, postAction, relatedSlug } from '../blog/posts';
 import { goToApp, goToCoop } from '../utils/appNav';
@@ -94,6 +95,10 @@ const BlogPostPage = () => {
                 Sign up to read it <ArrowRight size={14} />
               </button>
             </div>
+          </div>
+
+          <div className="mt-8">
+            <MoneyMapCta />
           </div>
 
           {furtherReading(post.slug).length > 0 && (
