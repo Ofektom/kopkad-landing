@@ -1,8 +1,8 @@
 export const APP_URL  = import.meta.env.VITE_APP_URL  || 'https://app.kopkad.ng';
 const COOP_URL = import.meta.env.VITE_COOP_URL || 'https://cooperative.kopkad.ng';
 
-/** Free Money Map download page on the main app (kopkad-frontend /money-map). */
-export const MONEY_MAP_URL = `${APP_URL}/money-map`;
+/** The Money Map card on the main app's free resources page (kopkad-frontend /resources). */
+export const MONEY_MAP_URL = `${APP_URL}/resources#money-map`;
 
 export const goToApp  = (path = '') => { window.location.href = APP_URL  + path; };
 export const goToCoop = (path = '') => { window.location.href = COOP_URL + path; };
