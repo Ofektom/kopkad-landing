@@ -4,7 +4,7 @@ import { MONEY_MAP_URL } from '../utils/appNav';
 
 /**
  * Free lead magnet for blog readers who aren't ready to sign up: the Money Map
- * worksheet (PDF + spreadsheet) on app.kopkad.ng/money-map. A plain link, so it
+ * worksheet (PDF + spreadsheet) at kopkad.ng/resources/money-map. A plain link, so it
  * is in the prerendered HTML and crawlers can follow it.
  */
 const MoneyMapCta = ({ title = 'Put this lesson on paper: your Money Map', compact = false }) => (

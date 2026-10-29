@@ -3,11 +3,10 @@ import { ArrowRight, Sprout, BookOpen, CircleCheck, Wrench } from 'lucide-react'
 import { goToApp } from '../utils/appNav';
 
 /**
- * "Keep learning, then do it" — the blog only previews each lesson, so this
- * sends the reader to sign up on the main app for the full lesson and the
- * Wealth Builder tool that puts it into practice.
+ * "Now do it" — every study and article ends here: sign up free on the main
+ * app for the Wealth Builder tool that puts the idea into practice.
  */
-const SignupCta = ({ action, eyebrow = 'Full lesson + tools in the Kopkad app' }) => (
+const SignupCta = ({ action, eyebrow = 'Put it into practice · free on Kopkad' }) => (
   <div data-testid="signup-cta" className="rounded-3xl bg-gradient-to-br from-cyan-900 to-cyan-700 p-6 sm:p-8 text-white relative overflow-hidden">
     <div className="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-orange-500/20 pointer-events-none" />
     <div className="relative">
@@ -19,9 +18,9 @@ const SignupCta = ({ action, eyebrow = 'Full lesson + tools in the Kopkad app' }
       <p className="text-cyan-100 mt-2 leading-relaxed max-w-xl">{action.text}</p>
       <ul className="mt-4 grid gap-2 sm:grid-cols-3 text-sm text-cyan-50">
         {[
-          [BookOpen, 'Full lessons with real examples'],
-          [CircleCheck, 'Quick checks as you learn'],
-          [Wrench, 'Wealth Builder tools to do it'],
+          [Wrench, 'Wealth Builder does the maths'],
+          [CircleCheck, 'Track income and spending'],
+          [BookOpen, 'Lessons and quick checks in the app'],
         ].map(([Icon, label]) => (
           <li key={label} className="flex items-center gap-2"><Icon size={16} className="text-orange-300 flex-shrink-0" /> {label}</li>
         ))}
@@ -42,7 +41,7 @@ const SignupCta = ({ action, eyebrow = 'Full lesson + tools in the Kopkad app' }
           I already have an account
         </button>
       </div>
-      <p className="text-xs text-cyan-200 mt-4">Free to join. Find the lessons under Learn → Financial Literacy at app.kopkad.ng and in the Android app.</p>
+      <p className="text-xs text-cyan-200 mt-4">Free to join at app.kopkad.ng and in the Android app.</p>
     </div>
   </div>
 );

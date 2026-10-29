@@ -15,3 +15,6 @@ dist-ssr/
 
 # Local Claude Code settings
 .claude/
+
+# Built each morning from content/ by scripts/course.mjs (only released studies)
+src/content/course.generated.json

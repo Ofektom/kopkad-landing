@@ -1,0 +1,28 @@
+# Rebuild the site every morning so the day's Financial Intelligence
+# study (and any resource released today) goes live at 6:00 a.m. Lagos time.
+# The build itself decides what is released (scripts/course.mjs), so this job
+# only has to start a fresh Vercel production build.
+#
+# One-time setup: in Vercel, Project → Settings → Git → Deploy Hooks, create a
+# hook for the main branch; then in GitHub, Settings → Secrets and variables →
+# Actions, add it as VERCEL_DEPLOY_HOOK.
+name: Daily rebuild
+
+on:
+  schedule:
+    - cron: '0 5 * * *'   # 05:00 UTC = 06:00 Africa/Lagos, every day (studies on weekdays, resources any day)
+  workflow_dispatch: {}
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger a Vercel production build
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "::error::VERCEL_DEPLOY_HOOK is not set. See the setup note at the top of this workflow."
+            exit 1
+          fi
+          curl -fsS -X POST "$HOOK"

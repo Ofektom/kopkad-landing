@@ -44,23 +44,26 @@ const LandingNavbar = ({ onCoopClick }) => {
           </div>
 
           {/* Desktop Nav Links */}
-          <div className="hidden lg:flex items-center gap-5 xl:gap-7 ml-6">
+          <div className="hidden xl:flex items-center gap-5 2xl:gap-7 ml-6">
             {navLinks.map(({ label, id }) => (
               <button
                 key={id}
                 onClick={() => scrollTo(id)}
-                className="text-gray-600 hover:text-cyan-700 text-sm font-medium transition-colors"
+                className="text-gray-600 hover:text-cyan-700 text-sm font-medium transition-colors whitespace-nowrap"
               >
                 {label}
               </button>
             ))}
-            <a href="/blog" className="text-gray-600 hover:text-cyan-700 text-sm font-medium transition-colors">
+            <a href="/blog" className="text-gray-600 hover:text-cyan-700 text-sm font-medium transition-colors whitespace-nowrap">
               Blog
+            </a>
+            <a href="/resources" className="text-gray-600 hover:text-cyan-700 text-sm font-medium transition-colors whitespace-nowrap">
+              Resources
             </a>
             {onCoopClick && (
               <button
                 onClick={onCoopClick}
-                className="text-[#d97706] hover:text-[#b45309] text-sm font-medium transition-colors"
+                className="text-[#d97706] hover:text-[#b45309] text-sm font-medium transition-colors whitespace-nowrap"
               >
                 Cooperative
               </button>
@@ -68,16 +71,16 @@ const LandingNavbar = ({ onCoopClick }) => {
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden xl:flex items-center gap-3 flex-shrink-0">
             <button
               onClick={() => goToApp('/')}
-              className="px-4 py-2 text-cyan-700 font-semibold text-sm hover:text-cyan-800 transition-colors"
+              className="px-4 py-2 text-cyan-700 font-semibold text-sm hover:text-cyan-800 transition-colors whitespace-nowrap"
             >
               Log In
             </button>
             <button
               onClick={() => goToApp('/')}
-              className="px-5 py-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold text-sm rounded-lg transition-colors shadow-sm"
+              className="px-5 py-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold text-sm rounded-lg transition-colors shadow-sm whitespace-nowrap"
             >
               Get Started Free
             </button>
@@ -85,7 +88,7 @@ const LandingNavbar = ({ onCoopClick }) => {
 
           {/* Mobile hamburger */}
           <button
-            className="lg:hidden p-2 text-gray-600 hover:text-cyan-700"
+            className="xl:hidden p-2 text-gray-600 hover:text-cyan-700"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -95,7 +98,7 @@ const LandingNavbar = ({ onCoopClick }) => {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3 shadow-lg">
+        <div className="xl:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3 shadow-lg">
           {navLinks.map(({ label, id }) => (
             <button
               key={id}
@@ -107,6 +110,9 @@ const LandingNavbar = ({ onCoopClick }) => {
           ))}
           <a href="/blog" className="block w-full text-left text-gray-600 hover:text-cyan-700 py-2 text-sm font-medium">
             Blog
+          </a>
+          <a href="/resources" className="block w-full text-left text-gray-600 hover:text-cyan-700 py-2 text-sm font-medium">
+            Resources
           </a>
           {onCoopClick && (
             <button

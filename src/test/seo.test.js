@@ -1,11 +1,14 @@
 import { describe, it, expect } from 'vitest';
 import { PRERENDER_PATHS, headTags, pageMeta } from '../seo';
 import { posts } from '../blog/posts';
+import { studies } from '../blog/course';
 
 describe('per-page share and search tags (prerendered at build time)', () => {
   it('prerenders the home page, blog, every post and the legal pages — not the per-card scan pages', () => {
     expect(PRERENDER_PATHS).toEqual(expect.arrayContaining(['/', '/blog', '/terms', '/bylaws', '/coop-member-terms', '/coop-platform-terms']));
-    expect(PRERENDER_PATHS.filter((p) => p.startsWith('/blog/'))).toHaveLength(posts.length);
+    // library articles + the topics page + every study released so far (depends on today's build)
+    expect(PRERENDER_PATHS.filter((p) => p.startsWith('/blog/'))).toHaveLength(posts.length + 1 + studies().length);
+    expect(PRERENDER_PATHS).toEqual(expect.arrayContaining(['/blog/topics', '/resources', '/resources/money-map']));
     expect(PRERENDER_PATHS.some((p) => p.startsWith('/c/'))).toBe(false);
   });
 

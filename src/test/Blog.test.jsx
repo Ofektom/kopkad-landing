@@ -6,6 +6,9 @@ import BlogPostPage from '../pages/BlogPostPage';
 import { ACTIONS, getPost, postAction, posts } from '../blog/posts';
 import { goToApp, MONEY_MAP_URL } from '../utils/appNav';
 
+// Before the class starts (no studies out yet): the blog shows the start date and the library.
+vi.mock('../content/course.generated.json', async () => ({ default: (await import('./courseFixture')).makeCourse('2026-10-29') }));
+
 vi.mock('../utils/appNav', async (importOriginal) => ({
   ...(await importOriginal()),
   goToApp: vi.fn(),
@@ -46,12 +49,17 @@ describe('blog posts (the main app\'s Learn money lessons)', () => {
 });
 
 describe('BlogPage', () => {
-  it('lists every lesson with a link to its post, and a sign-up call to action', () => {
+  it('before day one: says when the class starts, offers the study plan, and keeps the lesson library', () => {
     renderAt('/blog');
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Learn the money habits.');
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Financial Intelligence. One study a day.');
+    const soon = screen.getByTestId('starts-soon');
+    expect(soon).toHaveTextContent('Starts Monday 16 November');
+    expect(soon).toHaveTextContent('Day one: Your salary is not your wealth');
+    expect(within(soon).getByRole('link', { name: /Get the free study plan/ })).toHaveAttribute('href', '/resources/study-plan');
+    expect(within(soon).getByRole('link', { name: /See all 24 topics/ })).toHaveAttribute('href', '/blog/topics');
     expect(screen.getByRole('link', { name: /The pie: pay yourself first/ })).toHaveAttribute('href', '/blog/the-pie-pay-yourself-first');
     expect(screen.getByRole('link', { name: /The pie: pay yourself first/ })).toHaveTextContent('2 lessons · 1 quick check');
-    expect(document.title).toBe('Money Lessons | Kopkad Blog');
+    expect(document.title).toBe('Financial Intelligence | Kopkad Blog');
     fireEvent.click(screen.getByRole('button', { name: /Set up your Wealth Builder/ }));
     expect(goToApp).toHaveBeenCalledWith('/signup');
   });
@@ -95,7 +103,7 @@ describe('BlogPostPage', () => {
 
   it('sends an unknown post back to the blog', () => {
     renderAt('/blog/no-such-lesson');
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Learn the money habits.');
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Financial Intelligence. One study a day.');
   });
 });
 
@@ -152,13 +160,13 @@ describe('BlogPostPage — likes and comments', () => {
 });
 
 describe('Blog — free Money Map', () => {
-  it('points at the /money-map page of the app', () => {
-    expect(MONEY_MAP_URL).toMatch(/\/resources#money-map$/);
+  it("points at the Money Map's own page on the website", () => {
+    expect(MONEY_MAP_URL).toBe('/resources/money-map');
   });
 
-  it('links the blog index to the Money Map page on the app', () => {
+  it('keeps the blog front page on the class: no download menu there', () => {
     renderAt('/blog');
-    expect(screen.getByTestId('money-map-link')).toHaveAttribute('href', MONEY_MAP_URL);
+    expect(screen.queryByTestId('money-map-link')).not.toBeInTheDocument();
   });
 
   it('offers the Money Map on every lesson', () => {
