@@ -8,7 +8,7 @@ vi.mock('../utils/appNav', async (importOriginal) => ({
   goToApp: vi.fn(),
 }));
 
-const getHamburger = () => screen.getAllByRole('button').find((b) => b.textContent === '');
+const getHamburger = () => screen.getByRole('button', { name: /menu/i });
 
 describe('LandingNavbar', () => {
   beforeEach(() => {
@@ -20,13 +20,23 @@ describe('LandingNavbar', () => {
     document.body.innerHTML = '';
   });
 
-  it('renders the logo and all desktop nav links', () => {
+  it('renders the logo and only links that go to another page', () => {
     render(<LandingNavbar />);
     expect(screen.getByAltText('Kopkad')).toBeInTheDocument();
-    ['Features', 'Wealth Builder', 'Merchants', 'Field Agents', 'How It Works', 'Pricing', 'FAQ'].forEach((label) => {
-      expect(screen.getByRole('button', { name: label })).toBeInTheDocument();
-    });
+    expect(screen.getByRole('link', { name: 'Home' })).toHaveAttribute('href', '/');
     expect(screen.getByRole('link', { name: 'Blog' })).toHaveAttribute('href', '/blog');
+    expect(screen.getByRole('link', { name: 'Resources' })).toHaveAttribute('href', '/resources');
+    ['Features', 'Wealth Builder', 'Merchants', 'Field Agents', 'How It Works', 'Pricing', 'FAQ'].forEach((label) => {
+      expect(screen.queryByRole('button', { name: label })).not.toBeInTheDocument();
+    });
+  });
+
+  it('marks the page you are on', () => {
+    window.history.pushState({}, '', '/blog/some-study');
+    render(<LandingNavbar />);
+    expect(screen.getByRole('link', { name: 'Blog' })).toHaveAttribute('aria-current', 'page');
+    expect(screen.getByRole('link', { name: 'Home' })).not.toHaveAttribute('aria-current');
+    window.history.pushState({}, '', '/');
   });
 
   it('does not render the Cooperative link when onCoopClick is not provided', () => {
@@ -50,23 +60,6 @@ describe('LandingNavbar', () => {
     expect(goToApp).toHaveBeenCalledWith('/signup');
   });
 
-  it('scrolls smoothly to the matching section id when a nav link is clicked', () => {
-    render(<LandingNavbar />);
-    const el = document.createElement('div');
-    el.id = 'pricing';
-    el.scrollIntoView = vi.fn();
-    document.body.appendChild(el);
-
-    fireEvent.click(screen.getByRole('button', { name: 'Pricing' }));
-
-    expect(el.scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth' });
-  });
-
-  it('does not throw when clicking a nav link whose target section is missing', () => {
-    render(<LandingNavbar />);
-    expect(() => fireEvent.click(screen.getByRole('button', { name: 'FAQ' }))).not.toThrow();
-  });
-
   it('scrolls the window to the top when the logo is clicked', () => {
     render(<LandingNavbar />);
     fireEvent.click(screen.getByAltText('Kopkad').parentElement);
@@ -76,7 +69,7 @@ describe('LandingNavbar', () => {
   it('mobile menu is closed by default', () => {
     render(<LandingNavbar onCoopClick={vi.fn()} />);
     expect(screen.queryByText('Cooperative Portal')).not.toBeInTheDocument();
-    expect(screen.getAllByRole('button', { name: 'FAQ' })).toHaveLength(1);
+    expect(screen.getAllByRole('link', { name: 'Blog' })).toHaveLength(1);
   });
 
   it('opens the mobile menu when the hamburger is clicked, revealing mobile-only items', () => {
@@ -84,7 +77,7 @@ describe('LandingNavbar', () => {
     fireEvent.click(getHamburger());
 
     expect(screen.getByText('Cooperative Portal')).toBeInTheDocument();
-    expect(screen.getAllByRole('button', { name: 'FAQ' })).toHaveLength(2);
+    expect(screen.getAllByRole('link', { name: 'Blog' })).toHaveLength(2);
   });
 
   it('closes the mobile menu again when the hamburger is clicked a second time', () => {
@@ -94,23 +87,6 @@ describe('LandingNavbar', () => {
 
     fireEvent.click(getHamburger());
     expect(screen.queryByText('Cooperative Portal')).not.toBeInTheDocument();
-  });
-
-  it('closes the mobile menu after selecting a section from within it', () => {
-    render(<LandingNavbar />);
-    const el = document.createElement('div');
-    el.id = 'faq';
-    el.scrollIntoView = vi.fn();
-    document.body.appendChild(el);
-
-    fireEvent.click(getHamburger());
-    const faqButtons = screen.getAllByRole('button', { name: 'FAQ' });
-    expect(faqButtons).toHaveLength(2);
-
-    fireEvent.click(faqButtons[1]);
-
-    expect(el.scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth' });
-    expect(screen.getAllByRole('button', { name: 'FAQ' })).toHaveLength(1);
   });
 
   it('calls onCoopClick and closes the mobile menu when the mobile Cooperative Portal button is clicked', () => {

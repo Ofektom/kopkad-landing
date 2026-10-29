@@ -83,16 +83,19 @@ describe('course build (scripts/course.mjs)', () => {
 });
 
 describe('BlogPage — the class in progress', () => {
-  it('opens on the latest study, with the topic now studying and what is next', () => {
+  it("opens on today's study in full, then what is next, earlier studies and the topic", () => {
     renderAt('/blog');
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Financial Intelligence. One study a day.');
-    const today = screen.getByTestId('todays-study');
-    expect(today).toHaveAttribute('href', '/blog/financial-intelligence-vs-financial-discipline');
-    expect(today).toHaveTextContent('Today · Topic 1, study 2 of 10');
+    const post = screen.getByTestId('study');
+    expect(within(post).getByRole('heading', { level: 1 })).toHaveTextContent('Financial intelligence vs financial discipline');
+    expect(post).toHaveTextContent('Topic 1 · Financial intelligence: the journey · Study 2 of 10');
+    expect(post).toHaveTextContent('Today');
+    expect(post).toHaveTextContent('Discipline is the daily habit.');
+    expect(screen.getByTestId('share-bar')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /Your salary is not your wealth/ })).toHaveAttribute('href', '/blog/your-salary-is-not-your-wealth');
     expect(screen.getByTestId('home-next-up')).toHaveTextContent('Wednesday 18 November');
     expect(screen.getByTestId('home-next-up')).toHaveTextContent('Money is a journey with 6 steps');
     expect(screen.queryByTestId('starts-soon')).not.toBeInTheDocument();
+    expect(document.body).not.toHaveTextContent('SECRET FUTURE');
     expect(document.title).toBe('Financial Intelligence | Kopkad Blog');
   });
 });
@@ -127,7 +130,7 @@ describe('StudyPage', () => {
 
   it('does not serve a written study before its day', async () => {
     renderAt('/blog/money-is-a-journey-with-6-steps');
-    await waitFor(() => expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Financial Intelligence. One study a day.'));
+    await waitFor(() => expect(document.title).toBe('Financial Intelligence | Kopkad Blog'));
     expect(document.body).not.toHaveTextContent('SECRET FUTURE');
   });
 

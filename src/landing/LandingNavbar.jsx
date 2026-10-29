@@ -1,37 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { goToApp, goToSection } from '../utils/appNav';
+import { goToApp } from '../utils/appNav';
+
+/**
+ * Site navigation: only links that go somewhere else. The home page's sections
+ * (features, pricing, FAQ…) are reached by scrolling it, and from the footer.
+ */
+export const NAV_LINKS = [
+  { label: 'Home', href: '/' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Resources', href: '/resources' },
+];
+
+const isActive = (path, href) => (href === '/' ? path === '/' : path === href || path.startsWith(`${href}/`));
 
 const LandingNavbar = ({ onCoopClick }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  // Read after mount so the prerendered HTML and the first client render match.
+  const [path, setPath] = useState('');
 
   useEffect(() => {
+    setPath(window.location.pathname);
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const scrollTo = (id) => {
-    setMenuOpen(false);
-    goToSection(id);
-  };
-
-  const navLinks = [
-    { label: 'Features', id: 'features' },
-    { label: 'Wealth Builder', id: 'wealth-builder' },
-    { label: 'Merchants', id: 'merchants' },
-    { label: 'Field Agents', id: 'field-agents' },
-    { label: 'How It Works', id: 'how-it-works' },
-    { label: 'Pricing', id: 'pricing' },
-    { label: 'FAQ', id: 'faq' },
-  ];
+  const linkClass = (href) => `text-sm font-semibold transition-colors whitespace-nowrap ${isActive(path, href) ? 'text-cyan-700' : 'text-gray-600 hover:text-cyan-700'}`;
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md' : 'bg-white/95 backdrop-blur-sm'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <div
             className="flex-shrink-0 cursor-pointer"
             onClick={() => (window.location.pathname === '/' ? window.scrollTo({ top: 0, behavior: 'smooth' }) : window.location.assign('/'))}
@@ -43,52 +44,37 @@ const LandingNavbar = ({ onCoopClick }) => {
             />
           </div>
 
-          {/* Desktop Nav Links */}
-          <div className="hidden xl:flex items-center gap-5 2xl:gap-7 ml-6">
-            {navLinks.map(({ label, id }) => (
-              <button
-                key={id}
-                onClick={() => scrollTo(id)}
-                className="text-gray-600 hover:text-cyan-700 text-sm font-medium transition-colors whitespace-nowrap"
-              >
+          <div className="hidden md:flex items-center gap-7 ml-8 mr-auto">
+            {NAV_LINKS.map(({ label, href }) => (
+              <a key={href} href={href} className={linkClass(href)} aria-current={isActive(path, href) ? 'page' : undefined}>
                 {label}
-              </button>
+              </a>
             ))}
-            <a href="/blog" className="text-gray-600 hover:text-cyan-700 text-sm font-medium transition-colors whitespace-nowrap">
-              Blog
-            </a>
-            <a href="/resources" className="text-gray-600 hover:text-cyan-700 text-sm font-medium transition-colors whitespace-nowrap">
-              Resources
-            </a>
             {onCoopClick && (
-              <button
-                onClick={onCoopClick}
-                className="text-[#d97706] hover:text-[#b45309] text-sm font-medium transition-colors whitespace-nowrap"
-              >
+              <button onClick={onCoopClick} className="text-[#d97706] hover:text-[#b45309] text-sm font-semibold transition-colors whitespace-nowrap">
                 Cooperative
               </button>
             )}
           </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden xl:flex items-center gap-3 flex-shrink-0">
+          <div className="hidden md:flex items-center gap-3 flex-shrink-0">
             <button
-              onClick={() => goToApp('/')}
+              onClick={() => goToApp('/login')}
               className="px-4 py-2 text-cyan-700 font-semibold text-sm hover:text-cyan-800 transition-colors whitespace-nowrap"
             >
               Log In
             </button>
             <button
-              onClick={() => goToApp('/')}
+              onClick={() => goToApp('/signup')}
               className="px-5 py-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold text-sm rounded-lg transition-colors shadow-sm whitespace-nowrap"
             >
               Get Started Free
             </button>
           </div>
 
-          {/* Mobile hamburger */}
           <button
-            className="xl:hidden p-2 text-gray-600 hover:text-cyan-700"
+            className="md:hidden p-2 text-gray-600 hover:text-cyan-700"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -96,28 +82,17 @@ const LandingNavbar = ({ onCoopClick }) => {
         </div>
       </div>
 
-      {/* Mobile menu */}
       {menuOpen && (
-        <div className="xl:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3 shadow-lg">
-          {navLinks.map(({ label, id }) => (
-            <button
-              key={id}
-              onClick={() => scrollTo(id)}
-              className="block w-full text-left text-gray-600 hover:text-cyan-700 py-2 text-sm font-medium"
-            >
+        <div className="md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-1 shadow-lg">
+          {NAV_LINKS.map(({ label, href }) => (
+            <a key={href} href={href} className={`block w-full py-2.5 ${linkClass(href)}`}>
               {label}
-            </button>
+            </a>
           ))}
-          <a href="/blog" className="block w-full text-left text-gray-600 hover:text-cyan-700 py-2 text-sm font-medium">
-            Blog
-          </a>
-          <a href="/resources" className="block w-full text-left text-gray-600 hover:text-cyan-700 py-2 text-sm font-medium">
-            Resources
-          </a>
           {onCoopClick && (
             <button
               onClick={() => { setMenuOpen(false); onCoopClick(); }}
-              className="block w-full text-left text-[#d97706] hover:text-[#b45309] py-2 text-sm font-medium"
+              className="block w-full text-left text-[#d97706] hover:text-[#b45309] py-2.5 text-sm font-semibold"
             >
               Cooperative Portal
             </button>
