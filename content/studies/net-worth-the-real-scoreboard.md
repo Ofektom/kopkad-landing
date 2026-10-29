@@ -45,7 +45,14 @@ If Daniel pays down ₦20,000 of debt and saves ₦10,000 more each month, his n
 
 ## Calculate yours
 
-The free **Net Worth Calculator** is a spreadsheet that does the maths for you: list your assets and debts, and it shows your net worth and keeps a record each quarter so you can see the trend. Get it below.
+The free **Net Worth Calculator** below is a spreadsheet that does the maths for you. It starts empty, because the numbers are yours:
+
+1. Open it on your computer, or on your phone in the free Google Sheets or Excel app. Read the **Start here** tab first.
+2. On the **My net worth** tab, type what you own at today's value, and mark each item "Yes" if it pays you.
+3. Type the balance left on every debt, including loan apps and money owed to family.
+4. Your net worth appears at the bottom. Copy your totals into the **Quarterly history** tab.
+
+Type only in the yellow cells; the rest works itself out. If you want to see a finished one first, the **Example** tab shows Mercy's. Your numbers stay on your device: you never need to send them to anyone.
 
 ## Your turn
 

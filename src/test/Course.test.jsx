@@ -168,6 +168,9 @@ describe('Resources', () => {
     expect(within(page).getByRole('link', { name: /Spreadsheet/ })).toHaveAttribute('href', '/magnets/money-map.xlsx');
     expect(page).not.toHaveTextContent('study plan');
     expect(within(page).getByRole('link', { name: /Read today's study/ })).toHaveAttribute('href', '/blog');
+    const how = within(page).getByTestId('how-to-use');
+    expect(within(how).getAllByRole('listitem').length).toBeGreaterThan(2);
+    expect(how).toHaveTextContent('yellow cells');
   });
 
   it('keeps a resource hidden until its release date', () => {

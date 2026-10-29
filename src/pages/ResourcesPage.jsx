@@ -60,8 +60,17 @@ export const ResourcePage = () => {
           <div className="flex-1">
             <p className="text-gray-600 text-lg leading-relaxed">{resource.description}</p>
             <Downloads resource={resource} />
+            <p className="text-xs text-gray-400 mt-3">Your numbers stay on your phone or computer. You never need to send them to anyone.</p>
           </div>
         </div>
+        {resource.howTo?.length > 0 && (
+          <section data-testid="how-to-use" className="mt-8 rounded-2xl bg-white border border-gray-100 p-5 sm:p-6">
+            <h2 className="text-lg font-extrabold text-gray-900">How to use it</h2>
+            <ol className="mt-3 space-y-2 list-decimal pl-5 text-gray-700 leading-relaxed">
+              {resource.howTo.map((step) => <li key={step}>{step}</li>)}
+            </ol>
+          </section>
+        )}
         <Link to="/blog" className="mt-10 flex items-center justify-between gap-3 rounded-2xl bg-white border border-gray-100 hover:border-cyan-200 px-5 py-4">
           <span>
             <span className="block text-xs font-bold uppercase tracking-widest text-cyan-700">Financial Intelligence · free class</span>
