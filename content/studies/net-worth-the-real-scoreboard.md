@@ -52,7 +52,7 @@ The free **Net Worth Calculator** below is a spreadsheet that does the maths for
 3. Type the balance left on every debt, including loan apps and money owed to family.
 4. Your net worth appears at the bottom. Copy your totals into the **Quarterly history** tab.
 
-Type only in the yellow cells; the rest works itself out. If you want to see a finished one first, the **Example** tab shows Mercy's. Your numbers stay on your device: you never need to send them to anyone.
+Each yellow cell shows a gray hint, like *e.g. 70,000*: type your own number over it and the totals update. Tap any cell for a short instruction. If you want to see a finished one first, the **Example** tab shows Mercy's. Your numbers stay on your device: you never need to send them to anyone.
 
 ## Your turn
 

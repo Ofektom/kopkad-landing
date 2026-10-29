@@ -45,7 +45,7 @@ export const RESOURCES = [
       'Open your bank and mobile money apps and look at the last 30 days.',
       'Fill in what came in and what went out last month, then what you own (at today\'s value) and the balance left on every debt.',
       'Read your surplus, your net worth and how many months your savings would last. A negative number is a starting point, not a verdict.',
-      'In the spreadsheet, type only in the yellow cells on the "My Money Map" tab. The "Example" tab shows a finished one.',
+      'In the spreadsheet, type over the gray hints in the yellow cells on the "My Money Map" tab; the totals work themselves out. The "Example" tab shows a finished one.',
     ],
     action: 'statements',
   },
@@ -61,7 +61,7 @@ export const RESOURCES = [
     howTo: [
       'Download the spreadsheet. On a phone, open it in the free Google Sheets or Excel app (in Google Sheets: File > Make a copy, so you can edit it).',
       'Read the "Start here" tab, then open "My net worth". It starts empty: these are your numbers.',
-      'Type what you own at today\'s value, and mark each item "Yes" if it pays you. Then type the balance left on every debt.',
+      'Type over the gray hints: what you own at today\'s value (choose Yes if it pays you), then the balance left on every debt. Tap any yellow cell for a short instruction.',
       'Your net worth appears at the bottom. Copy your totals into the "Quarterly history" tab.',
       'Every 3 months, update it and add a row. The chart shows whether your net worth is rising.',
     ],
