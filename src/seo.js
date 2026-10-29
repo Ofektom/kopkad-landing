@@ -1,4 +1,6 @@
 import { getPost, posts } from './blog/posts';
+import { getStudy, studies } from './blog/course';
+import { getResource, releasedResources } from './content/resources';
 
 /**
  * Per-page title, description and share image — written into each page's
@@ -21,8 +23,20 @@ const HOME = {
 const STATIC = {
   '/': HOME,
   '/blog': {
-    title: 'Money Lessons | Kopkad Blog',
-    description: 'Practical money lessons for Nigerians: pay yourself first, build an emergency fund, clear debt, spot Ponzi schemes. Learn the habit, then put it to work in Wealth Builder.',
+    title: 'Financial Intelligence | Kopkad Blog',
+    description: 'A free money class for Nigerians, one study every weekday: know where your money goes, save first, clear debt, avoid scams and build wealth. Then put it to work in Wealth Builder.',
+    image: BLOG_IMAGE,
+    type: 'website',
+  },
+  '/blog/topics': {
+    title: 'All 24 topics | Financial Intelligence',
+    description: 'The full outline of the free Financial Intelligence class: 24 topics, from knowing where you stand to your own financial plan.',
+    image: BLOG_IMAGE,
+    type: 'website',
+  },
+  '/resources': {
+    title: 'Free resources | Kopkad',
+    description: 'Free worksheets and plans from the Financial Intelligence class: the study plan, the Money Map and more. No account needed.',
     image: BLOG_IMAGE,
     type: 'website',
   },
@@ -33,14 +47,29 @@ const STATIC = {
 };
 
 /** Every path that gets its own pre-rendered HTML page (not /c/:token — those are per-card). */
-export const PRERENDER_PATHS = [...Object.keys(STATIC), ...posts.map((p) => `/blog/${p.slug}`)];
+export const PRERENDER_PATHS = [
+  ...Object.keys(STATIC),
+  ...posts.map((p) => `/blog/${p.slug}`),
+  ...studies().map((s) => `/blog/${s.slug}`),
+  ...releasedResources().map((r) => `/resources/${r.id}`),
+];
+
+const pageFor = (clean) => {
+  if (STATIC[clean]) return STATIC[clean];
+  if (clean.startsWith('/resources/')) {
+    const r = getResource(clean.slice(11));
+    return r ? { title: `${r.title} | Free download | Kopkad`, description: r.description, image: BLOG_IMAGE, type: 'website' } : null;
+  }
+  if (!clean.startsWith('/blog/')) return null;
+  const study = getStudy(clean.slice(6));
+  if (study) return { title: `${study.title} | Financial Intelligence`, description: study.summary || `Topic ${study.topic} of the free Financial Intelligence class.`, image: BLOG_IMAGE, type: 'article' };
+  const post = getPost(clean.slice(6));
+  return post ? { title: `${post.title} | Kopkad Blog`, description: post.summary, image: BLOG_IMAGE, type: 'article' } : null;
+};
 
 export const pageMeta = (path) => {
   const clean = path.replace(/\/+$/, '') || '/';
-  const post = clean.startsWith('/blog/') ? getPost(clean.slice(6)) : null;
-  const meta = post
-    ? { title: `${post.title} | Kopkad Blog`, description: post.summary, image: BLOG_IMAGE, type: 'article' }
-    : STATIC[clean] || HOME;
+  const meta = pageFor(clean) || HOME;
   return { ...meta, url: `${SITE_URL}${clean === '/' ? '/' : clean}`, imageUrl: `${SITE_URL}${meta.image}` };
 };
 

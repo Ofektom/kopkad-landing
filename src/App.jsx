@@ -8,6 +8,8 @@ import CoopPlatformTermsPage from './pages/CoopPlatformTermsPage';
 import BylawsPage from './pages/BylawsPage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
+import TopicsPage from './pages/TopicsPage';
+import ResourcesPage, { ResourcePage } from './pages/ResourcesPage';
 
 const App = () => (
   <Routes>
@@ -18,7 +20,10 @@ const App = () => (
     <Route path="/coop-platform-terms"  element={<CoopPlatformTermsPage />} />
     <Route path="/bylaws"               element={<BylawsPage />} />
     <Route path="/blog"                 element={<BlogPage />} />
+    <Route path="/blog/topics"          element={<TopicsPage />} />
     <Route path="/blog/:slug"           element={<BlogPostPage />} />
+    <Route path="/resources"            element={<ResourcesPage />} />
+    <Route path="/resources/:id"        element={<ResourcePage />} />
     <Route path="*"                     element={<Navigate to="/" replace />} />
   </Routes>
 );

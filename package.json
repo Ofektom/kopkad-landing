@@ -10,7 +10,12 @@
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "build:spa": "vite build"
+    "build:spa": "vite build",
+    "course": "node scripts/course.mjs",
+    "predev": "node scripts/course.mjs",
+    "prebuild": "node scripts/course.mjs",
+    "prebuild:spa": "node scripts/course.mjs",
+    "pretest": "node scripts/course.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.22.0",

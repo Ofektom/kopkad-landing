@@ -9,6 +9,8 @@ import BlogEngagement from '../blog/BlogEngagement';
 import { DISCLAIMER, getPost, inAppSummary, neighbours, postAction, relatedSlug } from '../blog/posts';
 import { goToApp, goToCoop } from '../utils/appNav';
 import { furtherReading } from '../content/furtherReading';
+import { getStudy } from '../blog/course';
+import StudyPage from './StudyPage';
 
 /**
  * One money lesson, previewed: each part's key points and takeaway only. The
@@ -17,6 +19,12 @@ import { furtherReading } from '../content/furtherReading';
  */
 const BlogPostPage = () => {
   const { slug } = useParams();
+  const study = getStudy(slug);
+  return study ? <StudyPage study={study} /> : <ArticlePage slug={slug} />;
+};
+
+/** A library article (the app's money lessons, previewed). */
+const ArticlePage = ({ slug }) => {
   const post = getPost(slug);
 
   useEffect(() => {
@@ -34,7 +42,7 @@ const BlogPostPage = () => {
       <main className="pt-16 bg-gray-50 min-h-screen">
         <article className="max-w-3xl mx-auto px-4 py-10">
           <Link to="/blog" className="inline-flex items-center gap-1.5 text-sm font-semibold text-cyan-700 hover:text-cyan-900">
-            <ArrowLeft size={15} /> All money lessons
+            <ArrowLeft size={15} /> Blog
           </Link>
 
           <header className="mt-6">
