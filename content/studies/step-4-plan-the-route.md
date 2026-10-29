@@ -11,7 +11,7 @@ There are actually five routes, and the strongest plans use several at once.
 1. **Earn more.** A side skill, extra hours, a small trade, asking for the raise you've earned. Cutting has a floor; earning more doesn't.
 2. **Spend less.** Not by suffering, but by being deliberate. Cut the cost of what you buy (cheaper data plan, buying in bulk), cut back on how often (eating out twice a month, not twice a week), or cut out what you don't really value.
 3. **Save regularly.** Small amounts, every payday, before you spend. Regular saving beats occasional big efforts because it builds the habit.
-4. **Plan for tax.** Know what tax you pay and the reliefs you're entitled to, such as pension contributions. Money you don't overpay is money you keep.
+4. **Plan for tax.** Know what tax you pay and the reliefs you're entitled to under the rules in force since January 2026, such as pension contributions and rent relief. Money you don't overpay is money you keep.
 5. **Invest wisely.** Once you have a cushion, put longer-term savings where they can grow faster than prices rise, and never into anything promising "guaranteed" high returns.
 
 !> Most people only try one route. Combine two or three, and each one has less to do.

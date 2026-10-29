@@ -170,6 +170,12 @@ describe('Resources', () => {
     expect(within(page).getByRole('link', { name: /Read today's study/ })).toHaveAttribute('href', '/blog');
   });
 
+  it('keeps a resource hidden until its release date', () => {
+    renderAt('/resources');
+    expect(screen.queryByTestId('resource-card-net-worth-calculator')).not.toBeInTheDocument(); // releases 11 Dec
+    expect(PRERENDER_PATHS).not.toContain('/resources/net-worth-calculator');
+  });
+
   it('sends old /resources#<id> links to that resource, and unknown ids to the list', async () => {
     const { unmount } = renderAt('/resources#money-map');
     expect(await screen.findByTestId('resource-money-map')).toBeInTheDocument();

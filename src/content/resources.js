@@ -8,8 +8,9 @@ import { COURSE } from '../blog/course';
  * comment-to-DM automations send people, so a reader who asked for one
  * download gets that download, not a menu of everything. The list page shows
  * only resources whose `releases` date has come (same daily rebuild as the
- * studies). To add one: put its files in public/magnets/ on its release day
- * and add an entry below (newest last).
+ * studies). To add one: put its files in public/magnets/ and add an entry
+ * below (newest last). Files are reachable by direct URL before release, but
+ * nothing links to them until the release date.
  */
 export const RESOURCES = [
   {
@@ -34,6 +35,17 @@ export const RESOURCES = [
       { kind: 'pdf', label: 'Printable PDF', href: '/magnets/money-map.pdf' },
       { kind: 'xlsx', label: 'Spreadsheet (does the maths)', href: '/magnets/money-map.xlsx' },
     ],
+    action: 'statements',
+  },
+  {
+    id: 'net-worth-calculator',
+    releases: '2026-12-11',
+    tag: 'Topic 2 · Know where you stand',
+    title: 'Net Worth Calculator',
+    description:
+      'A spreadsheet that adds up what you own and what you owe, shows your net worth and how much of your wealth is working for you, and keeps a quarterly history so you can watch the trend.',
+    preview: '/magnets/net-worth-calculator-preview.webp',
+    files: [{ kind: 'xlsx', label: 'Download the spreadsheet', href: '/magnets/net-worth-calculator.xlsx' }],
     action: 'statements',
   },
 ];
