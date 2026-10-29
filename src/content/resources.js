@@ -67,6 +67,41 @@ export const RESOURCES = [
     ],
     action: 'statements',
   },
+  {
+    id: 'money-values',
+    releases: '2026-12-22',
+    tag: 'Topic 3 · Goals that match your values',
+    title: 'Money Values worksheet',
+    description:
+      'One printable page that helps you name your top three values, check whether last month\'s spending matched them, and move money to what you really care about. About 15 minutes.',
+    preview: '/magnets/money-values-preview.webp',
+    files: [{ kind: 'pdf', label: 'Download the PDF', href: '/magnets/money-values.pdf' }],
+    howTo: [
+      'Print the page, or open it on your phone and write on it with any PDF or notes app. A sheet of paper works too.',
+      'Step 1: tick the values that matter most to you and write your top three.',
+      'Step 2: from your bank and mobile money history, list last month\'s biggest spending and write which of your top three values each one served, or "none".',
+      'Step 3: pick one spending to reduce and one value to fund instead, with the monthly amount.',
+    ],
+    action: 'log_expense',
+  },
+  {
+    id: 'goal-planner',
+    releases: '2027-01-01',
+    tag: 'Topic 3 · Goals that match your values',
+    title: 'Life-Stage Goal Planner',
+    description:
+      'A spreadsheet for all your goals, from this year to twenty years ahead. It works out what each one will really cost when you need it, how much to save each month, and whether they all fit what you can save.',
+    preview: '/magnets/goal-planner-preview.webp',
+    files: [{ kind: 'xlsx', label: 'Download the spreadsheet', href: '/magnets/goal-planner.xlsx' }],
+    howTo: [
+      'Download the spreadsheet. On a phone, open it in the free Google Sheets or Excel app (in Google Sheets: File > Make a copy, so you can edit it).',
+      'Read the "Start here" tab, then open "My goals". It starts empty: these are your goals.',
+      'At the top, type what you can save each month (your surplus from the Money Map).',
+      'One goal per row: what it is, how many years from now, today\'s price, any extras, and what you\'ve already saved. If a price is already agreed, like your rent, choose Yes under "Price already fixed?".',
+      'The planner works out the price when you need it and the monthly amount. If the total says "Not yet", fund your top priorities first or move a date.',
+    ],
+    action: 'money_split',
+  },
 ];
 
 export const releasedResources = (today = COURSE.today) => RESOURCES.filter((r) => r.releases <= today);
