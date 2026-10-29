@@ -58,8 +58,9 @@ const BlogEngagement = ({ slug }) => {
   const canSend = form.name.trim().length >= 2 && form.body.trim().length >= 2;
 
   return (
-    <section data-testid="blog-engagement" className="mt-10" aria-label="Likes and comments">
-      <div className="flex items-center gap-4">
+    <section data-testid="blog-engagement" className="mt-8" aria-label="Likes and comments">
+      <div className="flex flex-wrap items-center gap-4 rounded-2xl bg-gray-50 border border-gray-100 px-5 py-4">
+        <span className="font-semibold text-gray-800 mr-auto">Found this useful?</span>
         <button
           type="button"
           onClick={like}
@@ -75,7 +76,7 @@ const BlogEngagement = ({ slug }) => {
         </span>
       </div>
 
-      <h2 className="text-xl font-extrabold text-gray-900 mt-8">Comments</h2>
+      <h2 className="text-2xl font-extrabold tracking-tight text-gray-900 mt-10">Comments</h2>
       {state.comments.length === 0 ? (
         <p className="text-sm text-gray-500 mt-2">No comments yet. Share how you&apos;re putting this lesson to work.</p>
       ) : (

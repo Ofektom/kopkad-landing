@@ -49,19 +49,28 @@ describe('blog posts (the main app\'s Learn money lessons)', () => {
 });
 
 describe('BlogPage', () => {
-  it('before day one: says when the class starts, offers the study plan, and keeps the lesson library', () => {
+  it('before day one: opens on a welcome post with the start date, the study plan and no lesson library', () => {
     renderAt('/blog');
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Financial Intelligence. One study a day.');
+    const post = screen.getByTestId('study');
+    expect(within(post).getByRole('heading', { level: 1 })).toHaveTextContent('Welcome to Financial Intelligence');
+    expect(post).toHaveTextContent('Starts Monday 16 November');
+    expect(post).toHaveTextContent('Your salary is not your wealth');
+    expect(post).toHaveTextContent('Know your money (topics 1 to 6)');
     const soon = screen.getByTestId('starts-soon');
-    expect(soon).toHaveTextContent('Starts Monday 16 November');
-    expect(soon).toHaveTextContent('Day one: Your salary is not your wealth');
     expect(within(soon).getByRole('link', { name: /Get the free study plan/ })).toHaveAttribute('href', '/resources/study-plan');
     expect(within(soon).getByRole('link', { name: /See all 24 topics/ })).toHaveAttribute('href', '/blog/topics');
-    expect(screen.getByRole('link', { name: /The pie: pay yourself first/ })).toHaveAttribute('href', '/blog/the-pie-pay-yourself-first');
-    expect(screen.getByRole('link', { name: /The pie: pay yourself first/ })).toHaveTextContent('2 lessons · 1 quick check');
+    expect(screen.queryByText('Money lesson library')).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /The pie: pay yourself first/ })).not.toBeInTheDocument();
     expect(document.title).toBe('Financial Intelligence | Kopkad Blog');
     fireEvent.click(screen.getByRole('button', { name: /Set up your Wealth Builder/ }));
     expect(goToApp).toHaveBeenCalledWith('/signup');
+  });
+
+  it('lets readers like and comment on the welcome post', async () => {
+    mockApi.getEngagement.mockResolvedValue({ ok: true, data: { enabled: true, likes: 0, liked: false, comments: [] } });
+    renderAt('/blog');
+    expect(await screen.findByTestId('blog-engagement')).toBeInTheDocument();
+    expect(mockApi.getEngagement).toHaveBeenCalledWith('welcome');
   });
 });
 
@@ -103,7 +112,7 @@ describe('BlogPostPage', () => {
 
   it('sends an unknown post back to the blog', () => {
     renderAt('/blog/no-such-lesson');
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Financial Intelligence. One study a day.');
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Welcome to Financial Intelligence');
   });
 });
 
