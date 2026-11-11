@@ -12,6 +12,12 @@ Public marketing site for Kopkad. Deployed at the base domain `kopkad.ng`; the m
 - Tailwind CSS v3
 - react-icons
 
+## The Kopkad suite section
+
+The home page has a "suite" section (`src/landing/Suite.jsx`, `#suite`) that lists the live products and the coming one.
+Its content is in `src/content/suite.js`: the new product's name is one constant (`NAME_NEW_PRODUCT`), and its status is
+`'soon'` until a pilot shop uses it. Do not add dates, prices or claims it does not meet yet.
+
 ## Routes
 
 | Path | Description |

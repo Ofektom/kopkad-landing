@@ -42,7 +42,7 @@ describe('Landing', () => {
 
   it('renders the CoopX by Kopkad section with its three core pillars', () => {
     render(<Landing onStartClick={onStartClick} onCoopClick={onCoopClick} />);
-    expect(screen.getByText('CoopX by Kopkad')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 2, name: /CoopX by Kopkad/ })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 3, name: 'Member Savings Wallet' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 3, name: 'Thrift Contribution' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 3, name: 'Loans' })).toBeInTheDocument();
@@ -112,7 +112,8 @@ describe('Landing', () => {
       expect(screen.getByText(title, { selector: 'p' })).toBeInTheDocument();
     });
     expect(screen.getByText(/your customers never pay commission/i)).toBeInTheDocument();
-    expect(screen.queryByText('Coming soon')).not.toBeInTheDocument();
+    // Only the suite section announces something that is not live yet; the field agent section must not.
+    expect(within(document.getElementById('field-agents')).queryByText('Coming soon')).not.toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: /Become a Field Agent/i }));
     expect(onMerchantClick).toHaveBeenCalledTimes(1);
   });
@@ -211,5 +212,23 @@ describe('Landing', () => {
     expect(() => render(<Landing />)).not.toThrow();
     const buttons = screen.getAllByRole('button', { name: /Start Building Wealth/i });
     expect(() => fireEvent.click(buttons[0])).not.toThrow();
+  });
+});
+
+describe('Kopkad suite section', () => {
+  it('shows two live products and one coming soon, with the right actions', () => {
+    const onStartClick = vi.fn();
+    const onCoopClick = vi.fn();
+    render(<Landing onStartClick={onStartClick} onCoopClick={onCoopClick} />);
+    const kopkad = screen.getByTestId('suite-kopkad');
+    const coopx = screen.getByTestId('suite-coopx');
+    const fresh = screen.getByTestId('suite-new');
+    expect(within(kopkad).getByText('Live')).toBeInTheDocument();
+    expect(within(coopx).getByText('Live')).toBeInTheDocument();
+    expect(within(fresh).getByText('Coming soon')).toBeInTheDocument();
+    fireEvent.click(within(kopkad).getByRole('button'));
+    expect(onStartClick).toHaveBeenCalledTimes(1);
+    fireEvent.click(within(coopx).getByRole('button'));
+    expect(onCoopClick).toHaveBeenCalledTimes(1);
   });
 });

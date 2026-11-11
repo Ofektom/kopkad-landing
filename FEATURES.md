@@ -9,7 +9,7 @@ file is the complete list.
 - **On request**: built, but switched on per cooperative by the Kopkad team.
 - **Not public**: exists in the product but is hidden or not launched. Treat it as unavailable.
 
-_Last updated: October 2026._
+_Last updated: 11 November 2026._
 
 ---
 
@@ -28,6 +28,7 @@ Lead with this, not with "a savings app". Merchant (Kopkad Pay), field-agent and
 | **Kopkad** (main app) | app.kopkad.ng · Android app | Personal savers, merchants, field savings agents |
 | **Kopkad Pay** | Inside the main app | Merchants: phone-based POS and transfers |
 | **CoopX by Kopkad** (also called "Cooperative by Kopkad") | cooperative.kopkad.ng | Cooperative societies, their staff and their members |
+| **Dosebooks** (working name, not live) | Not public | Pharmacies, patent medicine stores and shops: stock, expiry alerts, offline counter. In build; shown on the website as "Coming soon" in the suite section. Name not final (src/content/suite.js) |
 | **Website** | kopkad.ng | Public site, terms and bye-laws |
 
 Company: 4A Akpabio Street, Uyo, Akwa Ibom State, Nigeria · support@kopkad.ng · 09079095259.
