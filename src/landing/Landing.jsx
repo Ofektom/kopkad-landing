@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { getPost } from '../blog/posts';
 import {CoopLogoMark } from './CoopLogo.jsx';
+import Suite from './Suite.jsx';
 
 // ── SVG Illustrations ─────────────────────────────────────────────────────────
 
@@ -692,6 +693,8 @@ const Landing = ({ onStartClick, onCoopClick, onMerchantClick }) => {
           </div>
         </div>
       </section>
+
+      <Suite onAppClick={onStartClick} onCoopClick={onCoopClick} />
 
       {/* ── Cooperative by Kopkad ─────────────────────────────────────────────── */}
       <section style={{ background: '#431407' }} className="py-20 px-4 relative overflow-hidden">

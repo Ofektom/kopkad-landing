@@ -16,6 +16,7 @@ const Footer = () => {
       { label: 'FAQ',          action: () => goToSection('faq') },
     ],
     Platform: [
+      { label: 'The Kopkad suite', action: () => goToSection('suite') },
       { label: 'For Merchants',    action: () => goToSection('merchants') },
       { label: 'For Field Agents', action: () => goToSection('field-agents') },
       { label: 'Thrift Groups',    action: () => goToSection('field-agents') },
