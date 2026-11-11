@@ -1,4 +1,9 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    { "source": "/plan", "destination": "/resources/study-plan", "permanent": false },
+    { "source": "/map", "destination": "/resources/money-map", "permanent": false },
+    { "source": "/study", "destination": "/blog", "permanent": false }
+  ],
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }

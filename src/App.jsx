@@ -9,6 +9,7 @@ import BylawsPage from './pages/BylawsPage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 import TopicsPage from './pages/TopicsPage';
+import NowPage from './pages/NowPage';
 import ResourcesPage, { ResourcePage } from './pages/ResourcesPage';
 
 const App = () => (
@@ -24,6 +25,7 @@ const App = () => (
     <Route path="/blog/:slug"           element={<BlogPostPage />} />
     <Route path="/resources"            element={<ResourcesPage />} />
     <Route path="/resources/:id"        element={<ResourcePage />} />
+    <Route path="/now"                  element={<NowPage />} />
     <Route path="*"                     element={<Navigate to="/" replace />} />
   </Routes>
 );
