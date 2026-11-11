@@ -9,7 +9,7 @@ const TermsContent = () => (
         Sustainable Wealth Multipurpose Cooperative Society Limited
       </p>
       <p className="text-xs text-gray-500 mt-1">
-        Effective: March 2026 &nbsp;·&nbsp; Version 1.0 &nbsp;·&nbsp; Powered by KOPKAD DIGITAL SYSTEMS
+        Effective: March 2026 &nbsp;·&nbsp; Version 1.0 &nbsp;·&nbsp; Powered by KOPKAD TECHNOLOGY SYSTEMS
       </p>
     </div>
 
@@ -22,7 +22,7 @@ const TermsContent = () => (
         Society"</strong>, <strong>"we"</strong>, <strong>"us"</strong>, <strong>"our"</strong>),
         registered under the Cooperative Societies Law of Akwa Ibom State, Nigeria, and operating
         the Kopkad digital platform (kopkad.ng and associated mobile applications) through digital
-        infrastructure owned and managed by <strong>KOPKAD DIGITAL SYSTEMS</strong>, a Corporate
+        infrastructure owned and managed by <strong>KOPKAD TECHNOLOGY SYSTEMS</strong>, a Corporate
         Affairs Commission (CAC) registered Business Name.
       </p>
       <p className="mt-2">
@@ -132,7 +132,7 @@ const TermsContent = () => (
       <h3 className="font-bold text-gray-900 mb-1">5. Funds, Transactions, and Payments</h3>
       <p>
         <strong>5.1 Payment Processing.</strong> All financial transactions are processed through
-        KOPKAD DIGITAL SYSTEMS' integrations with licensed payment processors, primarily Paystack
+        KOPKAD TECHNOLOGY SYSTEMS' integrations with licensed payment processors, primarily Paystack
         (licensed by the Central Bank of Nigeria). The Society does not itself hold a CBN payment
         service licence; member funds are received by the Society in its capacity as a registered
         cooperative receiving savings from its members, which is permitted under cooperative law
@@ -194,7 +194,7 @@ const TermsContent = () => (
       </p>
       <p className="mt-2">
         <strong>5.6 Payment Authorization.</strong> By linking a bank account or card, you
-        authorize the Society and KOPKAD DIGITAL SYSTEMS to initiate debits and credits as
+        authorize the Society and KOPKAD TECHNOLOGY SYSTEMS to initiate debits and credits as
         necessary to execute your instructions on the platform.
       </p>
       <p className="mt-2">
@@ -230,7 +230,7 @@ const TermsContent = () => (
         all members to unlock full platform features.
       </p>
       <p className="mt-2">
-        <strong>6.2</strong> You consent to the Society and KOPKAD DIGITAL SYSTEMS collecting,
+        <strong>6.2</strong> You consent to the Society and KOPKAD TECHNOLOGY SYSTEMS collecting,
         verifying, retaining, and processing your identity documents and biometric data (including
         facial images) for the purposes of KYC, AML compliance, and service delivery, as permitted
         by the Nigeria Data Protection Regulation (NDPR) 2019.
@@ -248,7 +248,7 @@ const TermsContent = () => (
     <section>
       <h3 className="font-bold text-gray-900 mb-1">7. Privacy and Data Protection</h3>
       <p>
-        The Society and KOPKAD DIGITAL SYSTEMS process your personal data strictly in accordance
+        The Society and KOPKAD TECHNOLOGY SYSTEMS process your personal data strictly in accordance
         with the Nigeria Data Protection Regulation (NDPR) 2019 and the Nigeria Data Protection
         Act 2023. Your data is used exclusively for cooperative administration, service delivery,
         identity verification, communication, and regulatory compliance. We do not sell your
@@ -290,7 +290,7 @@ const TermsContent = () => (
       <h3 className="font-bold text-gray-900 mb-1">9. Intellectual Property</h3>
       <p>
         The Kopkad platform, brand, software, interfaces, algorithms, and all associated
-        intellectual property are the exclusive property of KOPKAD DIGITAL SYSTEMS. Your
+        intellectual property are the exclusive property of KOPKAD TECHNOLOGY SYSTEMS. Your
         membership does not confer any intellectual property rights in the platform. You may use
         the platform solely for its intended cooperative management and savings purposes. Any
         unauthorized reproduction, reverse engineering, scraping, or commercial exploitation of
@@ -302,12 +302,12 @@ const TermsContent = () => (
       <h3 className="font-bold text-gray-900 mb-1">10. Limitation of Liability</h3>
       <p>
         <strong>10.1</strong> The platform is provided on an "as is" and "as available" basis.
-        To the fullest extent permitted by Nigerian law, the Society and KOPKAD DIGITAL SYSTEMS
+        To the fullest extent permitted by Nigerian law, the Society and KOPKAD TECHNOLOGY SYSTEMS
         disclaim all warranties, express or implied, including warranties of merchantability and
         fitness for a particular purpose.
       </p>
       <p className="mt-2">
-        <strong>10.2</strong> Neither the Society nor KOPKAD DIGITAL SYSTEMS shall be liable for
+        <strong>10.2</strong> Neither the Society nor KOPKAD TECHNOLOGY SYSTEMS shall be liable for
         indirect, incidental, special, or consequential losses arising from your use of or
         inability to use the platform, including losses due to system downtime, third-party
         processor failures, cyberattacks, government actions, or force majeure events.
@@ -322,7 +322,7 @@ const TermsContent = () => (
     <section>
       <h3 className="font-bold text-gray-900 mb-1">11. Indemnity</h3>
       <p>
-        You agree to indemnify, defend, and hold harmless the Society, KOPKAD DIGITAL SYSTEMS,
+        You agree to indemnify, defend, and hold harmless the Society, KOPKAD TECHNOLOGY SYSTEMS,
         and their respective officers, directors, employees, and agents from and against any
         claims, damages, losses, penalties, fines, and legal costs arising from: (a) your breach
         of these Terms or the Bye-Laws; (b) your violation of any applicable law or regulation;

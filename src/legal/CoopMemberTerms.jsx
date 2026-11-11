@@ -6,7 +6,7 @@ const CoopMemberTerms = () => (
         Cooperative Member Terms and Conditions
       </h2>
       <p className="text-sm font-semibold text-gray-700 mt-1">
-        KOPKAD DIGITAL SYSTEMS
+        KOPKAD TECHNOLOGY SYSTEMS
       </p>
       <p className="text-xs text-gray-500 mt-1">
         Effective: March 2026 &nbsp;·&nbsp; Version 1.0
@@ -16,7 +16,7 @@ const CoopMemberTerms = () => (
     <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 text-xs text-amber-800">
       <strong>Important Notice:</strong> By completing your registration as a member of a
       cooperative operating on the Kopkad platform, you are joining that cooperative — not
-      KOPKAD DIGITAL SYSTEMS or Sustainable Wealth Multipurpose Cooperative Society Limited.
+      KOPKAD TECHNOLOGY SYSTEMS or Sustainable Wealth Multipurpose Cooperative Society Limited.
       Your membership rights and obligations are governed by your cooperative's own constitution,
       bye-laws, and applicable law. Kopkad is the technology provider only.
     </div>
@@ -26,7 +26,7 @@ const CoopMemberTerms = () => (
       <p>
         You are registering as a member of a cooperative society that uses the Kopkad digital
         platform to manage its operations. Your membership is exclusively with that cooperative.
-        KOPKAD DIGITAL SYSTEMS is not a party to your membership and confers no membership,
+        KOPKAD TECHNOLOGY SYSTEMS is not a party to your membership and confers no membership,
         financial entitlement, or ownership interest in any entity other than the cooperative you
         are joining.
       </p>
@@ -55,7 +55,7 @@ const CoopMemberTerms = () => (
         accounts registered and controlled exclusively by the cooperative operator.
       </p>
       <p className="mt-2">
-        <strong>3.2 No Financial Liability.</strong> KOPKAD DIGITAL SYSTEMS shall not be held
+        <strong>3.2 No Financial Liability.</strong> KOPKAD TECHNOLOGY SYSTEMS shall not be held
         liable for any financial loss, misappropriation, fraud, default, non-payment, or dispute
         arising from your membership in the cooperative or from the cooperative's management of
         member funds. Any such claims are exclusively between you and the cooperative.

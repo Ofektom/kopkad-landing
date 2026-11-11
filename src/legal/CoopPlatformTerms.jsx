@@ -6,7 +6,7 @@ const CoopPlatformTerms = () => (
         Cooperative Platform Operator Agreement
       </h2>
       <p className="text-sm font-semibold text-gray-700 mt-1">
-        KOPKAD DIGITAL SYSTEMS
+        KOPKAD TECHNOLOGY SYSTEMS
       </p>
       <p className="text-xs text-gray-500 mt-1">
         Effective: March 2026 &nbsp;·&nbsp; Version 1.0
@@ -15,7 +15,7 @@ const CoopPlatformTerms = () => (
 
     <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 text-xs text-amber-800">
       <strong>Important Notice:</strong> By registering a cooperative on this platform, you are
-      entering into a technology service agreement with KOPKAD DIGITAL SYSTEMS. You are{' '}
+      entering into a technology service agreement with KOPKAD TECHNOLOGY SYSTEMS. You are{' '}
       <strong>not</strong> joining or becoming a member of Sustainable Wealth Multipurpose
       Cooperative Society Limited. This Agreement governs your use of the Kopkad platform as an
       independent cooperative operator.
@@ -26,7 +26,7 @@ const CoopPlatformTerms = () => (
       <p>
         This Cooperative Platform Operator Agreement (<strong>"Agreement"</strong>) is entered
         into between you (<strong>"Operator"</strong>, <strong>"you"</strong>,{' '}
-        <strong>"your"</strong>) and <strong>KOPKAD DIGITAL SYSTEMS</strong>, a Corporate Affairs
+        <strong>"your"</strong>) and <strong>KOPKAD TECHNOLOGY SYSTEMS</strong>, a Corporate Affairs
         Commission (CAC) registered Business Name (<strong>"Kopkad"</strong>,{' '}
         <strong>"we"</strong>, <strong>"us"</strong>), governing your access to and use of the
         Kopkad digital platform (kopkad.ng and associated mobile applications) to operate and
@@ -180,7 +180,7 @@ const CoopPlatformTerms = () => (
       <h3 className="font-bold text-gray-900 mb-1">8. Intellectual Property</h3>
       <p>
         The Kopkad platform, its software, interfaces, and all associated intellectual property
-        remain the exclusive property of KOPKAD DIGITAL SYSTEMS. This Agreement does not
+        remain the exclusive property of KOPKAD TECHNOLOGY SYSTEMS. This Agreement does not
         transfer any intellectual property rights to you. Unauthorized reproduction, reverse
         engineering, or commercial exploitation of the platform is strictly prohibited.
       </p>
