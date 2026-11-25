@@ -233,7 +233,7 @@ const TermsContent = () => (
         <strong>6.2</strong> You consent to the Society and KOPKAD TECHNOLOGY SYSTEMS collecting,
         verifying, retaining, and processing your identity documents and biometric data (including
         facial images) for the purposes of KYC, AML compliance, and service delivery, as permitted
-        by the Nigeria Data Protection Regulation (NDPR) 2019.
+        by the Nigeria Data Protection Act 2023 and described in the Privacy Policy.
       </p>
       <p className="mt-2">
         <strong>6.3</strong> Failure to complete KYC when required will result in restricted
@@ -248,11 +248,11 @@ const TermsContent = () => (
     <section>
       <h3 className="font-bold text-gray-900 mb-1">7. Privacy and Data Protection</h3>
       <p>
-        The Society and KOPKAD TECHNOLOGY SYSTEMS process your personal data strictly in accordance
-        with the Nigeria Data Protection Regulation (NDPR) 2019 and the Nigeria Data Protection
-        Act 2023. Your data is used exclusively for cooperative administration, service delivery,
-        identity verification, communication, and regulatory compliance. We do not sell your
-        personal data to third parties for commercial purposes.
+        How the Society and KOPKAD TECHNOLOGY SYSTEMS collect, use, share and protect your
+        personal data, and how you can access or delete it, is set out in the{' '}
+        <a href="/privacy" className="text-cyan-700 underline">Kopkad Privacy Policy</a>, which forms
+        part of these Terms. We process personal data in accordance with the Nigeria Data Protection
+        Act 2023 and do not sell your personal data.
       </p>
       <p className="mt-2">
         Electronic records generated through the platform are maintained as valid cooperative
