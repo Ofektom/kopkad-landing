@@ -108,6 +108,8 @@ describe('Footer', () => {
   it('renders all legal links with the correct hrefs', () => {
     renderFooter();
     expect(screen.getByRole('link', { name: 'Terms of Use' })).toHaveAttribute('href', '/terms');
+    expect(screen.getByRole('link', { name: 'Privacy Policy' })).toHaveAttribute('href', '/privacy');
+    expect(screen.getByText(/Kopkad Technology Systems Ltd\. All rights reserved/)).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Cooperative Member Terms' })).toHaveAttribute(
       'href',
       '/coop-member-terms'

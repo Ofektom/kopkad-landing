@@ -43,6 +43,7 @@ const Footer = () => {
 
   const legal = [
     { label: 'Terms of Use',              to: '/terms' },
+    { label: 'Privacy Policy',            to: '/privacy' },
     { label: 'Cooperative Member Terms',  to: '/coop-member-terms' },
     { label: 'Platform Operator Terms',   to: '/coop-platform-terms' },
     { label: 'Cooperative Bye-Laws',      to: '/bylaws' },
@@ -127,7 +128,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 pt-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
-          <p>© {new Date().getFullYear()} Kopkad. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Kopkad Technology Systems Ltd. All rights reserved.</p>
           <p>
             Powered by{' '}
             <a href="https://ofektomtechnologies.com" className="text-cyan-400 hover:text-cyan-300 transition-colors">
