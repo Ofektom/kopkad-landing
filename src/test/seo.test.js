@@ -4,7 +4,7 @@ import { posts } from '../blog/posts';
 
 describe('per-page share and search tags (prerendered at build time)', () => {
   it('prerenders the home page, blog, every post and the legal pages — not the per-card scan pages', () => {
-    expect(PRERENDER_PATHS).toEqual(expect.arrayContaining(['/', '/blog', '/terms', '/bylaws', '/coop-member-terms', '/coop-platform-terms']));
+    expect(PRERENDER_PATHS).toEqual(expect.arrayContaining(['/', '/blog', '/terms', '/privacy', '/bylaws', '/coop-member-terms', '/coop-platform-terms']));
     expect(PRERENDER_PATHS.filter((p) => p.startsWith('/blog/'))).toHaveLength(posts.length);
     expect(PRERENDER_PATHS.some((p) => p.startsWith('/c/'))).toBe(false);
   });

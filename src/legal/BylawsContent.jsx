@@ -103,8 +103,8 @@ const BylawsContent = () => (
       </p>
       <p className="mt-2">
         <strong>4.3</strong> The Kopkad platform is owned and operated by{' '}
-        <strong>KOPKAD DIGITAL SYSTEMS</strong>, a CAC-registered Business Name. KOPKAD DIGITAL
-        SYSTEMS operates as a technology infrastructure and digital services provider to the
+        <strong>KOPKAD TECHNOLOGY SYSTEMS LTD</strong>, a private company limited by shares
+        registered with the Corporate Affairs Commission (CAC). KOPKAD TECHNOLOGY SYSTEMS LTD operates as a technology infrastructure and digital services provider to the
         Society. It does not exercise governance, voting rights, or ownership over the Society.
       </p>
       <p className="mt-2">
@@ -131,7 +131,7 @@ const BylawsContent = () => (
       <p>
         <strong>5.1</strong> The Kopkad platform, software systems, algorithms, digital tools,
         brand identity, and all associated intellectual property remain the exclusive property of
-        KOPKAD DIGITAL SYSTEMS.
+        KOPKAD TECHNOLOGY SYSTEMS LTD.
       </p>
       <p className="mt-2">
         <strong>5.2</strong> The Society utilizes the platform as an operational technology tool
