@@ -4,6 +4,7 @@ import LandingPage from './landing/LandingPage';
 import CardTokenPage from './components/CardTokenPage';
 import TermsPage from './pages/TermsPage';
 import PrivacyPage from './pages/PrivacyPage';
+import DataDeletionPage from './pages/DataDeletionPage';
 import CoopMemberTermsPage from './pages/CoopMemberTermsPage';
 import CoopPlatformTermsPage from './pages/CoopPlatformTermsPage';
 import BylawsPage from './pages/BylawsPage';
@@ -19,6 +20,7 @@ const App = () => (
     <Route path="/c/:token"             element={<CardTokenPage />} />
     <Route path="/terms"                element={<TermsPage />} />
     <Route path="/privacy"              element={<PrivacyPage />} />
+    <Route path="/data-deletion"        element={<DataDeletionPage />} />
     <Route path="/coop-member-terms"    element={<CoopMemberTermsPage />} />
     <Route path="/coop-platform-terms"  element={<CoopPlatformTermsPage />} />
     <Route path="/bylaws"               element={<BylawsPage />} />

@@ -155,7 +155,8 @@ const PrivacyContent = () => (
         the email address on your account, or call 09079095259 from your registered phone number, with
         the subject "Delete my account". We will first help you withdraw any balance, then close your
         account and delete or anonymise your data, except records we must keep by law (section 7). To
-        stop only the chat assistant, send STOP in the chat or switch it off in the app.
+        stop only the chat assistant, send STOP in the chat or switch it off in the app. Full steps are on our{' '}
+        <a href="/data-deletion" className="text-cyan-700 underline">User Data Deletion</a> page.
       </p>
     </section>
 

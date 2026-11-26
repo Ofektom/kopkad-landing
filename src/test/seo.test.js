@@ -5,7 +5,7 @@ import { studies } from '../blog/course';
 
 describe('per-page share and search tags (prerendered at build time)', () => {
   it('prerenders the home page, blog, every post and the legal pages — not the per-card scan pages', () => {
-    expect(PRERENDER_PATHS).toEqual(expect.arrayContaining(['/', '/blog', '/terms', '/privacy', '/bylaws', '/coop-member-terms', '/coop-platform-terms']));
+    expect(PRERENDER_PATHS).toEqual(expect.arrayContaining(['/', '/blog', '/terms', '/privacy', '/data-deletion', '/bylaws', '/coop-member-terms', '/coop-platform-terms']));
     // library articles + the topics page + every study released so far (depends on today's build)
     expect(PRERENDER_PATHS.filter((p) => p.startsWith('/blog/'))).toHaveLength(posts.length + 1 + studies().length);
     expect(PRERENDER_PATHS).toEqual(expect.arrayContaining(['/blog/topics', '/resources', '/resources/money-map']));
