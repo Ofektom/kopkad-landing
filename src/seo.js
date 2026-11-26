@@ -42,6 +42,7 @@ const STATIC = {
   },
   '/terms': { title: 'Terms of Use | Kopkad', description: 'The terms that govern your use of Kopkad.', image: IMAGE, type: 'website' },
   '/privacy': { title: 'Privacy Policy | Kopkad', description: 'How Kopkad Technology Systems Ltd collects, uses, shares and protects your personal data, and how to delete it.', image: IMAGE, type: 'website' },
+  '/data-deletion': { title: 'User Data Deletion | Kopkad', description: 'How to delete your Kopkad account and personal data, what we delete and what the law requires us to keep.', image: IMAGE, type: 'website' },
   '/coop-member-terms': { title: 'Cooperative Member Terms | Kopkad', description: 'Terms for members of cooperatives that run on CoopX by Kopkad.', image: IMAGE, type: 'website' },
   '/coop-platform-terms': { title: 'Platform Operator Terms | Kopkad', description: 'The platform operator agreement for cooperatives on CoopX by Kopkad.', image: IMAGE, type: 'website' },
   '/bylaws': { title: 'Cooperative Bye-Laws | Kopkad', description: 'Model bye-laws for cooperative societies on CoopX by Kopkad.', image: IMAGE, type: 'website' },

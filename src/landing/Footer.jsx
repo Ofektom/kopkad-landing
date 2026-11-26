@@ -44,6 +44,7 @@ const Footer = () => {
   const legal = [
     { label: 'Terms of Use',              to: '/terms' },
     { label: 'Privacy Policy',            to: '/privacy' },
+    { label: 'Data Deletion',             to: '/data-deletion' },
     { label: 'Cooperative Member Terms',  to: '/coop-member-terms' },
     { label: 'Platform Operator Terms',   to: '/coop-platform-terms' },
     { label: 'Cooperative Bye-Laws',      to: '/bylaws' },
